@@ -13,7 +13,6 @@ return array(
 						'rule' => array(
 										'admin'=> 'admin/index',
 										'news'=> 'article/index',
-										//'shownews(:num)id(:num)(:any).html'=> 'article/index/pagenum/$1/id/$2/pid/$3',
 										)
 					),
 			'mysql' =>array(
