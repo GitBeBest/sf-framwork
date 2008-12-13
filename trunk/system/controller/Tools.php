@@ -13,11 +13,10 @@ class tools extends controller
 		  $result[] = $_POST['tables'][$i];
 		}
 	}
-	$this->view->set("title","Tools::Select tables!");
-	$this->view->set("tables",$tool->showTables());
-	$this->view->set("result",$result);
-	$this->view->load("tools");
-	$this->view->display();
+	view::set("title","Tools::Select tables!");
+	view::set("tables",$tool->showTables());
+	view::set("result",$result);
+	view::display("tools");
   }
   
   function createmodel($table)

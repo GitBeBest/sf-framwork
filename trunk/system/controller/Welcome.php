@@ -3,9 +3,8 @@ class welcome extends controller
 {	
 	function index()
 	{
-		$this->view->set("title","Welcome!");
-		$this->view->load("welcome");
-		$this->view->display();
+		view::set("title","Welcome!");
+		view::display("welcome");
 	}
 }
 ?>

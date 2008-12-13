@@ -5,9 +5,8 @@ class article extends controller
 	{
 		$news = sf::getModel("news");
 		$addWhere = $addSql = '';
-		$this->view->set("pager",$news->getPager($addWhere ,$addSql ,10));
-		
-		$this->view->load("article");
-		$this->view->display();
+		view::set("pager",$news->getPager($addWhere ,$addSql ,10));
+		//view::apply("article");
+		view::display("article");
 	}
 }
