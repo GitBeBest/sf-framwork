@@ -5,7 +5,7 @@ class controller
 	
 	public function __construct()
 	{
-		$this->view = sf::getLib("view");
+		sf::getLib("view");
 	}
 	
 	public function shutdown(){}

@@ -2,38 +2,39 @@
 
 class view
 {
-	private $viewData = array();
-	private $viewTpl = array();
+	private static $viewData = array();
+	private static $viewTpl = array();
 	
-	public function __construct(){}
-	
-	public function set($key,$val='')
+	public static function set($key,$val='')
 	{
-		if(is_array($key)) $this->viewData = array_merge_recursive($this->viewData,$key);
-		else $this->viewData[$key] = $val;
+		if(is_array($key)) self::$viewData = array_merge_recursive(self::$viewData,$key);
+		else self::$viewData[$key] = $val;
 	}
 	
-	public function load($tpl,$data=array())
+	public static function apply($name,$tpl)
 	{
-		$data && $this->set($data);
-		$tpl && $this->viewTpl[] = $tpl;
+		$tpl && self::$viewTpl[$name] = $tpl;
 	}
 	
-	public function display()
+	public static function getContent($tpl,$key='')
 	{
-		extract($this->viewData);
+		extract(self::$viewData);
 		ob_start();
-		foreach($this->viewTpl as $file)
-		{
-			if(is_file(config::get("view_dir").$file.".php")){
-				@include_once(config::get("view_dir").$file.".php");
-			}elseif(is_file(SYSTEMPATH."view/".$file.".php")){
-				@include_once(SYSTEMPATH."view/".$file.".php");
-			}
+		if(is_file(config::get("view_dir").$tpl.".php")){
+			@include_once(config::get("view_dir").$tpl.".php");
+		}elseif(is_file(SYSTEMPATH."view/".$tpl.".php")){
+			@include_once(SYSTEMPATH."view/".$tpl.".php");
 		}
-		$str = ob_get_contents();
+		self::$viewData[$key] = ob_get_contents();
 		ob_end_clean();
-		echo $str;
+		return self::$viewData[$key];
+	}
+	
+	public static function display($tpl)
+	{
+		foreach(self::$viewTpl as $key => $file)
+			self::getContent($file,$key);
+		exit(self::getContent($tpl));
 	}
 }
 ?>
