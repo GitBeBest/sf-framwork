@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+*{ word-wrap:break-word; outline:none; margin:0px auto; }
+body { margin: 0px 0px; font-size:12px; text-align:center;}
+a { text-decoration:none;color:#222;}
+a:hover {text-decoration:underline;}
+li { list-style-image:url(dot.gif);}
+h1 { font-size:14px;}
+.head {background-color:#efefef; border:solid 1px #CCC; border-bottom:2px solid #333;;text-align:left; width:96%; }
+	.log { background:url(home.gif) no-repeat; float:left; width:100px; height:60px;}
+	.copyright {float:right; width:100px;}
+	.navbar { clear:both; height:22px;}
+		.navbar menu { padding-left:10px;}
+			.navbar menu li { float:left; height:22px; line-height:20px; padding-left:10px; padding-right:10px;list-style:none; background-color:#999; margin-left:1px;}
+			.navbar .active { background-color:#333;}
+				.navbar .active a {color:#FFF;}
+.body { background-color:#efefef; border: solid 1px #333;width:96%;border-top:solid 3px #333;}
+	.body_left { text-align:left; width:150px;float:left; padding:0px 5px;}
+		.body_left ul { margin-left:25px;padding-left:0px;}
+	.body_right {margin-left:151px; text-align:left;}
+		.body_right_tip { border: solid 1px #999; margin: 10px 5px; padding:1px 1px;}
+			.body_right_tip img { float:left; padding:10px 10px;}
+			.body_right_tip h1 { background-color:#CCC; line-height:25px; margin-left:80px;}
+		.body_right_tool { border: solid 1px #999; margin: 10px 5px; padding:1px 1px; vertical-align:middle;}
+			.body_right_tool img { float:left; padding:10px 10px;}
+			.body_right_tool h1 {}
