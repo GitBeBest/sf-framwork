@@ -8,7 +8,7 @@ li { list-style-image:url(dot.gif);}
 h1 { font-size:14px;}
 .head {background-color:#efefef; border:solid 1px #CCC; border-bottom:2px solid #333;;text-align:left; width:96%; }
 	.log { background:url(home.gif) no-repeat; float:left; width:100px; height:60px;}
-	.copyright {float:right; width:100px;}
+	.copyright {float:right; font-style:italic; font-size:14px; text-align:right; padding-right:5px;}
 	.navbar { clear:both; height:22px;}
 		.navbar menu { padding-left:10px;}
 			.navbar menu li { float:left; height:22px; line-height:20px; padding-left:10px; padding-right:10px;list-style:none; background-color:#999; margin-left:1px;}
