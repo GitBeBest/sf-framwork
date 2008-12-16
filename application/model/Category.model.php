@@ -9,8 +9,26 @@
 include_once("BaseCategory.php");
 class Category extends BaseCategory
 {
-	function addNode()
+	function addNode($id,$data=array())
 	{
-		
+		$node = $this->getNode($id);
+		$this->moveSpace($node);
+		$data['lft'] = $node->getRgt() + 1;
+		$data['rgt'] = $node->getRgt() + 2;
+		$db = sf::getLib("db");
+		return $db->insert($data,$this->table);
+	}
+	
+	function moveSpace($node)
+	{
+		$db = sf::getLib("db");
+		$db->query("UPDATE ".$this->table." SET `lft` = `lft` + 2 WHERE `lft` > '".$node->getLft()."'");
+		$db->query("UPDATE ".$this->table." SET `rgt` = `rgt` + 2 WHERE `rgt` > '".$node->getLft()."'");
+	}
+	
+	function getNode($id)
+	{
+		$this->selectByPk($id);
+		return $this;
 	}
 }
