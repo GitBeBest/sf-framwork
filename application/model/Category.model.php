@@ -9,5 +9,8 @@
 include_once("BaseCategory.php");
 class Category extends BaseCategory
 {
-  
+	function addNode()
+	{
+		
+	}
 }
