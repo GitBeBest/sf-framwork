@@ -10,8 +10,8 @@ class BaseCategory extends model
 {
   private $id  = '';
   private $subject  = '';
-  private $left  = '';
-  private $right  = '';
+  private $lft  = '';
+  private $rgt  = '';
   private $note  = '';
   public $table = "category";
 
@@ -35,14 +35,14 @@ class BaseCategory extends model
     return $this->subject;
   }
 
-  public function getLeft()
+  public function getLft()
   {
-    return $this->left;
+    return $this->lft;
   }
 
-  public function getRight()
+  public function getRgt()
   {
-    return $this->right;
+    return $this->rgt;
   }
 
   public function getNote($len=0)
@@ -76,25 +76,25 @@ class BaseCategory extends model
     }
   }
 
-  public function setLeft($v)
+  public function setLft($v)
   {
     if(!isset($v)) return false;
     $v = (int)$v;
-    if($this->left !== $v)
+    if($this->lft !== $v)
     {
-      $this->left = $v;
-      $this->fieldData["left"] = $v;
+      $this->lft = $v;
+      $this->fieldData["lft"] = $v;
     }
   }
 
-  public function setRight($v)
+  public function setRgt($v)
   {
     if(!isset($v)) return false;
     $v = (int)$v;
-    if($this->right !== $v)
+    if($this->rgt !== $v)
     {
-      $this->right = $v;
-      $this->fieldData["right"] = $v;
+      $this->rgt = $v;
+      $this->fieldData["rgt"] = $v;
     }
   }
 
@@ -134,8 +134,8 @@ class BaseCategory extends model
     return array(
      "id" => $this->getId(),
      "subject" => $this->getSubject(),
-     "left" => $this->getLeft(),
-     "right" => $this->getRight(),
+     "lft" => $this->getLft(),
+     "rgt" => $this->getRgt(),
      "note" => $this->getNote(),
    );
   }
@@ -144,8 +144,8 @@ class BaseCategory extends model
   {
     $this->id = '';
     $this->subject = '';
-    $this->left = '';
-    $this->right = '';
+    $this->lft = '';
+    $this->rgt = '';
     $this->note = '';
     $this->fieldData = array();
     return $this;
@@ -157,8 +157,8 @@ class BaseCategory extends model
     if(!$data) return false;
     isset($data["id"]) && $this->id = $data["id"];
     isset($data["subject"]) && $this->subject = $data["subject"];
-    isset($data["left"]) && $this->left = $data["left"];
-    isset($data["right"]) && $this->right = $data["right"];
+    isset($data["lft"]) && $this->lft = $data["lft"];
+    isset($data["rgt"]) && $this->rgt = $data["rgt"];
     isset($data["note"]) && $this->note = $data["note"];
     return $data;
   }
