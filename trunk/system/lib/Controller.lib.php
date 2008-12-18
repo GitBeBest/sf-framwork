@@ -10,6 +10,9 @@ class controller
 	
 	public function shutdown(){}
 	
+	/**
+	 * 页面调试，系统提示方法 
+	 */
 	public function page_debug($msg,$url='',$title='')
 	{
 		$title == "" && $title = lang::get("Controller::debug");
