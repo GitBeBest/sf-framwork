@@ -1,5 +1,5 @@
 <?php
-//°üº¬ºËÐÄÎÄ¼þ
+//åŒ…å«æ ¸å¿ƒæ–‡ä»¶
 require_once(SYSTEMPATH.'sf/sf.class.php');
 require_once(SYSTEMPATH.'sf/config.class.php');
 require_once(SYSTEMPATH.'sf/sfexception.class.php');
@@ -7,17 +7,17 @@ require_once(SYSTEMPATH.'sf/router.class.php');
 require_once(SYSTEMPATH.'sf/loader.class.php');
 require_once(SYSTEMPATH.'sf/language.class.php');
 require_once(SYSTEMPATH.'sf/input.class.php');
-//¼ÓÔØÅäÖÃÎÄ¼þ
+//åŠ è½½é…ç½®æ–‡ä»¶
 config::load('default','config');
-//¼ÓÔØ±ØÒª¿âÎÄ¼þ
+//åŠ è½½å¿…è¦åº“æ–‡ä»¶
 loader::lib(array("controller","model"));
 loader::helper("url");
-//³õÊ¼»¯pathinfo
+//åˆå§‹åŒ–pathinfo
 router::parse();
-//¼ÓÔØÓïÑÔÎÄ¼þ
+//åŠ è½½è¯­è¨€æ–‡ä»¶
 //lang::setLang("chinese");
 lang::load("global");
-//Ö´ÐÐ¿ØÖÆÆ÷
+//æ‰§è¡ŒæŽ§åˆ¶å™¨
 $controller = sf::getController(router::getController());
 try{
 	method_exists($controller , "load") && $controller->load();

@@ -1,5 +1,4 @@
 <?php
-
 class db{
 
 	private $version = '';
@@ -11,7 +10,7 @@ class db{
 		$this->connect(config::get("mysql.hostname"),config::get("mysql.user"),config::get("mysql.passwd"),config::get("mysql.database"));
 	}
 	
-	public function connect($dbhost, $dbuser, $dbpw, $dbname = '', $pconnect = 0, $charset = 'utf-8')
+	public function connect($dbhost, $dbuser, $dbpw, $dbname = '', $pconnect = 0, $charset = 'utf8')
 	{
 		try{
 			$func = empty($pconnect) ? 'mysql_connect' : 'mysql_pconnect';

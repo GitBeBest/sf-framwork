@@ -11,7 +11,7 @@ class controller
 	public function shutdown(){}
 	
 	/**
-	 * Ò³Ãæµ÷ÊÔ£¬ÏµÍ³ÌáÊ¾·½·¨ 
+	 * é¡µé¢è°ƒè¯•ï¼Œç³»ç»Ÿæç¤ºæ–¹æ³• 
 	 */
 	public function page_debug($msg,$url='',$title='')
 	{
@@ -25,3 +25,4 @@ class controller
 	}
 	
 }
+?>
