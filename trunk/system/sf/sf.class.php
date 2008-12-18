@@ -2,8 +2,14 @@
 class sf
 {
 	private static $sfObject = array('model'=>array(),'lib'=>array(),'controller'=>array(),'plugin'=>array());
+	private static $version = '0.1.0';
 	
 	public function __construct(){}
+	
+	public static function version()
+	{
+		return self::$version;
+	}
 	
 	private static function set($object,$type = "controller")
 	{
