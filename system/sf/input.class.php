@@ -3,31 +3,32 @@
 class input
 {
 	private static $sfInput = array();
+	private static $is_do = false;
 	
-	public function __construct()
+	public function init()
 	{
-		self::$sfInput['post'] = $_POST;
-		self::$sfInput['get'] = $_GET;
-		self::$sfInput['cookie'] = $_COOKIE;
-		self::$sfInput['env'] = $_ENV;
-		self::$sfInput['files'] = $_FILES;
-		self::$sfInput['request'] = $_REQUEST;
-		self::$sfInput['session'] = $_SESSION;
-		self::$sfInput['server'] = $_SERVER;
+		self::$sfInput['post'] = &$_POST;
+		self::$sfInput['get'] = &$_GET;
+		self::$sfInput['cookie'] = &$_COOKIE;
+		self::$sfInput['env'] = &$_ENV;
+		self::$sfInput['files'] = &$_FILES;
+		self::$sfInput['request'] = &$_REQUEST;
+		self::$sfInput['session'] = &$_SESSION;
+		self::$sfInput['server'] = &$_SERVER;
+		array_walk_recursive(self::$sfInput,"processVariables");
+		self::$is_do = true;
 	}
 	
 	public static function getInput($key='')
 	{
+		!self::$is_do && self::init();
 		if(!$key) return self::$sfInput;
 		$keys = explode(".",$key);
 		$result = self::$sfInput;
 		foreach($keys as $key){
 			$result = $result[$key];
 		}
-		if($result){
-			array_walk_recursive($result,"processVariables");
-			return $result;
-		}else return false;
+		return $result;
 	}
 	
 	public static function post($key='')
@@ -83,7 +84,7 @@ function processVariables(&$var, $key)
 		if(is_array($var))
 		{
 			foreach($var as $k => $v)
-				self::processVariables($var[$k], $k);
+				processVariables($var[$k], $k);
 		}else $var = addslashes($var);
 	}
 }

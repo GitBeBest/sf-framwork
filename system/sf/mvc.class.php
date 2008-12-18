@@ -6,6 +6,7 @@ require_once(SYSTEMPATH.'sf/sfexception.class.php');
 require_once(SYSTEMPATH.'sf/router.class.php');
 require_once(SYSTEMPATH.'sf/loader.class.php');
 require_once(SYSTEMPATH.'sf/language.class.php');
+require_once(SYSTEMPATH.'sf/input.class.php');
 //加载配置文件
 config::load('default','config');
 //加载必要库文件
