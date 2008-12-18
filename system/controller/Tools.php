@@ -305,7 +305,7 @@ class Base'.ucfirst($this->table).' extends model
   
   function createExt()
   {
-    $file = APPPATH."model/".ucfirst($this->table).'.php';
+    $file = APPPATH."model/".ucfirst($this->table).'.model.php';
     if(is_file($file)) return;
     $script  = '<?php
 
