@@ -2,4 +2,4 @@
 *本类主要完成对象的收集和处理，完成对象的构造。可以构造数据模型、控制器对象、和插件对象，等。主要的方法有：sf::getLib、sf::getModel，等*
 ==取得一个数据模型对象==
 使用sf::getModel（$model_name，$args）可以取得一个数据模型对象，$model_name是数据模型名，$args是初始化参数。
-{{{sf::getModel("demo")->selectAll()}}}
+`sf::getModel("demo")->selectAll();`
