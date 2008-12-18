@@ -16,7 +16,7 @@ return array(
 			'plugins_ext'=> '.plugin.php',
 			'helper_ext'=> '.helper.php',
 			'language_ext'=> '.lang.php',
-			'base_url'=> 'http://127.0.0.1/sf/',
+			'base_url'=> 'http://localhost/sf/',
 			'index_page'=>'',
 			'router' =>array(
 						'default_controller' => 'welcome',
