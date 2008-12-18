@@ -15,7 +15,7 @@ class model
 		
 		$query = $db->query($sql);
 		
-		return sf::getLib("collection",$this,$db->result_array($query));
+		return sf::getLib("collection",clone $this,$db->result_array($query));
 	}
 	
 	public function getPager($addWhere = '',$addSql = '',$showMax = 20,$select = '',$key = '')
@@ -37,7 +37,7 @@ class model
 		$query = $db->query($sql);
 		
 		$pager->setField($db->result_array($query));
-		$pager->setObject($this);
+		$pager->setObject(clone $this);
 		
 		return $pager;
 	}
