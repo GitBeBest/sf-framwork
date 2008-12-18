@@ -26,6 +26,6 @@ return array(
 						'hostname'=>'localhost',
 						'user'=>'root',
 						'passwd'=>'root',
-						'database'=>'tf'
+						'database'=>'sf'
 					)
 			);

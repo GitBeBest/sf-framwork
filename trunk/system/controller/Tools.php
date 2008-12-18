@@ -191,7 +191,7 @@ class tools_model
     $str .= '  {'."\r\n";
     $str .= '    if(!$this->'.$this->primary_key.') return false;'."\r\n";
     $str .= '    $db = sf::getLib("db")'.";\r\n";
-	$str .= '    $db->query("DELETE `$this->table` WHERE `'.$this->primary_key.'` = \'$this->'.$this->primary_key.'\' ");'."\r\n";
+	$str .= '    $db->query("DELETE FROM `$this->table` WHERE `'.$this->primary_key.'` = \'$this->'.$this->primary_key.'\' ");'."\r\n";
     $str .= '    return $db->affected_rows();'."\r\n";
     $str .= '  }'."\r\n\r\n";
     return $str;
