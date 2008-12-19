@@ -3,7 +3,7 @@
 class sfException extends Exception
 {
     public function __toString() {
-        return $this->getFile().":".$this->getMessage();
+        return $this->halt();
     }
 	
 	public function show()
