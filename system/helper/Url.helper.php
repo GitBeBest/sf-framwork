@@ -17,3 +17,11 @@ function base_url()
 {
 	return trim(config::get("base_url"),'/')."/";
 }
+
+function link_to($uri='',$name='link',$opt=array())
+{
+	foreach((array)$opt as $key => $val){
+		$a_opt .= " ".$key.'="'.$val.'"';
+	}
+	return '<a href="'.site_url($uri).'" '.$a_opt.' >'.$name.'</a>';
+}
