@@ -57,19 +57,19 @@ class input
 	
 	public static function getIp()
 	{
-		if ($_SERVER('REMOTE_ADDR') AND $_SERVER('HTTP_CLIENT_IP'))
-		{
-			 return $_SERVER['HTTP_CLIENT_IP'];
-		}
-		elseif ($_SERVER('REMOTE_ADDR'))
+		if ($_SERVER['REMOTE_ADDR'])
 		{
 			 return $_SERVER['REMOTE_ADDR'];
 		}
-		elseif ($_SERVER('HTTP_CLIENT_IP'))
+		elseif ($_SERVER['REMOTE_ADDR'])
+		{
+			 return $_SERVER['REMOTE_ADDR'];
+		}
+		elseif ($_SERVER['HTTP_CLIENT_IP'])
 		{
 			 return $_SERVER['HTTP_CLIENT_IP'];
 		}
-		elseif ($_SERVER('HTTP_X_FORWARDED_FOR'))
+		elseif ($_SERVER['HTTP_X_FORWARDED_FOR'])
 		{
 			 return $_SERVER['HTTP_X_FORWARDED_FOR'];
 		}else return false;

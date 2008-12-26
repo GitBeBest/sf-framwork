@@ -15,7 +15,7 @@ loader::helper("url");
 //初始化pathinfo
 router::parse();
 //加载语言文件
-//lang::setLang("chinese");
+lang::setLang(config::get("default_lang","chinese"));
 lang::load("global");
 //执行控制器
 $controller = sf::getController(router::getController());
