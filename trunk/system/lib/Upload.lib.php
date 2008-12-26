@@ -1,11 +1,5 @@
 <?php
-/**
-* 文件上传类
-* @author wuleying
-* @author URL:www.zdyi.com
-* @version 1.0
-* @final 2008-05-13
-*/
+
 class upload
 {
     /**
@@ -45,51 +39,40 @@ class upload
     public $saveFileInfo = array();
     /**
      * 构造函数,初始化相关信息,包括文件内容,上传地址,文件最大限制,文件类型
-     * @param array $file
-     * @param string $path
-     * @param int $size
-     * @param array $type
      */
-    public function __construct($file,$path,$size= 2097152,$type = '')
+    public function __construct($file="upload",$path="./up_files/",$size= '2097152',$type = '')
     {
-        $this->uploadFiles     = $file;
-        $this->saveFilePath = $path;
-        $this->maxFileSize     = $size;
-        if($type != '') $this->allowType = $type;
+        $this->uploadFiles	= $_FILES[$file];
+        $this->saveFilePath	= trim($path,"/");
+        $this->maxFileSize	= $size;
+        ($type != '') && $this->allowType = $type;
     }
+	
     public function upload()
     {
         for($i=0;$i<count($this->uploadFiles['name']);$i++)
         {
-            //如果文件上传没有出现错误
             if($this->uploadFiles['error'][$i] == 0)
             {
-                //获取当前文件名,临时文件名,文件大小,扩展名
-                $name             = $this->uploadFiles['name'][$i];
-                $tmpname     = $this->uploadFiles['tmp_name'][$i];
-                $size             = $this->uploadFiles['size'][$i];
-                $minetype     = $this->uploadFiles['type'][$i];
-                $type             = $this->getFileExt($this->uploadFiles['name'][$i]);
-                //检查文件大小是否合法
+                $name		= $this->uploadFiles['name'][$i];
+                $tmpname	= $this->uploadFiles['tmp_name'][$i];
+                $size		= $this->uploadFiles['size'][$i];
+                $minetype	= $this->uploadFiles['type'][$i];
+                $type		= $this->getFileExt($this->uploadFiles['name'][$i]);
+
                 if(!$this->checkSize($size))
                 {
-                    $this->lastError = "文件大小超出限制.文件名称:".$name;
-                    $this->printMsg($this->lastError);
-                    continue;
+                    return new sfException(lang::get("Exceeds the maximum limit!"));
                 }
                 //检查文件扩展名是否合法
                 if(!$this->checkType($type))
                 {
-                    $this->lastError = "非法的文件类型.文件名称:".$name;
-                    $this->printMsg($this->lastError);
-                    continue;
+                    echo new sfException(lang::get("File type does not allow!"));
                 }
                 //检测当前文件是否非法提交
                 if(!is_uploaded_file($tmpname))
                 {
-                    $this->lastError = "上传文件无效.文件名称:".$name;
-                    $this->printMsg($this->lastError);
-                    continue;
+                    echo new sfException(lang::get("Please correct upload!"));
                 }
                 //移动后的文件名称
                 $basename = $this->getBaseName($name,'.'.$type);
@@ -106,18 +89,16 @@ class upload
                 //把上传的文件从临时目录移到目标目录
                 if(!move_uploaded_file($tmpname,$this->finalFilePath))
                 {
-                    $this->$this->uploadFiles['error'][$i];
-                    $this->printMsg($this->lastError);
-                    continue;
+                    echo new sfException(lang::get("Save error!"));
                 }
                 //存储已经上传的文件信息
-                $this->saveFileInfo = array(
+                $this->saveFileInfo[] = array(
                     'name'            => $name,
                     'type'            => $type,
                     'minetype'        => $minetype,
-                    'size'                => $size,
-                    'savename'    => $savename,
-                    'path'            => $this->finalFilePath,
+                    'size'            => $size,
+                    'savename'    	  => $savename,
+                    'path'            => date('Y').'/'.date('m').'/'.$savename,
                 );
             }
         }
@@ -141,7 +122,7 @@ class upload
      */
     private function checkSize($size)
     {
-        return $size > $this->maxFileSize) ? false : true;;
+        return ($size > $this->maxFileSize) ? false : true;
     }
     /**
      * 检查文件类型是否合法
@@ -174,7 +155,7 @@ class upload
      */
     private function getFileExt($filename)
     {
-        $ext = pathinfo($filename);
+		$ext = pathinfo($filename);
         return $ext['extension'];
     }
     /**

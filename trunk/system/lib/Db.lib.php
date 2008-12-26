@@ -58,7 +58,7 @@ class db{
 		try{
 			$func = $type == 'UNBUFFERED' && @function_exists('mysql_unbuffered_query') ?
 				'mysql_unbuffered_query' : 'mysql_query';
-			if(!$query = $func($sql, $this->link)) throw new sfException(lang::get($this->error()));
+			if(!$query = $func($sql, $this->link)) throw new sfException($this->error().':'.$sql);
 			$this->querynum++;
 			return $query;
 		}catch(sfException $e){

@@ -10,7 +10,7 @@ class model
 		
 		if($select) $sql = $select." ";
 		else $sql = "SELECT * FROM ".$this->table." ";
-		$addWhere && $sql .= "WHERE ".$addWhere;
+		$addWhere && $sql .= "WHERE ".$addWhere." ";
 		$addSql && $sql .= $addSql;
 		
 		$query = $db->query($sql);
