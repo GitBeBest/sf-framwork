@@ -25,3 +25,9 @@ function link_to($uri='',$name='link',$opt=array())
 	}
 	return '<a href="'.site_url($uri).'" '.$a_opt.' >'.$name.'</a>';
 }
+
+function getFromUrl()
+{
+	if($_POST['fromUrl']) return $_POST['fromUrl'];
+	else return $_SERVER['HTTP_REFERER'];
+}
