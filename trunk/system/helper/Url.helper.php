@@ -26,8 +26,9 @@ function link_to($uri='',$name='link',$opt=array())
 	return '<a href="'.site_url($uri).'" '.$a_opt.' >'.$name.'</a>';
 }
 
-function getFromUrl()
+function getFromUrl($debarUrl='',$targetUrl='')
 {
-	if($_POST['fromUrl']) return $_POST['fromUrl'];
-	else return $_SERVER['HTTP_REFERER'];
+	$fromUrl = $_POST['fromUrl'] ? $_POST['fromUrl'] : $_SERVER['HTTP_REFERER'];
+	if($debarUrl && $targetUrl && ($debarUrl == $fromUrl)) return $targetUrl;
+	else return $fromUrl;
 }
