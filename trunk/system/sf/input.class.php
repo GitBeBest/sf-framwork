@@ -16,6 +16,10 @@ class input
 		self::$sfInput['session'] = &$_SESSION;
 		self::$sfInput['server'] = &$_SERVER;
 		array_walk_recursive(self::$sfInput,"processVariables");
+		//产生混合变量
+		self::$sfInput['mix'] = array();
+		self::$sfInput['mix'] = array_merge(self::$sfInput['mix'], self::$sfInput['get']);
+		self::$sfInput['mix'] = array_merge(self::$sfInput['mix'], self::$sfInput['post']);
 		self::$is_do = true;
 	}
 	
@@ -29,6 +33,13 @@ class input
 			$result = $result[$key];
 		}
 		return $result;
+	}
+	
+	public static function getMix($key='')
+	{
+		if(self::getInput("get.".$key)) return self::getInput("get.".$key);
+		else if(self::getInput("post.".$key)) return self::getInput("post.".$key);
+		else return '';
 	}
 	
 	public static function post($key='')

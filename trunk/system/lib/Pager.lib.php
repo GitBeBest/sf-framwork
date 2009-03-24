@@ -4,6 +4,7 @@ class Pager extends Collection
 {
 	private $maxnum;
 	private $navchar	   = array();
+	private $form_vars     = array();
 	private $key;
     private $totalnum;
     private $totalpage;
@@ -16,15 +17,27 @@ class Pager extends Collection
 	private $cur_row		= 0;
 	private $total_row		= 0;
 
-    public function __construct($totalnum='', $maxnum='',$key="")
+    public function __construct($totalnum='', $maxnum='',$key="",$form_vars=array())
     {
 		$this->totalnum = $totalnum;
 		$this->maxnum   = $maxnum;
 		$this->key      = $key;
-		$this->navchar  = array('first','[<]','[>]','last');
+		$has_post		= false;
+		$this->navchar  = array(lang::get('first'),'[<]','[>]',lang::get('last'));
 		$querystring 	= array($_GET["controller"]."/".$_GET["method"]);
+		$form_vars && $this->setFormVars($form_vars);
 
-		if (count($_GET) > 0)
+		if (count($this->form_vars) > 0)
+		{
+			foreach ($this->form_vars as $val){
+				if($_POST[$val]){
+					$querystring[] = $val."/".urlencode($_POST[$val]);
+					$has_post = true;
+				}
+			}
+		}
+		
+		if (count($_GET) > 0 && !$has_post)
 		{
 			foreach ($_GET as $key => $val)
 			{
@@ -151,6 +164,12 @@ class Pager extends Collection
 	public function getShowNum()
 	{
 		return $this->shownum;
+	}
+	
+	public function setFormVars($v=array())
+	{
+		if(is_array($v))
+			$this->form_vars = $v;
 	}
 
 }

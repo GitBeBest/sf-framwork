@@ -1,23 +1,10 @@
 <?php
-/**
- * 类名：sf对象容器
- * 功能：存取、构造sf对象
- *
- */
 class sf
 {
-	/**
-	 * 对象容器
-	 *
-	 */
 	private static $sfObject = array('model'=>array(),
 									 'lib'=>array(),
 									 'controller'=>array(),
 									 'plugin'=>array());
-	/**
-	 * sf版本号
-	 *
-	 */
 	private static $version = '0.1.0';
 	
 	public function __construct(){}

@@ -51,6 +51,7 @@ class tools_model
       else $str .= '  private $'.$field->name.';'."\r\n";
     }
     $str .= '  public $table = "'.$this->table.'";'."\r\n";
+	$str .= '  private $is_new = true;'."\r\n";
     return $str;
   }
   
@@ -150,10 +151,11 @@ class tools_model
   
   function getFuncRemove()
   {
-    $str .= '  public function remove($ids=0)'."\r\n";
+    $str .= '  public function remove($addWhere = \'\')'."\r\n";
     $str .= '  {'."\r\n";
+	$str .= '    if(!$addWhere) return false'.";\r\n";
 	$str .= '    $db = sf::getLib("db")'.";\r\n";
-	$str .= '    $sql = "DELETE FROM `'.$this->table.'` WHERE `'.$this->primary_key.'` IN (\'$ids\')";'."\r\n";
+	$str .= '    $sql = "DELETE FROM `'.$this->table.'` WHERE $addWhere ";'."\r\n";
 	$str .= '    $db->query($sql)'.";\r\n";
     $str .= '    return $db->affected_rows()'.";\r\n";
     $str .= '  }'."\r\n\r\n";
@@ -180,18 +182,19 @@ class tools_model
 	$str .= '    $db = sf::getLib("db")'.";\r\n";
     $str .= '    $sql = "SELECT * FROM `$this->table` WHERE `'.$this->primary_key.'` = \'$pk\' ";'."\r\n";
     $str .= '    $query = $db->query($sql);'."\r\n";
-    $str .= '    return $this->fillObject($db->fetch_array($query));'."\r\n";
+	$str .= '    if($db->num_rows($query)) $this->fillObject($db->fetch_array($query));'."\r\n";
+	$str .= '    else return $this;'."\r\n";
     $str .= '  }'."\r\n\r\n";
     return $str;
   }
   
   function getFuncDelete()
   {
-    $str .= '  public function delete()'."\r\n";
+    $str .= '  public function delete($where="")'."\r\n";
     $str .= '  {'."\r\n";
     $str .= '    if(!$this->'.$this->primary_key.') return false;'."\r\n";
     $str .= '    $db = sf::getLib("db")'.";\r\n";
-	$str .= '    $db->query("DELETE FROM `$this->table` WHERE `'.$this->primary_key.'` = \'$this->'.$this->primary_key.'\' ");'."\r\n";
+	$str .= '    $db->query("DELETE FROM `$this->table` WHERE `'.$this->primary_key.'` = \'$this->'.$this->primary_key.'\' $where ");'."\r\n";
     $str .= '    return $db->affected_rows();'."\r\n";
     $str .= '  }'."\r\n\r\n";
     return $str;
@@ -203,7 +206,7 @@ class tools_model
     $str .= '  {'."\r\n";
 	$str .= '    $db = sf::getLib("db")'.";\r\n";
     $str .= '    if($this->fieldData){
-      if($this->'.$this->primary_key.')
+      if(!$this->is_new)
       {
         return $db->update($this->fieldData,"`'.$this->primary_key.'` = \'$this->'.$this->primary_key.'\' ",$this->table); 
       }
@@ -232,12 +235,14 @@ class tools_model
     $str .= '  public function fillObject($data=array())'."\r\n";
     $str .= '  {'."\r\n";
 	$str .= '    $this->cleanObject();'."\r\n";
-    $str .= '    if(!$data) return false;'."\r\n";
+    $str .= '    if(!$data) return $this;'."\r\n";
+	$str .= '    if($data["is_new"]) $this->is_new = true;'."\r\n";
+	$str .= '    else $this->is_new = false;'."\r\n";
     foreach($this->fields as $field)
     {
       $str .= '    isset($data["'.$field->name.'"]) && $this->'.$field->name.' = $data["'.$field->name.'"];'."\r\n";
     }
-     $str .= '    return $data;'."\r\n";
+     $str .= '    return $this;'."\r\n";
     $str .= '  }'."\r\n\r\n";
     return $str;
   }
@@ -251,6 +256,7 @@ class tools_model
       $str .= '    $this->'.$field->name.' = \''.$field->def.'\';'."\r\n";
     }
     $str .= '    $this->fieldData = array();'."\r\n";
+	$str .= '    $this->is_new = true;'."\r\n";
 	$str .= '    return $this;'."\r\n";
     $str .= '  }'."\r\n\r\n";
     return $str;
@@ -318,7 +324,7 @@ class Base'.ucfirst($this->table).' extends model
 include_once("Base'.ucfirst($this->table).'.php");
 class '.ucfirst($this->table).' extends Base'.ucfirst($this->table).'
 {
-  ';
+	';
     //$script  .= $this->getFuncSelectAll();
     //$script  .= $this->getFuncGetPager();
     //$script  .= $this->getFuncRemove();

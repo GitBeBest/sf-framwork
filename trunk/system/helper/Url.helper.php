@@ -32,3 +32,14 @@ function getFromUrl($debarUrl='',$targetUrl='')
 	if($debarUrl && $targetUrl && ($debarUrl == $fromUrl)) return $targetUrl;
 	else return $fromUrl;
 }
+
+function getColumnStr($subject='',$orderfield='')
+{
+	$result = router::get();
+	$result['ordermode'] = ($result['ordermode'] == 'DESC') ? 'ASC' : 'DESC';
+	$result['orderfield'] = $orderfield;
+	$str  = array_shift($result);
+	$str .= '/'.array_shift($result);
+	foreach($result as $key => $val) $str .= '/'.$key.'/'.$val;
+	return link_to($str,$subject,array('class'=>$result['ordermode']));
+}

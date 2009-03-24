@@ -19,9 +19,10 @@ class router
 		return self::$get['controller'];
 	}
 	
-	public static function get($key)
+	public static function get($key='')
 	{
-		return self::$get[$key];
+		if($key) return self::$get[$key];
+		else return self::$get;
 	}
 	
 	public static function getMethod()

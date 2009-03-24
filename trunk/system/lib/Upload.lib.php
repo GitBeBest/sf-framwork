@@ -72,7 +72,7 @@ class upload
                 //检测当前文件是否非法提交
                 if(!is_uploaded_file($tmpname))
                 {
-                    echo new sfException(lang::get("Please correct upload!"));
+                   //echo new sfException(lang::get("Please correct upload!"));
                 }
                 //移动后的文件名称
                 $basename = $this->getBaseName($name,'.'.$type);
@@ -87,7 +87,8 @@ class upload
                 //最终组合的文件路径
                 $this->finalFilePath = $file_name2.'/'.$savename;
                 //把上传的文件从临时目录移到目标目录
-                if(!move_uploaded_file($tmpname,$this->finalFilePath))
+                //if(!move_uploaded_file($tmpname,$this->finalFilePath))
+				if(!copy($tmpname,$this->finalFilePath))
                 {
                     echo new sfException(lang::get("Save error!"));
                 }
@@ -134,7 +135,7 @@ class upload
     {
         foreach($this->allowType as $type)
         {
-            if(strcasecmp($etype,$type) == 0) return true;
+            if(strcasecmp($etype,$type) == 0 ) return true;
         }
         return false;
     }
