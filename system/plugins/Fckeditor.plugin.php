@@ -86,14 +86,14 @@ class fckeditor
         $this->__construct( $instanceName ) ;
     }
 	
-	function __construct( $instanceName = 'content' )
+	function __construct( $instanceName = 'content',$value='',$width='99%',$height='450')
      {
         $this->InstanceName    = $instanceName ;
 		$this->BasePath 	= base_url().'system/plugins/fckeditor/'; 
-        $this->Width        = '100%' ;
-        $this->Height        = '450' ;
+        $this->Width        = $width ;
+        $this->Height        = $height ;
         $this->ToolbarSet    = 'Default' ;
-        $this->Value        = '' ;
+        $this->Value        = $value ;
         $this->Config		= array('EnterMode'=>'br') ;
     }
 	

@@ -18,7 +18,7 @@ class model
 		return sf::getLib("collection",clone $this,$db->result_array($query));
 	}
 	
-	public function getPager($addWhere = '',$addSql = '',$showMax = 20,$select = '',$key = '')
+	public function getPager($addWhere = '',$addSql = '',$showMax = 20,$select = '',$key = '',$form_vars=array())
 	{
 		$db = sf::getLib("db");
 		
@@ -32,7 +32,7 @@ class model
 			$total = $db->num_rows($query);
 		}else $total = router::get("totalnum".$key);
 		
-		$pager = sf::getLib("pager",$total,$showMax,$key);
+		$pager = sf::getLib("pager",$total,$showMax,$key,$form_vars);
 		$sql .= "LIMIT ".$pager->getStartNum().",".$pager->getShowNum();
 		$query = $db->query($sql);
 		

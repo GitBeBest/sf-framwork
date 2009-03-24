@@ -1,5 +1,13 @@
 <?php
-function textArea($str='')
+/**
+ * 转化显示Textarea文本内容
+ *
+ */
+function showText($char)
 {
-	return nl2br(str_replace(" ","&nbsp;",$str));
+    $char=htmlspecialchars($char);
+	$char=str_replace(" ","&nbsp;",$char);
+	$char=nl2br($C_char);
+    $char=str_replace("<?","< ?",$char);
+    return $char;
 }

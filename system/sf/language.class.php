@@ -56,6 +56,16 @@ class lang
 			$result = $result[$key];
 		}
 		if($result) return $result;
-		else return $key;
+		else{
+			/*self::set($key,$key);
+			$str = '<?php return array('."\r\n";
+			foreach(self::$sfLang as $k => $v)
+				$str .= '	"'.str_replace('\\\'','\\\\\'',$k).'" => "'.$v.'",'."\r\n";
+			$str .= ');?>';
+			$h = fopen("D:/www/kjtn/application/language/chinese/global.lang.php",'w+');
+			fwrite($h,$str);
+			fclose($h);*/
+			return $key;
+		}
 	}
 }

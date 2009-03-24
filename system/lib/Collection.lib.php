@@ -64,5 +64,10 @@ class Collection
 	{
 		return $this->field;
 	}
+	
+	public function reset()
+	{
+		$this->cur_row = 0;
+	}
 }
 ?>

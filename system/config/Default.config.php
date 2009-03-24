@@ -16,16 +16,17 @@ return array(
 			'plugins_ext'=> '.plugin.php',
 			'helper_ext'=> '.helper.php',
 			'language_ext'=> '.lang.php',
-			'base_url'=> 'http://localhost/sf/',
+			'base_url'=> 'http://127.0.0.1/sf/',
 			'index_page'=>'',
 			'router' =>array(
 						'default_controller' => 'welcome',
 						'default_method' => 'index'
 					),
+			'auto_load_helper'=> array('url','global'),
 			'mysql' =>array(
 						'hostname'=>'localhost',
 						'user'=>'root',
 						'passwd'=>'root',
-						'database'=>'sf'
+						'database'=>'tf'
 					)
 			);

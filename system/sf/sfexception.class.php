@@ -1,19 +1,11 @@
 <?php
-/**
- * 类名：错误处理
- * 功能：处理系统错误
- *
- */
+
 class sfException extends Exception
 {
     public function __toString() {
         return $this->halt();
     }
 	
-	/**
-	 * 显示错误信息，程序继续执行
-	 *
-	 */
 	public function show()
 	{
 		$title = lang::get("System notes:");
@@ -25,11 +17,7 @@ class sfException extends Exception
 		else include_once(SYSTEMPATH."error/error.php");
 		ob_end_flush();
 	}
-		
-	/**
-	 * 显示错误信息，程序停止执行
-	 *
-	 */
+	
 	public function halt()
 	{
 		$title = lang::get("System notes:");
