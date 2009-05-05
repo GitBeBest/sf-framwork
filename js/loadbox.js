@@ -31,10 +31,10 @@ var loadbox = {
 		alertFram.style.lineHeight = "80px";
 		alertFram.style.zIndex = "10001";
 	
-		strHtml  = '';
+		strHtml  = '<span style="line-height:20px;float:right; height:20px; padding-right:10px;"><a href="javascript:;" onclick="loadbox.unload();" title="关闭"><b>X</b></a></span>';
 		strHtml  += '<iframe frameborder="0" name="load_box" id="load_box" width="' + (width ? width : 350) + '" height="' + (height? height : 200) + '" src="' + url + '"></iframe>';	
 		alertFram.innerHTML = strHtml;
-
+		
 		document.body.appendChild(alertFram);
 		document.body.appendChild(shield);
 
@@ -42,7 +42,7 @@ var loadbox = {
 		document.body.oncontextmenu = function(){return false;}
 		
 		this.c = 0;
-		this.ad = setInterval(this.doAlpha(),1);
+		//this.ad = setInterval(this.doAlpha(),1);
 	},
 	
 	doAlpha : function(){

@@ -17,9 +17,10 @@ class Authentic
 			{
 				if($user->getIsLock() != 1) exit(new sfException(lang::get("You has been lock!")));
 				$user->setLoginNum();
+				$user->setLastloginAt(date("Y-m-d H:i:s"));
 				$user->setUserIp(input::getIp());
 				$user->save();
-				$_SESSION['userid'] =  $user->getUserId();
+				$_SESSION['userid'] =  $user->getId();
 				$_SESSION['username'] =  $user->getUserName();
 				$_SESSION['userlevel'] =  $user->getUserGroupId();
 				return true;

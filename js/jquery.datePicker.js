@@ -790,12 +790,12 @@
 	};
 	// localisable text
 	$.dpText = {
-		TEXT_PREV_YEAR		:	'Previous year',
-		TEXT_PREV_MONTH		:	'Previous month',
-		TEXT_NEXT_YEAR		:	'Next year',
-		TEXT_NEXT_MONTH		:	'Next month',
-		TEXT_CLOSE			:	'Close',
-		TEXT_CHOOSE_DATE	:	'Choose date'
+		TEXT_PREV_YEAR		:	'上一年',
+		TEXT_PREV_MONTH		:	'上一月',
+		TEXT_NEXT_YEAR		:	'下一年',
+		TEXT_NEXT_MONTH		:	'下一月',
+		TEXT_CLOSE			:	'关闭',
+		TEXT_CHOOSE_DATE	:	'选择'
 	};
 	// version
 	$.dpVersion = '$Id: jquery.datePicker.js 15 2008-12-17 04:40:18Z kelvin.luck $';
@@ -813,7 +813,7 @@
 		closeOnSelect		: true,
 		displayClose		: false,
 		selectMultiple		: false,
-		clickInput			: false,
+		clickInput			: true,
 		verticalPosition	: $.dpConst.POS_TOP,
 		horizontalPosition	: $.dpConst.POS_LEFT,
 		verticalOffset		: 0,
@@ -848,17 +848,17 @@
 
 
 
-Date.dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+Date.dayNames = ['日', '一', '二', '三', '四', '五', '六'];
 
-Date.abbrDayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+Date.abbrDayNames = ['日', '一', '二', '三', '四', '五', '六'];
 
-Date.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+Date.monthNames = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 
-Date.abbrMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+Date.abbrMonthNames = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
 
 Date.firstDayOfWeek = 1;
 
-Date.format = 'yyyy-mm-dd 00:00:00';
+Date.format = 'yyyy-mm-dd';
 
 Date.fullYearStart = '20';
 
@@ -955,13 +955,16 @@ Date.fullYearStart = '20';
 	});
 	
 	add("asString", function() {
-		var r = Date.format;
-		return r
+		var today = new Date();
+		return Date.format
 			.split('yyyy').join(this.getFullYear())
 			.split('yy').join((this.getFullYear() + '').substring(2))
 			.split('mmm').join(this.getMonthName(true))
 			.split('mm').join(_zeroPad(this.getMonth()+1))
-			.split('dd').join(_zeroPad(this.getDate()));
+			.split('dd').join(_zeroPad(this.getDate()))
+			.split('h').join(_zeroPad(today.getHours()))
+			.split('i').join(_zeroPad(today.getMinutes()))
+			.split('s').join(_zeroPad(today.getSeconds()));
 	});
 	
 

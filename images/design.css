@@ -1,0 +1,495 @@
+/*样式表提供：cityworm@21cn.com */
+
+/*默认样式定义star*/
+/*================================================*/
+
+body
+{
+	font-family: 12px  "Verdana"," Arial","宋体";
+	font-size: 12px;
+}
+
+td, tbody, p, div {font-family:"Verdana"," Arial","宋体"; font-size: 12px; color:#333333;}
+
+/*================================================*/
+/*默认样式定义end*/
+
+
+/*超连接样式定义开始*/
+/*================================================*/
+/*修改系统默认超连接样式*/
+
+a, a:visited, a:link
+     {font-family:"Verdana"," Arial","宋体"; font-size:12px; color:#44474c; text-decoration: none}
+a:hover, a:active
+     {font-family:"Verdana"," Arial","宋体"; font-size:12px; color:#ff9900; text-decoration: none}
+	 
+/*英文字号带色彩超连接样式类*/
+
+.e9lv, .e9lv:visited, .e9lv:link
+     {font-family: "Arial"; font-size:9px; color:#6B885E; text-decoration: none}
+.e9lv:hover, .e9lv:active
+     {font-family: "Arial"; font-size:9px; color:#006E0D; text-decoration: none}
+
+.e10, .e10:visited, .e10:link
+     {font-family: "Arial"; font-size:10px; color:#000000; text-decoration: none}
+.e10:hover, .e10:active
+     {font-family: "Arial"; font-size:10px; color:#FF6600; text-decoration: underline}
+
+.e11, .e11:visited, .e11:link
+     {font-family: "Arial"; font-size:11px; color:#000000; text-decoration: none}
+.e11:hover, .e11:active
+     {font-family: "Arial"; font-size:11px; color:#FF6600; text-decoration: underline}
+
+.e12, .e12:visited, .e12:link
+     {font-family: "Arial"; font-size:12px; color:#000000; text-decoration: none}
+.e12:hover, .e12:active
+     {font-family: "Arial"; font-size:12px; color:#FF6600; text-decoration: underline}
+
+.e13, .e13:visited, .e13:link
+     {font-family: "Arial"; font-size:13px; color:#000000; text-decoration: none}
+.e13:hover, .e13:active
+     {font-family: "Arial"; font-size:13px; color:#FF6600; text-decoration: underline}
+	 
+/*中文色彩超连接样式类*/
+
+.f12hui, .f12hui:visited, .f12hui:link
+     {font-family: "Arial","宋体"; font-size:12px; color:#535353; text-decoration: none}
+.f12hui:hover, .f12hui:active
+     {font-family: "Arial","宋体"; font-size:12px; color:#000000; text-decoration: underline}
+
+.f12hei, .f12hei:visited, .f12hei:link
+     {font-family: "Arial","宋体"; font-size:12px; color:#000000; text-decoration: none}
+.f12hei:hover, .f12hei:active
+     {font-family: "Arial","宋体"; font-size:12px; color:#FF6600; text-decoration: none}
+
+.f12black, .f12black :visited, .f12black :link
+     {font-family: "Arial","宋体"; font-size:12px; color:#000000; text-decoration: none}
+.f12black :hover, .f12black :active
+     {font-family: "Arial","宋体"; font-size:12px; color:#006E0D; text-decoration: none}
+	 
+.f12green, .f12green:visited, .f12green:link
+     {font-family: "Arial","宋体"; font-size:12px; color:#6B885E; text-decoration: none}
+.f12green:hover, .f12green:active
+     {font-family: "Arial","宋体"; font-size:12px; color:#B92657; text-decoration: underline}
+	 
+.f12slv, .f12slv:visited, .f12slv:link
+     {font-family: "Arial","宋体"; font-size:12px; color:#006E0D; text-decoration: none}
+.f12slv:hover, .f12slv:active
+     {font-family: "Arial","宋体"; font-size:12px; color:#0DB521; text-decoration: underline}	
+
+.f12orange, .f12orange:visited, .f12orange:link
+     {font-family: "Arial","宋体"; font-size:12px; color:#FF6600; text-decoration: none}
+.f12orange:hover, .f12orange:active
+     {font-family: "Arial","宋体"; font-size:12px; color:#FF6600; text-decoration: underline}
+	 
+.f12purple, .f12purple:visited, .f12purple:link
+     {font-family: "Arial","宋体"; font-size:12px; color:#B92657; text-decoration: none}
+.f12purple:hover, .f12purple:active
+     {font-family: "Arial","宋体"; font-size:12px; color:#EF407A; text-decoration: underline}	
+
+.f13hei, .f13hei:visited, .f13hei:link
+     {font-family: "Arial","宋体"; font-size:13px; color:#000000; text-decoration: none}
+.f13hei:hover, .f13hei:active
+     {font-family: "Arial","宋体"; font-size:13px; color:#FF6600; text-decoration: none}
+	 
+.f13orange, .f13orange:visited, .f13orange:link
+     {font-family: "Arial","宋体"; font-size:13px; color:#FF6600; text-decoration: none}
+.f13orange:hover, .f13c:active
+     {font-family: "Arial","宋体"; font-size:13px; color:#FF6600; text-decoration: underline}	
+
+.f13green, .f13green:visited, .f13green:link
+     {font-family: "Arial","宋体"; font-size:13px; color:#006E0D; text-decoration: none}
+.f13green:hover, .f13green:active
+     {font-family: "Arial","宋体"; font-size:13px; color:#0DB521; text-decoration: underline}	
+
+.f14hei, .f14hei:visited, .f14hei:link
+     {font-family: "Arial","宋体"; font-size:14px; color:#000000; text-decoration: none}
+.f14hei:hover, .f14hei:active
+     {font-family: "Arial","宋体"; font-size:14px; color:#FF6600; text-decoration: none}
+
+.f14orange, .f14corange:visited, .f14orange:link
+     {font-family: "Arial","宋体"; font-size:14px; color:#FF6600; text-decoration: none}
+.f14orange:hover, .f14orange:active
+     {font-family: "Arial","宋体"; font-size:14px; color:#FF6600; text-decoration: underline}	
+
+.f14green
+     {font-family: "Arial","宋体"; font-size:14px; color:#006E0D; text-decoration: none}
+.f14green:visited, .f14green:link
+     {font-family: "Arial","宋体"; font-size:14px; color:#006E0D; text-decoration: none}
+.f14green:hover, .f14green:active
+     {font-family: "Arial","宋体"; font-size:14px; color:#0DB521; text-decoration: underline}	
+	 
+/*================================================*/
+/*超连接样式定义结束*/
+
+
+
+
+/*定义不显示开始*/
+/*=================================================*/
+.not_display {	DISPLAY: none}
+/*================================================*/
+/*定义不显示结束*/
+
+
+/*行间距离样式定义开始*/
+/*================================================*/
+.line15 {    line-height: 15px;}
+.line16 {    line-height: 16px;}
+.line17 {    line-height: 17px;}
+.line18 {    line-height: 18px;}
+.line19 {    line-height: 19px;}
+.line20 {    line-height: 20px;}
+.line21 {    line-height: 21px;}
+.line22 {    line-height: 22px;}
+.line23 {    line-height: 23px;}
+.line24 {    line-height: 24px;}
+.line25 {    line-height: 25px;}
+.line26 {    line-height: 26px;}
+.line27 {    line-height: 27px;}
+.line28 {    line-height: 28px;}
+/*================================================*/
+/*行间距离样式定义结束*/
+
+
+/*表单控件样式定义开始*/
+/*================================================*/
+.input
+{ font-size: 12px; color: #272727; text-decoration: none; height: 20px; }
+.box {
+	font-family: "Verdana", "Arial", "宋体";
+	font-size: 12px;
+	color: #272727;
+	text-decoration: none;
+	background-color: #ffffff;
+	text-indent: 2px;
+	height: 15px;
+	border: 1px solid #9C9C9C;
+}
+
+/*================================================*/
+/*表单控件样式定义结束*/
+
+/*内页总体背景平铺*/
+/*================================================*/
+.ny_bg {
+	background-image: url(ny_bg.jpg);
+	background-repeat: repeat;
+}
+/*虚线*/
+.line_xu28 {
+	background-image: url(line_xu.gif);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}
+
+/*================================================*/
+/*内页总体背景平铺*/
+
+
+
+
+/*自定义背景*/
+/*----------------------------------------------------*/
+.ny_midbg {
+	background-image: url(ny_table_bg.gif);
+	background-repeat: repeat-y;
+	background-position: center;
+}
+
+/*内页内页花边背景*/
+.ny_huabian_1 {
+	background-image: url(huabian_up.gif);
+	background-repeat: no-repeat;
+}
+/*-----------------------------------------------------*/
+/*自定义背景*/
+.ny_huabian_2 {
+	background-image: url(huabian_down.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+.gundong {
+	background-image: url(gengdong.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.nleft_btnbg01 {
+	background-image: url(n_left_btnbg01.gif);
+	background-repeat: no-repeat;
+}
+.nleft_btn {
+	background-image: url(ny_leftbtn_bg.gif);
+	background-repeat: repeat-x;
+	line-height: 25px;
+	font-weight: bold;
+}
+.nleft_btn a:link {
+	color: #232323;
+	text-decoration: none;
+}
+.nleft_btn a:visited {
+	text-decoration: none;
+	color: #232323;
+}
+.nleft_btn a:hover {
+	text-decoration: none;
+	color: #890000;text-decoration: underline
+}
+
+.nleft_btn a:active {
+	text-decoration: none;
+	color: #890000;
+}
+.nav_title {
+	color: #fe7941;
+	font-size: 12px;
+	line-height: 26px;
+}
+.nav_title a:link {
+	color: #efefef;
+	text-decoration: none;
+}
+.nav_title a:visited {
+	text-decoration: none;
+	color: #efefef;
+}
+.nav_title a:hover {
+	text-decoration: none;
+	color: #fe7941;text-decoration: underline
+}
+
+.nav_title a:active {
+	text-decoration: none;
+	color: #efefef;
+}
+.footer_txt {
+	font-size: 12px;
+	line-height: 24px;
+	color: #9C9463;
+}
+.lanmubg {
+	background-image: url(bg.gif);
+	background-repeat: repeat-y;
+	background-position: center;
+}
+.headtxt_up {
+	font-size: 12px;
+	line-height: 24px;
+	color: #A80008;
+}
+.headtxt_up a:link {
+	color: #A80008;
+	text-decoration: none;
+}
+.headtxt_up a:visited {
+	text-decoration: none;
+	color: #A80008;
+}
+.headtxt_up a:hover {
+	text-decoration: none;
+	color: #A80008;text-decoration: underline
+}
+
+.headtxt_up a:active {
+	text-decoration: none;
+	color: #A80008;
+}
+.yqlj {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+
+.denglu {
+	font-size: 12px;
+	line-height: normal;
+	color: #F3F3F3;
+}
+.denglu a:link {
+	color: #F3F3F3;
+	text-decoration: none;
+}
+.denglu a:visited {
+	text-decoration: none;
+	color: #F3F3F3;
+}
+.denglu a:hover {
+	text-decoration: none;
+	color: #F3F3F3;text-decoration: underline
+}
+
+.denglu a:active {
+	text-decoration: none;
+	color: #F3F3F3;
+}
+.titbg {
+	background-image: url(titbg.jpg);
+	background-repeat: repeat-x;
+}
+
+.zhongdian {
+	font-size: 12px;
+	font-weight: bold;
+	color: #990000;
+}
+.tit01 {
+	font-size: 12px;
+	line-height: normal;
+	color: #000000;
+    font-weight: bold;}
+	
+.tit01 a:link {
+	color: #000000;
+	text-decoration: none;
+}
+.tit01 a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+.tit01 a:hover {
+	text-decoration: none;
+	color: #ff9900;text-decoration: underline
+}
+.tit01 a:active {
+	text-decoration: none;
+	color: #000000;
+}
+.titbig {
+	font-size: 20px;
+	line-height: normal;
+	font-weight: bold;
+	color: #CC0000;
+}
+
+
+.denglu a:active {
+	text-decoration: none;
+	color: #000000;
+}
+.btntxt {
+	font-size: 12px;
+	line-height: normal;
+	color: #000000;
+    font-weight: bold;
+	text-decoration: underline}
+	
+.btntxt a:link {
+	color: #000000;
+	text-decoration: none;
+}
+.btntxt a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+.btntxt a:hover {
+	text-decoration: none;
+	color: #ff9900;text-decoration: underline
+}
+.btntxt a:active {
+	text-decoration: none;
+	color: #000000;
+}
+.lyb_txt {
+	font-size: 12px;
+	color: #262626;
+	line-height: 26px;
+	background-color: #f6f6f6;
+}
+
+.lyb_txt1 {
+	font-size: 12px;
+	color: #232323;
+	background-color: #FAFBFC;
+	line-height: 28px;
+}
+.lyb_txt2 {
+	font-size: 12px;
+	color: #333333;
+	line-height: 28px;
+}
+
+.tit01green {
+	font-size: 12px;
+	font-weight: bold;
+	color: #5B8800;
+	line-height: 32px;
+}
+.footertxt {
+	font-size: 12px;
+	color: #5B8800;
+	line-height: 32px;
+}
+
+
+/**
+ * 评论
+ */
+#comment { width:100%; text-align:left; padding:5px 5px;}
+	#comment h1 { font-size:14px;}
+	#comment dl { border:solid 1px #efefef;}
+	#comment dt { font-size:14px; border-bottom:dashed 1px #efefef; padding:5px 5px;}
+	#comment dd { padding:5px 5px;}
+	#comment em { float: right;}
+	#comment ul { list-style:none; margin:0px; padding:0px;}
+
+/**
+ * 新闻列表
+ */
+.ArticleListHtmlByCategoryId { float:left; width:370; height:180px; margin:5px; padding:1px; border:solid 1px #E1E1E1;}
+	.ArticleListHtmlByCategoryId h1{ width:100%; font-size:14px; font-weight:bold; background-color:#E1E1E1; padding:6px;}
+	.ArticleListHtmlByCategoryId h1 em { clear:both;float:right;}
+	.ArticleListHtmlByCategoryId ul { padding:2px 10px; margin:0px; list-style:none;}
+	.ArticleListHtmlByCategoryId ul li { text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/dot.gif) no-repeat; background-position:5px 8px;}
+	
+/**
+ * 分类树
+ */
+.selectTreeByTypeStr {padding:2px 10px; margin:0px; list-style:none;}
+	.category_level_1 {text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/arrow.gif) no-repeat; background-position:5px 8px;}
+	.category_level_2 {text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:40px; background:url(tools/dot.gif) no-repeat; background-position:25px 8px;}
+	.category_level_3 {text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:60px; background:url(tools/arrow.gif) no-repeat; background-position:45px 8px;}
+	
+/**
+ * 推荐文章
+ */
+.selectArticleTopByTypeStr {padding:2px 10px; margin:0px; list-style:none;}
+	.selectArticleTopByTypeStr li { overflow:hidden;text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/dot.gif) no-repeat; background-position:5px 8px;}
+	
+/**
+ * 页面列表
+ */
+.selectPageListByTypeStr {padding:2px 10px; margin:0px; list-style:none;}
+	.selectPageListByTypeStr li { overflow:hidden;text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/global_arrow.gif) no-repeat; background-position:5px 8px;}
+	
+/**
+ * 产品列表
+ */
+.product_category_list {float:left;width:368px; border:solid 1px #efefef; margin:5px; padding:2px;}
+	.product_category_list img { float:left; border:solid 1px #ccc; padding:1px;}
+	.product_category_list li { float:left;}
+	.product_category_list h1 { font-size:14px; font-weight:800; padding:5px;}
+
+/**
+ * 推荐产品
+ */
+.selectProductTopByTypeStr { list-style:none; margin:5px; padding:1px;}
+	.selectProductTopByTypeStr img { float:left; border:solid 1px #ccc; padding:1px;}
+	.selectProductTopByTypeStr h1 { float:left; font-size:14px; overflow:hidden;}
+	.selectProductTopByTypeStr li { border-bottom:dashed 1px #ccc;}
+	
+/**
+ *
+ */
+.selectProductWithImgAndSubjectByCategoryId {list-style:none; margin:5px; padding:1px;}
+	.selectProductWithImgAndSubjectByCategoryId li { float:left; width:115px; margin:5px; padding:1px;}
+	.selectProductWithImgAndSubjectByCategoryId img { width:114px; height:92px; padding:1px; margin:0px; border:solid 1px #ccc;}
+	
+/**
+ * 新闻头版头条
+ */
+.selectArticleForHomeFirstFirst {margin:5px; padding:1px; float:left;}
+	.selectArticleForHomeFirstFirst h1 { font-size:14px; margin:5px;}
+	.selectArticleForHomeFirstFirst img { width:222px; height:162px; border:solid 1px #ccc; padding:1px; margin:3px;}
+.selectArticleForHomeFirstList {list-style:none; margin:5px; padding:1px;float:left; width:256px; text-align:left;}
+	.selectArticleForHomeFirstList li { overflow:hidden;text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/dot.gif) no-repeat; background-position:5px 8px;}

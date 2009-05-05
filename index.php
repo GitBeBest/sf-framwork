@@ -1,9 +1,12 @@
 <?php
+session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 //网站基本目录
-define('APPPATH', realpath(dirname(__FILE__)).'/application/');
+define('WEBROOT', realpath(dirname(__FILE__)));
+//网站基本目录
+define('APPPATH', WEBROOT.'/application/');
 //库文件基本目录
-define('SYSTEMPATH', realpath(dirname(__FILE__)).'/system/');
+define('SYSTEMPATH', WEBROOT.'/system/');
 //引擎文件
 require_once(SYSTEMPATH.'sf/mvc.class.php');
 ?>
