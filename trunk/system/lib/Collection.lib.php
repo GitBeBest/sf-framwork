@@ -54,6 +54,11 @@ class Collection
 		return $this->MoveTo($row);
 	}
 	
+	public function getCurRow()
+	{
+		return $this->cur_row;
+	}
+	
 	public function MoveFirst()
 	{
 		$row = $this->cur_row = 1;

@@ -62,7 +62,7 @@ class router
 		}
 	}
 	
-	private static function get_uri_string()
+	public static function get_uri_string()
 	{			
 		$path = (isset($_SERVER['PATH_INFO'])) ? $_SERVER['PATH_INFO'] : @getenv('PATH_INFO');			
 		if (trim($path, '/') != '' && $path != "/".SELF)
@@ -119,7 +119,8 @@ class router
 						{
 							$val = preg_replace('#^'.$key.'$#', $val, $path);
 						}
-						self::set_request(explode('/', $val));		
+						self::set_request(explode('/', $val));	
+						config::set("auto_create_html",true);	
 						return;
 					}
 				}

@@ -4,7 +4,7 @@ class model
 {
 	public function __construct(){}
 	
-	public function selectAll($addWhere = '',$addSql = '',$showMax = 20,$select = '')
+	public function selectAll($addWhere = '',$addSql = '',$showMax = 0,$select = '')
 	{
 		$db = sf::getLib("db");
 		
@@ -12,6 +12,7 @@ class model
 		else $sql = "SELECT * FROM ".$this->table." ";
 		$addWhere && $sql .= "WHERE ".$addWhere." ";
 		$addSql && $sql .= $addSql;
+		$showMax && $sql .= ' LIMIT '.$showMax;
 		
 		$query = $db->query($sql);
 		

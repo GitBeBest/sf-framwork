@@ -199,6 +199,15 @@ class tools_model
     $str .= '  }'."\r\n\r\n";
     return $str;
   }
+
+  function getFuncIsNew()
+  {
+    $str .= '  public function isNew()'."\r\n";
+    $str .= '  {'."\r\n";
+    $str .= '    return $this->is_new;'."\r\n";
+    $str .= '  }'."\r\n\r\n";
+    return $str;
+  }
   
   function getFuncSave()
   {
@@ -294,6 +303,7 @@ class Base'.ucfirst($this->table).' extends model
     if($table)
       $this->table = $table;
   }'."\r\n\r\n";
+  	$script  .= $this->getFuncIsNew();
     $script  .= $this->getFuncGet();
     $script  .= $this->getFuncSet();
     $script  .= $this->getFuncSave();
@@ -305,7 +315,7 @@ class Base'.ucfirst($this->table).' extends model
     $script  .= $this->getFuncSelectByPk();
 	$script  .= $this->getFuncDelete();
     $script  .= '}';
-    file_put_contents(APPPATH."model/Base".ucfirst($this->table).'.php',$script);
+    file_put_contents(APPPATH."model/Base".ucfirst($this->table).'.model.php',$script);
     return $script;
   }
   
@@ -318,10 +328,10 @@ class Base'.ucfirst($this->table).' extends model
 /**
  * 类名：数据模型扩展类
  * 说明：提供数据模型扩展方法。
- * $Id: init-model.php 151 2008-10-20 17:20:26Z meetcd $
+ * $Id$
  */
 
-include_once("Base'.ucfirst($this->table).'.php");
+loader::model("Base'.ucfirst($this->table).'");
 class '.ucfirst($this->table).' extends Base'.ucfirst($this->table).'
 {
 	';
