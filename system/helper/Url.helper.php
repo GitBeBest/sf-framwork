@@ -1,5 +1,5 @@
 <?php
-function site_url($uri='',$route = false)
+function site_url($uri='',$route = true)
 {
 	$site_url = trim(config::get("base_url"),"/");
 	if(config::get("index_page"))

@@ -34,20 +34,24 @@ class view
 	
 	public static function parse($tpl)
 	{
-		//$file_name = substr(md5(router::getUri()),-12).".php";
-		//if($content = self::read($file_name)){
-			//return $content;
-		//}else{
-			foreach(self::$viewTpl as $key => $file)
-				self::getContent($file,$key);
-			self::$content = self::getContent($tpl);
-			//self::write($file_name,self::$content);
-			return self::$content;
-		//}
+		foreach(self::$viewTpl as $key => $file)
+			self::getContent($file,$key);
+		self::$content = self::getContent($tpl);
+		
+		if(config::get("auto_create_html",false))
+		{
+			$file = $_SERVER[REQUEST_URI];
+			if($file){
+				$file = WEBROOT.$file;
+				sf::getLib("Files")->write($file,self::$content);
+			}
+		}
+		return self::$content;
 	}
 	
 	private static function write($fileName,$content)
 	{
+		
 		return file_put_contents(trim(config::get("cache_dir","cache"),"/")."/".str_replace("/","-",$fileName),$content);
 	}
 	

@@ -93,7 +93,7 @@ class loader
 	
 	public static function fileExist($file,$type='lib')
 	{
-		$_file = explode("/",strtolower($file));
+		$_file = explode("/",$file);
 		$file = ucfirst(array_pop($_file));
 		$dir = $_file ? implode("/",$_file)."/" : '';
 		if(is_file(config::get($type."_dir",APPPATH.$type."/").$dir.ucfirst($file).config::get($type."_ext",'.config.php')))
