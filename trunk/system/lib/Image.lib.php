@@ -92,7 +92,7 @@ class image
 	}
 
         //生成验证码图片
-	function createSafetyCode($randStr='',$imgW=70,$imgH=26,$font=20)
+	function createSafetyCode($randStr='',$imgW=60,$imgH=20,$font=20)
 	{
 			header ("content-type: image/png");
             $image = imagecreate($imgW , $imgH);
@@ -102,8 +102,8 @@ class image
             $color_gray  = imagecolorallocate($image , 180 , 180 , 180);
             $color_black = imagecolorallocate($image , 100 , 100 , 100);
             for ($i = 0 ; $i < 600 ; $i++) imagesetpixel($image , mt_rand(0 , $imgW) , mt_rand(0 , $imgH) , $color_gray);
-			//imagestring($image,$font,10,5,$randStr,$color_black);
-			imagettftext($image,16,0,5,20,$color_black,"Tuffy.ttf",$randStr);
+			imagestring($image,$font,6,2,$randStr,$color_black);
+			//imagettftext($image,16,0,5,20,$color_black,"Tuffy.ttf",$randStr);
             imagerectangle($image , 0 , 0 , $imgW - 1 , $imgH - 1 , $color_gray);
             imagepng($image);
             imagedestroy($image);
