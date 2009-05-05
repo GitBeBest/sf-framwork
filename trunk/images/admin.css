@@ -1,0 +1,245 @@
+@charset "utf-8";
+*{ word-wrap:break-word; outline:none; margin:0px auto; padding:0px 0px; }
+body { margin: 0px 0px; padding:0px 0px; font-size:12px;}
+li { list-style:none;}
+/*链接样式*/
+a{text-decoration: none;}   /* 链接无下划线,有为underline */ 
+a:link {color: #454545;}    /* 未访问的链接 */
+a:visited {color: #454545;} /* 已访问的链接 */
+a:hover{color: #ff0000;}   /* 鼠标在链接上 */ 
+a:active {color: #454545;}  /* 点击激活链接 */
+/*验证样式*/
+em { color:#F00;}
+/*主要内容框架*/
+.main {font-size:14px; text-align:left; padding:10px 10px;}
+/*顶部工具栏*/
+.tools { margin:5px 0px 10px 0px;padding:5px 5px; border-bottom:solid 1px #add2da;}
+	.tools span { margin:1px 1px;padding:2px 2px; cursor:pointer;}
+/*每页顶部菜单栏*/
+.title { float:left;font-size:14px;}
+	.title a {float:left;padding:5px 10px; margin:-1px 1px;border:solid 1px #add2da;}
+	.title .active { background-color:#add2da; color:#FFF;}
+
+/*外部容器*/
+.box { clear:both;border:solid 1px #add2da; padding:1px 1px;}
+	.box h1 { font-size:14px; border-bottom:solid 1px #add2da; padding:5px 5px;}
+.show_user {}
+	.show_user li { float: left; width:48%; list-style:none; padding:5px 1px; border-bottom:dashed 1px #add2da;}
+	.show_user h2 { clear:both; font-size:14px; margin:5px 0px; padding:5px 10px; border-bottom:solid 1px #add2da;}
+	.show_user h3 {font-size:12px; float:left; width:100px;}
+
+.edit_user {}
+	.edit_user li { float: left; width:48%; list-style:none; padding:5px 1px;}
+	.edit_user h2 { clear:both; font-size:14px; margin:5px 0px; padding:5px 10px; border-bottom:solid 1px #add2da;}
+	.edit_user h3 {font-size:12px; float:left; width:100px;}
+
+.welcome {}
+.type_list li { float:left; width:48%; padding:5px 5px;}
+.type_list h2 { padding:10px 10px 5px 10px; border-bottom:solid 1px #39F; font-size:14px;}
+/*备注说明内容*/
+.note { clear:both;margin:10px 5px; padding:5px 5px; border:dashed 1px #CC9; background-color:#ECECC4;}
+
+.readme {}
+	.readme h1 { margin:10px 10px;padding:5px 10px; font-size:14px; border-bottom:dashed 1px #C93;}
+	.readme p { margin:10px 10px;padding:5px 10px;}
+	.download {border:solid 1px #C93; text-align:center;}
+	.readme ol { margin-left:45px;}
+
+/*填写申报书*/
+.input {padding:20px 20px;}
+	.input .line { border:none;border-bottom:solid 1px #add2da;}
+	.input li { clear:both;padding:6px 5px; list-style:none;}
+	.input h2 { float:left; font-size:14px; padding:0px 10px;}
+
+/*选择学科分类*/
+.select h2 { font-size:12px; float:left;}
+
+/*表格*/
+table { width:100%;}
+caption {font-size:14; font-weight:600;}
+   .caption_title {text-align:left; padding:5px 5px; border-bottom:solid 1px #add2da;}
+th { text-align:center;background-color:#add2da; height:25px;}
+td { height:25px; font-size:13px;}
+tr.mouseover {background-color:#C5DFE0;}
+tr.mouseout {background-color:#E6EBEC;}
+.tb_data {}
+.tb_input { width:600px;}
+	.tb_input .inputbox { border:none; border-bottom:solid 1px #add2da;}
+
+/*查看项目详细信息*/
+.show_more { float:left;border:dotted 1px #DB876A; background-color:#FFF;}
+	.show_more li {float:left; width:380px;padding:3px 0px;border-bottom:dotted 1px #DB876A; margin:1px 8px; overflow:hidden;}
+	.show_more h2 {float:left; font-size:12px;  width:80px;}
+	.show_more h1 {text-align:left; font-size:13px; color:#DB876A; border-bottom:solid 1px #DB876A; padding:5px 5px;}
+
+/*项目搜索*/
+.search { margin:0px 0px 10px 0px;padding:5px 5px; border:dashed 1px #add2da; background-color:#E6EBEC;}
+
+/*loadbox*/
+#alertFram {border:solid 1px #add2da; padding:3px 3px;}
+
+/*翻页信息*/
+.pager_bar {text-align:right; padding:5px 10px;}
+	.pager_bar a {padding:3px 5px; line-height:25px; border:solid 1px #8FB9D0; background-color:#DDF2FC; background:url(admin/pager_bg.gif) repeat-x;}
+
+/*常见按钮样式*/
+.save { background:url(tools/save.gif) no-repeat; padding-left:20px;}
+.back { background:url(tools/back.gif) no-repeat; padding-left:20px;}
+.print { background:url(tools/print.gif) no-repeat; padding-left:20px;}
+.submit { background:url(tools/submit.gif) no-repeat; padding-left:20px;}
+.select { background:url(tools/selectall.gif) no-repeat; padding-left:20px;}
+.delete { background:url(tools/delete.gif) no-repeat; padding-left:20px;}
+.change { background:url(tools/change.gif) no-repeat; padding-left:20px;}
+.set { background:url(tools/change.gif) no-repeat; padding-left:20px;}
+.doit { background:url(tools/doit.gif) no-repeat; padding-left:20px;}
+.undoit { background:url(tools/undoit.gif) no-repeat; padding-left:20px;}
+.add { background:url(tools/add.gif) no-repeat; padding-left:20px;}
+.group { background:url(tools/group.gif) no-repeat; padding-left:20px;}
+.list { background:url(tools/list.gif) no-repeat; padding-left:20px;}
+.export { background:url(tools/export.gif) no-repeat; padding-left:20px;}
+
+/*申报工具箱*/
+#tools {position:absolute;border:solid 1px #add2da; background-color:#D8E9F1; width:200px; float:right;right:10px; top:100px;}
+	#tools h1 { font-size:14px; padding:5px 5px; border-bottom:solid 1px #add2da;}
+
+/*后台产品上传图片样式*/
+.img_upload {float:left; margin:1px 5px; padding:1px 1px; border:solid 1px #add2da; cursor:pointer;}
+
+/*日历*/
+table.jCalendar {
+	border: 1px solid #add2da;
+	background: #e6e6e6;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+table.jCalendar th {
+	background: #add2da;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 5px;
+}
+table.jCalendar td {
+	background: #efefef;
+	color: #000;
+	padding: 3px 5px;
+	text-align: center;
+}
+table.jCalendar td.other-month {
+	background: #ddd;
+	color: #aaa;
+}
+table.jCalendar td.today {
+	background: #666;
+	color: #fff;
+}
+table.jCalendar td.selected {
+	background: #f66;
+	color: #fff;
+}
+table.jCalendar td.selected:hover {
+	background: #f33;
+	color: #fff;
+}
+table.jCalendar td:hover, table.jCalendar td.dp-hover {
+	background: #fff;
+	color: #000;
+}
+table.jCalendar td.disabled, table.jCalendar td.disabled:hover {
+	background: #bbb;
+	color: #888;
+}
+
+/* For the popup */
+
+/* NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css */
+
+div.dp-popup {
+	position: relative;
+	background: #add2da;
+	font-size: 10px;
+	font-family: arial, sans-serif;
+	padding: 2px;
+	width: 171px;
+	line-height: 1.2em;
+}
+div#dp-popup {
+	position: absolute;
+	z-index: 199;
+}
+div.dp-popup h2 {
+	font-size: 12px;
+	text-align: center;
+	margin: 2px 0;
+	padding: 0;
+}
+a#dp-close {
+	font-size: 11px;
+	padding: 4px 0;
+	text-align: center;
+	display: block;
+}
+a#dp-close:hover {
+	text-decoration: underline;
+}
+div.dp-popup a {
+	color: #000;
+	text-decoration: none;
+	padding: 3px 2px 0;
+}
+div.dp-popup div.dp-nav-prev {
+	position: absolute;
+	top: 2px;
+	left: 4px;
+	width: 100px;
+}
+div.dp-popup div.dp-nav-prev a {
+	float: left;
+}
+/* Opera needs the rules to be this specific otherwise it doesn't change the cursor back to pointer after you have disabled and re-enabled a link */
+div.dp-popup div.dp-nav-prev a, div.dp-popup div.dp-nav-next a {
+	cursor: pointer;
+}
+div.dp-popup div.dp-nav-prev a.disabled, div.dp-popup div.dp-nav-next a.disabled {
+	cursor: default;
+}
+div.dp-popup div.dp-nav-next {
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	width: 100px;
+}
+div.dp-popup div.dp-nav-next a {
+	float: right;
+}
+div.dp-popup a.disabled {
+	cursor: default;
+	color: #aaa;
+}
+div.dp-popup td {
+	cursor: pointer;
+}
+div.dp-popup td.disabled {
+	cursor: default;
+}
+a.dp-choose-date {
+	float: left;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	margin: 5px 3px 0;
+	display: block;
+	text-indent: -2000px;
+	overflow: hidden;
+	background: url(calendar.png) no-repeat; 
+}
+a.dp-choose-date.dp-disabled {
+	background-position: 0 -20px;
+	cursor: default;
+}
+/* makes the input field shorter once the date picker code
+ * has run (to allow space for the calendar icon
+ */
+input.dp-applied {
+	width: 140px;
+	float: left;
+}

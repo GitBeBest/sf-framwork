@@ -11,8 +11,8 @@ class controller
 	
 	public function auth()
 	{
-		if(!sf::getModel("actions")->isAuth())
-			$this->page_debug(lang::get("You do not have permission to visit!"),site_url("login/index"));	
+		if(!sf::getModel("Authorizations")->isAuth())
+			$this->page_debug(lang::get("You do not have permission to visit!"),getFromUrl());	
 	}
 	
 	public function shutdown(){}
@@ -24,6 +24,10 @@ class controller
 	{
 		$title == "" && $title = lang::get("Controller::debug");
 		$url == '' && $url = "javascript:history.go(-1);";
+		$type = trim(router::getFolder(),'/');
+		if($type == 'admin') $css = 'admin';
+		else if($type == 'expert') $css = 'expert';
+		else $css = 'front';
 		ob_start();
 		if(is_file(APPPATH."error/debug.php")) include_once(APPPATH."error/debug.php");
 		else include_once(SYSTEMPATH."error/debug.php");
