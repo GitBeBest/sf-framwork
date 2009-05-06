@@ -33,7 +33,7 @@
     <?php endwhile; ?>
     <tr>
       <td colspan="9"><span class="pager_bar">
-        <?=$pager->fromto().$pager->navbar(10)?>
+        <?=$pager->fromto().$pager->navbar(5).$pager->pagejump()?>
         </span>
         </td>
     </tr>

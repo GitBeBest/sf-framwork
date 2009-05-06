@@ -35,7 +35,7 @@
         <?php endwhile; ?>
         <tr>
           <td colspan="5"><span class="pager_bar">
-            <?=$pager->fromto().$pager->navbar(10)?>
+            <?=$pager->fromto().$pager->navbar(5).$pager->pagejump()?>
             </span> <input type="submit" name="Submit" value="删除选中项" /></td>
         </tr>
       </form>
