@@ -173,4 +173,20 @@
 	return $htmlStr;
  }
  
+ function test($tpl=1)
+ {
+ 	$template = sf::getModel("templates");
+	$addWhere = $addSql = '';
+	$type && $addWhere .= "`type_str` = '".$type."' ";
+	$addSql = "ORDER BY `cover` DESC,is_hot DESC,updated_at DESC";
+	
+	$result = sf::getModel("articles")->selectAll($addWhere,$addSql,$showMax);
+	ob_start();
+    eval("?>$content<?php ");
+    $output = ob_get_contents();
+    ob_end_clean();
+    return $output;
+	return $htmlStr;
+ }
+ 
 ?>

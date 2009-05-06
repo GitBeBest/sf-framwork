@@ -1,5 +1,5 @@
 <?php
-class templete extends controller
+class template extends controller
 {		
 	public $type = 'default';
 	
@@ -21,8 +21,8 @@ class templete extends controller
 		input::getInput("post.search") && $addWhere .= " AND `".input::getInput("mix.field")."` LIKE '%".trim(input::getInput("post.search"))."%' ";
 		//取得带翻页的数据集
 		$from_vars = array('field','search','type');
-		view::set("pager",sf::getModel("templetes")->getPager($addWhere ,$addSql ,30,'','',$from_vars));
-		view::apply("inc_body","admin/templete/index");
+		view::set("pager",sf::getModel("templates")->getPager($addWhere ,$addSql ,30,'','',$from_vars));
+		view::apply("inc_body","admin/template/index");
 		view::display("admin/page");
 	}
 	
@@ -31,20 +31,20 @@ class templete extends controller
 	 */
 	function edit()
 	{
-		$templete = sf::getModel("templetes",input::getInput("post.id") ? input::getInput("post.id") : input::getInput("get.id"));
+		$template = sf::getModel("templates",input::getInput("post.id") ? input::getInput("post.id") : input::getInput("get.id"));
 		if(input::getInput("post.subject"))
 		{
-			$templete->setSubject(input::getInput("post.subject"));
-			$templete->setBrief(input::getInput("post.brief"));
-			$templete->setContent(input::getInput("post.content"));
-			$templete->setTypeStr($this->type);
-			$templete->setCover(input::getInput("post.cover"));
-			$templete->setUpdatedAt(date("Y-m-d H:i:s"));
-			$templete->save();
-			$this->page_debug(lang::get("Has been saved!"),site_url("admin/templete/index/type/".$this->type));
+			$template->setSubject(input::getInput("post.subject"));
+			$template->setBrief(input::getInput("post.brief"));
+			$template->setContent(input::getInput("post.content"));
+			$template->setTypeStr($this->type);
+			$template->setCover(input::getInput("post.cover"));
+			$template->setUpdatedAt(date("Y-m-d H:i:s"));
+			$template->save();
+			$this->page_debug(lang::get("Has been saved!"),site_url("admin/template/index/type/".$this->type));
 		}
-		view::set("templete",$templete);
-		view::apply("inc_body","admin/templete/edit");
+		view::set("template",$template);
+		view::apply("inc_body","admin/template/edit");
 		view::display("admin/page");
 	}
 	
@@ -56,7 +56,7 @@ class templete extends controller
 		if(input::getInput("post.select_id")){
 			$ids = implode("','",input::getInput("post.select_id"));
 		}else $ids = input::getInput("get.id");
-		if(sf::getModel("templetes")->remove("`id` IN ('".$ids."')")) $this->page_debug(lang::get("Has been deleted!"),getFromUrl());
+		if(sf::getModel("templates")->remove("`id` IN ('".$ids."')")) $this->page_debug(lang::get("Has been deleted!"),getFromUrl());
 		else $this->page_debug(lang::get("Nothing to do!"),getFromUrl());
 	}
 }
