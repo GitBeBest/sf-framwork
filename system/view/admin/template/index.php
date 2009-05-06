@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="tools"> <a href="<?=site_url("admin/templete/edit/type/".$type)?>" class="add">新增标签</a> <a href="#" onclick="$('#validateForm').submit();" class="delete">删除选中项</a> </div>
+  <div class="tools"> <a href="<?=site_url("admin/template/edit/type/".$type)?>" class="add">新增标签</a> <a href="#" onclick="$('#validateForm').submit();" class="delete">删除选中项</a> </div>
   <div class="search">
     <form id="form1" name="form1" method="post" action="">
       <label>关键词
@@ -16,7 +16,7 @@
   </div>
   <div class="box">
     <table cellpadding="3" cellspacing="1" class="tb_data">
-      <form id="validateForm" name="validateForm" method="post" action="<?=site_url("admin/templete/delete/type/".$type)?>">
+      <form id="validateForm" name="validateForm" method="post" action="<?=site_url("admin/template/delete/type/".$type)?>">
         <tr>
           <th><input name="selectAll" id="selectAll" type="checkbox" /></th>
           <th width="30%"><?=getColumnStr('标签标题','subject')?></th>
@@ -24,13 +24,13 @@
           <th><?=getColumnStr('最近更新时间','updated_at')?></th>
           <th>可用操作</th>
         </tr>
-        <?php while($templete = $pager->getObject()):?>
+        <?php while($template = $pager->getObject()):?>
         <tr>
-          <td align="center"><input name="select_id[]"  type="checkbox" value="<?=$templete->getId()?>" /></td>
-          <td align="left"><?=$templete->getSubject()?></td>
-          <td align="center"><?=$templete->getBrief(60)?></td>
-          <td align="center"><?=$templete->getUpdatedAt("Y/m/d")?></td>
-          <td align="center"><a href="<?=site_url("admin/templete/delete/type/".$type."/id/".$templete->getId())?>" onclick="return confirm('删除后不可恢复，你确定删除？');">删除</a> <a href="<?=site_url("admin/templete/edit/type/".$type."/id/".$templete->getId())?>">编辑</a></td>
+          <td align="center"><input name="select_id[]"  type="checkbox" value="<?=$template->getId()?>" /></td>
+          <td align="left"><?=$template->getSubject()?></td>
+          <td align="center"><?=$template->getBrief(60)?></td>
+          <td align="center"><?=$template->getUpdatedAt("Y/m/d")?></td>
+          <td align="center"><a href="<?=site_url("admin/template/delete/type/".$type."/id/".$template->getId())?>" onclick="return confirm('删除后不可恢复，你确定删除？');">删除</a> <a href="<?=site_url("admin/template/edit/type/".$type."/id/".$template->getId())?>">编辑</a></td>
         </tr>
         <?php endwhile; ?>
         <tr>
