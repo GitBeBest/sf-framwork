@@ -102,7 +102,7 @@ class AdPlugin
 	{
 		$content = $this->ads->getContent();
 		if(!$content["code"]) return;
-		return str_replace("\'","'",str_replace('\"','"',$content["code"]));
+		return stripslashes($content["code"]);
 	}
 }
 ?>
