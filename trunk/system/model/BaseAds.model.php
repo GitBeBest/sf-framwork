@@ -6,17 +6,16 @@
  * $Id: init-model.php 151 2008-10-20 17:20:26Z meetcd $
  */
 
-class BaseTempletes extends model
+class BaseAds extends model
 {
   private $id  = '';
   private $subject  = '';
   private $type_str  = '';
   private $brief  = '';
   private $content  = '';
-  private $cover  = '';
-  private $func  = '';
+  private $is_public  = '';
   private $updated_at  = '';
-  public $table = "templetes";
+  public $table = "ads";
   private $is_new = true;
 
   public function setTable($table)
@@ -71,22 +70,9 @@ class BaseTempletes extends model
     return $this->content;
   }
 
-  public function getCover($len=0)
+  public function getIsPublic()
   {
-    if($len){
-    	if(function_exists("mb_substr")) return mb_substr($this->cover,0,$len,"utf-8");
-    	else return substr($this->cover,0,$len);
-    }
-    return $this->cover;
-  }
-
-  public function getFunc($len=0)
-  {
-    if($len){
-    	if(function_exists("mb_substr")) return mb_substr($this->func,0,$len,"utf-8");
-    	else return substr($this->func,0,$len);
-    }
-    return $this->func;
+    return $this->is_public;
   }
 
   public function getUpdatedAt($fromat="Y-m-d H:i:s")
@@ -150,25 +136,14 @@ class BaseTempletes extends model
     }
   }
 
-  public function setCover($v)
+  public function setIsPublic($v)
   {
     if(!isset($v)) return false;
-    $v = (string)$v;
-    if($this->cover !== $v)
+    $v = (int)$v;
+    if($this->is_public !== $v)
     {
-      $this->cover = $v;
-      $this->fieldData["cover"] = $v;
-    }
-  }
-
-  public function setFunc($v)
-  {
-    if(!isset($v)) return false;
-    $v = (string)$v;
-    if($this->func !== $v)
-    {
-      $this->func = $v;
-      $this->fieldData["func"] = $v;
+      $this->is_public = $v;
+      $this->fieldData["is_public"] = $v;
     }
   }
 
@@ -199,7 +174,7 @@ class BaseTempletes extends model
   {
     if(!$addWhere) return false;
     $db = sf::getLib("db");
-    $sql = "DELETE FROM `templetes` WHERE $addWhere ";
+    $sql = "DELETE FROM `ads` WHERE $addWhere ";
     $db->query($sql);
     return $db->affected_rows();
   }
@@ -212,8 +187,7 @@ class BaseTempletes extends model
      "type_str" => $this->getTypeStr(),
      "brief" => $this->getBrief(),
      "content" => $this->getContent(),
-     "cover" => $this->getCover(),
-     "func" => $this->getFunc(),
+     "is_public" => $this->getIsPublic(),
      "updated_at" => $this->getUpdatedAt(),
    );
   }
@@ -225,8 +199,7 @@ class BaseTempletes extends model
     $this->type_str = '';
     $this->brief = '';
     $this->content = '';
-    $this->cover = '';
-    $this->func = '';
+    $this->is_public = '';
     $this->updated_at = '';
     $this->fieldData = array();
     $this->is_new = true;
@@ -244,8 +217,7 @@ class BaseTempletes extends model
     isset($data["type_str"]) && $this->type_str = $data["type_str"];
     isset($data["brief"]) && $this->brief = $data["brief"];
     isset($data["content"]) && $this->content = $data["content"];
-    isset($data["cover"]) && $this->cover = $data["cover"];
-    isset($data["func"]) && $this->func = $data["func"];
+    isset($data["is_public"]) && $this->is_public = $data["is_public"];
     isset($data["updated_at"]) && $this->updated_at = $data["updated_at"];
     return $this;
   }
