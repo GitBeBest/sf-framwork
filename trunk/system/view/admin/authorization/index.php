@@ -38,7 +38,7 @@
     <?php endwhile; ?>
     <tr>
       <td colspan="7" align="left"> <span class="pager_bar">
-        <?=$pager->fromto().$pager->navbar(10)?>
+        <?=$pager->fromto().$pager->navbar(5).$pager->pagejump()?>
         </span><input name="delete" type="submit" id="delete" value="删除选中项目" onclick="return confirm('删除后不可以恢复，你确定要删除？');"/>
        </td>
     </tr>
