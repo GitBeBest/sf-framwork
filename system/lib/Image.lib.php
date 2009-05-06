@@ -103,7 +103,6 @@ class image
             $color_black = imagecolorallocate($image , 100 , 100 , 100);
             for ($i = 0 ; $i < 600 ; $i++) imagesetpixel($image , mt_rand(0 , $imgW) , mt_rand(0 , $imgH) , $color_gray);
 			imagestring($image,$font,6,2,$randStr,$color_black);
-			//imagettftext($image,16,0,5,20,$color_black,"Tuffy.ttf",$randStr);
             imagerectangle($image , 0 , 0 , $imgW - 1 , $imgH - 1 , $color_gray);
             imagepng($image);
             imagedestroy($image);
