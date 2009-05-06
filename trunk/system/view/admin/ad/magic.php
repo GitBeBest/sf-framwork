@@ -22,7 +22,7 @@
   <tr>
       <th width="39" rowspan="3" align="center"><?=$i + 1 ?></th>
       <th align="right" width="80">上传图片</th>
-      <td><input name="content[<?=$i?>][image]" id="image_<?=$i?>" type="text" value="<?=$content[$i]['image']?>" size="30"  onfocus="loadbox.load('<?=site_url("common/upload")?>',function(json){$('#image_<?=$i?>').val(json[0].path);});"/></td>
+      <td><input name="content[<?=$i?>][image]" id="image_<?=$i?>" type="text" value="<?=$content[$i]['image']?>" size="30"  onfocus="loadbox.load('<?=site_url("common/upload")?>',function(json){$('#image_<?=$i?>').val(json[0].path);});"/> <a href="#" onclick="$('#image_<?=$i?>').val('');return false;">清空</a> (目前只支持JPG格式的图片)</td>
     </tr>
     <tr>
       <th width="80" align="right">连接地址</th>

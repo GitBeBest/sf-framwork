@@ -26,7 +26,7 @@ class upload
      * 默认充许上传的文件类型
      * @var array
      */
-    public $allowType = array('gif','jpg','png','bmp');
+    public $allowType = array('gif','jpg','png','bmp','swf');
     /**
      * 最终保存的文件名称
      * @var string
