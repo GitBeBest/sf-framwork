@@ -21,7 +21,7 @@ class template extends controller
 		input::getInput("post.search") && $addWhere .= " AND `".input::getInput("mix.field")."` LIKE '%".trim(input::getInput("post.search"))."%' ";
 		//取得带翻页的数据集
 		$from_vars = array('field','search','type');
-		view::set("pager",sf::getModel("templates")->getPager($addWhere ,$addSql ,30,'','',$from_vars));
+		view::set("pager",sf::getModel("templates")->getPager($addWhere ,$addSql ,6,'','',$from_vars));
 		view::apply("inc_body","admin/template/index");
 		view::display("admin/page");
 	}
@@ -45,6 +45,17 @@ class template extends controller
 		}
 		view::set("template",$template);
 		view::apply("inc_body","admin/template/edit");
+		view::display("admin/page");
+	}
+	
+	/**
+	 * 查看模板
+	 */
+	function show()
+	{
+		$template = sf::getModel("templates",input::getInput("get.id"));
+		view::set("template",$template);
+		view::apply("inc_body","admin/template/show");
 		view::display("admin/page");
 	}
 	

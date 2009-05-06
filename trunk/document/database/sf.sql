@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2009 年 05 月 03 日 22:53
+-- 生成日期: 2009 年 05 月 06 日 17:18
 -- 服务器版本: 5.0.51
 -- PHP 版本: 5.2.6
 
@@ -18,6 +18,35 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- 数据库: `sf`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ads`
+--
+
+DROP TABLE IF EXISTS `ads`;
+CREATE TABLE IF NOT EXISTS `ads` (
+  `id` int(11) NOT NULL auto_increment,
+  `subject` varchar(20) default NULL COMMENT '广告标题',
+  `type_str` varchar(20) NOT NULL default 'image' COMMENT '广告类型',
+  `brief` text COMMENT '广告描述',
+  `content` longtext COMMENT '广告内容',
+  `is_public` int(1) NOT NULL default '0' COMMENT '是否发布',
+  `updated_at` datetime default NULL COMMENT '广告更新时间',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- 导出表中的数据 `ads`
+--
+
+INSERT INTO `ads` (`id`, `subject`, `type_str`, `brief`, `content`, `is_public`, `updated_at`) VALUES
+(1, '图形广告演示', 'image', '图形广告演示                                                  ', 'YToxMTp7czo2OiJjb25maWciO2E6Mjp7czo1OiJ3aWR0aCI7czozOiIxMjUiO3M6NjoiaGVpZ2h0IjtzOjM6IjEwMCI7fWk6MDthOjM6e3M6NToiaW1hZ2UiO3M6MjY6IjIwMDkvMDUvMTI0MTU4MDE5MzY2NDYucG5nIjtzOjM6InVybCI7czoxOiIjIjtzOjM6ImRlcyI7czo5OiLmlK/ku5jlrp0iO31pOjE7YTozOntzOjU6ImltYWdlIjtzOjI2OiIyMDA5LzA1LzEyNDE1ODAyMDI4OTYyLnBuZyI7czozOiJ1cmwiO3M6MToiIyI7czozOiJkZXMiO3M6Njoi572R6ZO2Ijt9aToyO2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTozO2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo0O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo1O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo2O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo3O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo4O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo5O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9fQ==', 1, '2009-05-06 14:09:59'),
+(2, '文本广告', 'text', '文本广告                              ', 'YToxMDp7aTowO2E6Mzp7czo0OiJ0ZXh0IjtzOjEzOiLmloflrZflhoXlrrkxIjtzOjM6InVybCI7czoxOiIjIjtzOjM6ImRlcyI7czoxMzoi5paH5a2X5YaF5a65MSI7fWk6MTthOjM6e3M6NDoidGV4dCI7czoxMzoi5paH5a2X5YaF5a65MiI7czozOiJ1cmwiO3M6MToiIyI7czozOiJkZXMiO3M6MTM6IuaWh+Wtl+WGheWuuTIiO31pOjI7YTozOntzOjQ6InRleHQiO3M6MTM6IuaWh+Wtl+WGheWuuTMiO3M6MzoidXJsIjtzOjE6IiMiO3M6MzoiZGVzIjtzOjEzOiLmloflrZflhoXlrrkzIjt9aTozO2E6Mzp7czo0OiJ0ZXh0IjtzOjEzOiLmloflrZflhoXlrrk0IjtzOjM6InVybCI7czoxOiIjIjtzOjM6ImRlcyI7czoxMzoi5paH5a2X5YaF5a65NCI7fWk6NDthOjM6e3M6NDoidGV4dCI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo1O2E6Mzp7czo0OiJ0ZXh0IjtzOjA6IiI7czozOiJ1cmwiO3M6MDoiIjtzOjM6ImRlcyI7czowOiIiO31pOjY7YTozOntzOjQ6InRleHQiO3M6MDoiIjtzOjM6InVybCI7czowOiIiO3M6MzoiZGVzIjtzOjA6IiI7fWk6NzthOjM6e3M6NDoidGV4dCI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo4O2E6Mzp7czo0OiJ0ZXh0IjtzOjA6IiI7czozOiJ1cmwiO3M6MDoiIjtzOjM6ImRlcyI7czowOiIiO31pOjk7YTozOntzOjQ6InRleHQiO3M6MDoiIjtzOjM6InVybCI7czowOiIiO3M6MzoiZGVzIjtzOjA6IiI7fX0=', 0, '2009-05-06 12:01:12'),
+(3, 'flash类型', 'flash', 'flash类型                                                                                                    ', 'YToyOntzOjY6ImNvbmZpZyI7YToyOntzOjU6IndpZHRoIjtzOjM6IjYwMCI7czo2OiJoZWlnaHQiO3M6MzoiMTAwIjt9czo1OiJmbGFzaCI7czoyNjoiMjAwOS8wNS8xMjQxNTk1NDcxMzE4Ny5zd2YiO30=', 1, '2009-05-06 15:39:12'),
+(4, '代码类型', 'code', '代码类型                    ', 'YToxOntzOjQ6ImNvZGUiO3M6MzM6IjxzY3JpcHQ+YWxlcnQoXCdnb29kXCcpOzwvc2NyaXB0PiI7fQ==', 0, '2009-05-06 14:47:37'),
+(5, '幻灯类型', 'magic', '幻灯类型                                                  ', 'YTo3OntzOjY6ImNvbmZpZyI7YTo0OntzOjU6IndpZHRoIjtzOjM6IjMwMCI7czo2OiJoZWlnaHQiO3M6MzoiMjAwIjtzOjEwOiJ0ZXh0aGVpZ2h0IjtzOjE6IjEiO3M6NzoiYmdjb2xvciI7czo3OiIjRkZGRkZGIjt9aTowO2E6Mzp7czo1OiJpbWFnZSI7czoyNjoiMjAwOS8wNS8xMjQxNTkyMjAxNzc2Ny5qcGciO3M6MzoidXJsIjtzOjE6IiMiO3M6MzoiZGVzIjtzOjk6IuWbvueJh+S4gCI7fWk6MTthOjM6e3M6NToiaW1hZ2UiO3M6MjY6IjIwMDkvMDUvMTI0MTU5MjY5MDE2MTkuanBnIjtzOjM6InVybCI7czoxOiIjIjtzOjM6ImRlcyI7czo5OiLlm77niYfkuowiO31pOjI7YTozOntzOjU6ImltYWdlIjtzOjI2OiIyMDA5LzA1LzEyNDE1OTI3MTQ5OTU4LmpwZyI7czozOiJ1cmwiO3M6MToiIyI7czozOiJkZXMiO3M6OToi5Zu+54mH5LiJIjt9aTozO2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo0O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9aTo1O2E6Mzp7czo1OiJpbWFnZSI7czowOiIiO3M6MzoidXJsIjtzOjA6IiI7czozOiJkZXMiO3M6MDoiIjt9fQ==', 1, '2009-05-06 14:52:17');
 
 -- --------------------------------------------------------
 
@@ -162,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `authorizations` (
   `method` varchar(30) default NULL,
   `user_group_ids` varchar(255) NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
 
 --
 -- 导出表中的数据 `authorizations`
@@ -212,7 +241,15 @@ INSERT INTO `authorizations` (`id`, `controller`, `controller_name`, `method`, `
 (41, 'admin/orders', 'admin/orders', 'index', '1'),
 (42, 'admin/orders', 'admin/orders', 'edit', '1'),
 (43, 'admin/orders', 'admin/orders', 'delete', '1'),
-(44, 'admin/article', 'admin/article', 'delete', '1');
+(44, 'admin/article', 'admin/article', 'delete', '1'),
+(45, 'welcome', 'welcome', 'index', '1'),
+(46, 'admin/ad', 'admin/ad', 'index', '1'),
+(47, 'admin/ad', 'admin/ad', 'edit', '1'),
+(48, 'admin/ad', 'admin/ad', 'content', '1'),
+(49, 'admin/ad', 'admin/ad', 'show', '1'),
+(50, 'admin/template', 'admin/template', 'index', '1'),
+(51, 'admin/template', 'admin/template', 'edit', '1'),
+(52, 'admin/template', 'admin/template', 'show', '1');
 
 -- --------------------------------------------------------
 
@@ -376,7 +413,7 @@ CREATE TABLE IF NOT EXISTS `filemanager` (
   `authorization` varchar(200) NOT NULL default '1',
   `used` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
 
 --
 -- 导出表中的数据 `filemanager`
@@ -395,7 +432,17 @@ INSERT INTO `filemanager` (`id`, `item_id`, `item_type`, `file_name`, `file_save
 (35, NULL, 'project', 'main_21.gif', '12394488417229.gif', '2009/04/12394488417229.gif', '591', 'gif', 'image/gif', '2009-04-11 19:20:41', NULL, 255, 'super', '1', 0),
 (36, NULL, 'project', 'main_52.gif', '12394488496552.gif', '2009/04/12394488496552.gif', '1507', 'gif', 'image/gif', '2009-04-11 19:20:49', NULL, 255, 'super', '1', 0),
 (37, NULL, 'project', 'main_56.gif', '12394489017594.gif', '2009/04/12394489017594.gif', '517', 'gif', 'image/gif', '2009-04-11 19:21:41', NULL, 255, 'super', '1', 0),
-(38, NULL, 'project', 'calendar.png', '12395430731754.png', '2009/04/12395430731754.png', '1091', 'png', 'image/x-png', '2009-04-12 21:31:14', NULL, 255, 'super', '1', 0);
+(38, NULL, 'project', 'calendar.png', '12395430731754.png', '2009/04/12395430731754.png', '1091', 'png', 'image/x-png', '2009-04-12 21:31:14', NULL, 255, 'super', '1', 0),
+(39, NULL, 'project', '22372100.png', '12415801936646.png', '2009/05/12415801936646.png', '2013', 'png', 'image/x-png', '2009-05-06 11:23:13', NULL, 255, 'super', '1', 0),
+(40, NULL, 'project', '04580200.png', '12415802028962.png', '2009/05/12415802028962.png', '2246', 'png', 'image/x-png', '2009-05-06 11:23:22', NULL, 255, 'super', '1', 0),
+(41, NULL, 'project', 'suxian.gif', '12415816914916.gif', '2009/05/12415816914916.gif', '106', 'gif', 'image/gif', '2009-05-06 11:48:11', NULL, 255, 'super', '1', 0),
+(42, NULL, 'project', '04580200.png', '12415826202823.png', '2009/05/12415826202823.png', '2246', 'png', 'image/x-png', '2009-05-06 12:03:40', NULL, 255, 'super', '1', 0),
+(43, NULL, 'project', '84300900.png', '12415826261704.png', '2009/05/12415826261704.png', '2222', 'png', 'image/x-png', '2009-05-06 12:03:46', NULL, 255, 'super', '1', 0),
+(44, NULL, 'project', '66849300.png', '12415826352717.png', '2009/05/12415826352717.png', '2253', 'png', 'image/x-png', '2009-05-06 12:03:55', NULL, 255, 'super', '1', 0),
+(45, NULL, 'project', 'ban.jpg', '12415922017767.jpg', '2009/05/12415922017767.jpg', '22970', 'jpg', 'image/pjpeg', '2009-05-06 14:43:21', NULL, 255, 'super', '1', 0),
+(46, NULL, 'project', 'xwdt.jpg', '12415926901619.jpg', '2009/05/12415926901619.jpg', '10921', 'jpg', 'image/pjpeg', '2009-05-06 14:51:30', NULL, 255, 'super', '1', 0),
+(47, NULL, 'project', 'cp001.jpg', '12415927149958.jpg', '2009/05/12415927149958.jpg', '3634', 'jpg', 'image/pjpeg', '2009-05-06 14:51:54', NULL, 255, 'super', '1', 0),
+(48, NULL, 'project', '174160.swf', '12415954713187.swf', '2009/05/12415954713187.swf', '30500', 'swf', 'application/x-shockwave-flash', '2009-05-06 15:37:51', NULL, 255, 'super', '1', 0);
 
 -- --------------------------------------------------------
 
@@ -463,7 +510,7 @@ CREATE TABLE IF NOT EXISTS `managers` (
 --
 
 INSERT INTO `managers` (`id`, `user_group_id`, `user_name`, `user_username`, `user_password`, `login_num`, `lastlogin_at`, `created_at`, `updated_at`, `user_ip`, `user_email`, `first_question`, `first_answer`, `second_question`, `second_answer`, `is_lock`) VALUES
-(255, 1, 'super', 'super', '5ee086bf7231be4dc788046d4a0fc233:dbe', 22, '2009-05-03 22:05:42', NULL, '2009-04-08 21:40:36', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1),
+(255, 1, 'super', 'super', '5ee086bf7231be4dc788046d4a0fc233:dbe', 25, '2009-05-06 10:43:29', NULL, '2009-04-08 21:40:36', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1),
 (256, 2, 'admin', 'admin', 'e85de916711a78e8c58867dceee792d1:cea', 1, '2009-04-12 17:38:49', NULL, '2009-04-08 21:41:06', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -488,41 +535,44 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `user_group_ids` varchar(200) NOT NULL default '1' COMMENT '能访问的权限组',
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- 导出表中的数据 `menus`
 --
 
 INSERT INTO `menus` (`id`, `subject`, `type`, `head_str`, `level`, `parent_id`, `left`, `right`, `orders`, `alt`, `url`, `user_group_ids`, `updated_at`) VALUES
-(24, '产品模板列表', 'default', '│├', 2, 22, 2, 3, NULL, '新增模板', 'admin/templete/index/type/product', '1', '2009-04-12 21:15:53'),
-(23, '文章模板列表', 'default', '│└', 2, 22, 4, 5, NULL, '文章模板列表', 'admin/templete/index/type/article', '1', '2009-04-12 21:15:24'),
-(22, '模板管理', 'default', '├', 1, 0, 1, 6, NULL, '模板管理', '#', '1', '2009-04-12 21:11:36'),
-(6, '文章管理', 'default', '├', 1, 0, 23, 30, 3, '文章管理', '#', '1,2', '2009-04-12 16:23:48'),
-(7, '文章分类', 'default', '│├', 2, 6, 24, 25, NULL, '管理文章分类', 'admin/category/index/type/article', '1,2', '2009-04-12 16:22:47'),
-(8, '产品管理', 'default', '├', 1, 0, 31, 38, 4, '管理产品', '#', '1,2', '2009-04-12 16:23:42'),
-(9, '页面管理', 'default', '├', 1, 0, 17, 22, 2, '网站内动态页面管理', '#', '1,2', '2009-04-12 16:24:08'),
-(10, '系统管理', 'default', '├', 1, 0, 7, 16, 1, '系统管理', '#', '1', '2009-04-12 16:08:14'),
-(11, '文章列表', 'default', '│├', 2, 6, 26, 27, NULL, '文章列表 ', 'admin/article/index/type/article', '1,2', '2009-04-12 16:23:10'),
-(12, '新增文章 ', 'default', '│└', 2, 6, 28, 29, NULL, '新增文章 ', 'admin/article/edit/type/article', '1,2', '2009-04-12 16:23:34'),
-(13, '产品分类', 'default', '│├', 2, 8, 32, 33, NULL, '产品分类', 'admin/category/index/type/product', '1,2', '2009-04-12 16:21:49'),
-(14, '产品列表', 'default', '│├', 2, 8, 34, 35, NULL, '产品列表', 'admin/product/index/type/product', '1,2', '2009-04-12 16:22:11'),
-(15, '新增产品', 'default', '│└', 2, 8, 36, 37, NULL, '新增产品', 'admin/product/edit/type/product', '1,2', '2009-04-12 16:22:30'),
-(16, '页面列表', 'default', '│├', 2, 9, 18, 19, NULL, '页面列表', 'admin/page/index/type/default', '1,2', '2009-04-12 16:24:31'),
-(17, '新增页面', 'default', '│└', 2, 9, 20, 21, NULL, '新增页面 ', 'admin/page/edit/type/default', '1,2', '2009-04-12 16:25:04'),
-(18, '权限组列表', 'default', '│├', 2, 10, 8, 9, NULL, '权限组列表', 'admin/user/group_list', '1', '2009-04-12 16:26:01'),
-(19, '权限列表', 'default', '│├', 2, 10, 10, 11, NULL, '权限列表 ', 'admin/authorization/index', '1', '2009-04-12 16:25:49'),
-(20, '管理员列表 ', 'default', '│├', 2, 10, 12, 13, NULL, '管理员列表 ', 'admin/user/index', '1', '2009-04-12 16:25:36'),
-(21, '菜单列表', 'default', '│└', 2, 10, 14, 15, NULL, '菜单列表', 'admin/menu/index', '1', '2009-04-12 16:25:24'),
-(25, '在线留言', 'default', '├', 1, 0, 39, 42, 5, '在线留言', '#', '1,2', '2009-04-15 21:30:50'),
-(26, '留言列表', 'default', '│└', 2, 25, 40, 41, NULL, '留言列表', 'admin/book/index', '1,2', '2009-04-15 21:31:24'),
-(27, '在线招聘', 'default', '├', 1, 0, 43, 48, 6, '在线招聘', '#', '1,2', '2009-04-15 22:22:10'),
-(28, '职位列表', 'default', '│├', 2, 27, 44, 45, NULL, '职位列表', 'admin/job/index', '1,2', '2009-04-15 22:22:48'),
-(29, '招聘反馈信息', 'default', '│└', 2, 27, 46, 47, NULL, '招聘反馈信息', 'admin/job/back', '1,2', '2009-04-15 22:23:52'),
-(30, '站点全局设置', 'default', '├', 1, 0, 49, 52, 7, '设置站点的一些信息', '#', '1,2', '2009-04-21 21:18:35'),
-(31, '全局设置', 'default', '│└', 2, 30, 50, 51, NULL, '设置站点名，数据库连接等信息', 'admin/configure/index', '1,2', '2009-04-21 21:19:39'),
-(32, '在线订单', 'default', '└', 1, 0, 53, 56, 8, '查看会员的订单', '#', '1,2', '2009-04-21 22:14:15'),
-(33, '订单列表', 'default', '&nbsp;&nbsp;└', 2, 32, 54, 55, NULL, '订单列表', 'admin/orders/index', '1,2', '2009-04-21 22:15:15');
+(24, '产品模板列表', 'default', '&nbsp;&nbsp;├', 2, 22, 58, 59, NULL, '新增模板', 'admin/template/index/type/product', '1', '2009-05-06 16:38:24'),
+(23, '文章模板列表', 'default', '&nbsp;&nbsp;└', 2, 22, 60, 61, NULL, '文章模板列表', 'admin/template/index/type/article', '1', '2009-05-06 16:38:35'),
+(22, '模板管理', 'default', '└', 1, 0, 57, 62, 10, '模板管理', '#', '1', '2009-05-06 16:38:10'),
+(6, '文章管理', 'default', '├', 1, 0, 17, 24, 3, '文章管理', '#', '1,2', '2009-04-12 16:23:48'),
+(7, '文章分类', 'default', '│├', 2, 6, 18, 19, NULL, '管理文章分类', 'admin/category/index/type/article', '1,2', '2009-04-12 16:22:47'),
+(8, '产品管理', 'default', '├', 1, 0, 25, 32, 4, '管理产品', '#', '1,2', '2009-04-12 16:23:42'),
+(9, '页面管理', 'default', '├', 1, 0, 11, 16, 2, '网站内动态页面管理', '#', '1,2', '2009-04-12 16:24:08'),
+(10, '系统管理', 'default', '├', 1, 0, 1, 10, 1, '系统管理', '#', '1', '2009-04-12 16:08:14'),
+(11, '文章列表', 'default', '│├', 2, 6, 20, 21, NULL, '文章列表 ', 'admin/article/index/type/article', '1,2', '2009-04-12 16:23:10'),
+(12, '新增文章 ', 'default', '│└', 2, 6, 22, 23, NULL, '新增文章 ', 'admin/article/edit/type/article', '1,2', '2009-04-12 16:23:34'),
+(13, '产品分类', 'default', '│├', 2, 8, 26, 27, NULL, '产品分类', 'admin/category/index/type/product', '1,2', '2009-04-12 16:21:49'),
+(14, '产品列表', 'default', '│├', 2, 8, 28, 29, NULL, '产品列表', 'admin/product/index/type/product', '1,2', '2009-04-12 16:22:11'),
+(15, '新增产品', 'default', '│└', 2, 8, 30, 31, NULL, '新增产品', 'admin/product/edit/type/product', '1,2', '2009-04-12 16:22:30'),
+(16, '页面列表', 'default', '│├', 2, 9, 12, 13, NULL, '页面列表', 'admin/page/index/type/default', '1,2', '2009-04-12 16:24:31'),
+(17, '新增页面', 'default', '│└', 2, 9, 14, 15, NULL, '新增页面 ', 'admin/page/edit/type/default', '1,2', '2009-04-12 16:25:04'),
+(18, '权限组列表', 'default', '│├', 2, 10, 2, 3, NULL, '权限组列表', 'admin/user/group_list', '1', '2009-04-12 16:26:01'),
+(19, '权限列表', 'default', '│├', 2, 10, 4, 5, NULL, '权限列表 ', 'admin/authorization/index', '1', '2009-04-12 16:25:49'),
+(20, '管理员列表 ', 'default', '│├', 2, 10, 6, 7, NULL, '管理员列表 ', 'admin/user/index', '1', '2009-04-12 16:25:36'),
+(21, '菜单列表', 'default', '│└', 2, 10, 8, 9, NULL, '菜单列表', 'admin/menu/index', '1', '2009-04-12 16:25:24'),
+(25, '在线留言', 'default', '├', 1, 0, 33, 36, 5, '在线留言', '#', '1,2', '2009-04-15 21:30:50'),
+(26, '留言列表', 'default', '│└', 2, 25, 34, 35, NULL, '留言列表', 'admin/book/index', '1,2', '2009-04-15 21:31:24'),
+(27, '在线招聘', 'default', '├', 1, 0, 37, 42, 6, '在线招聘', '#', '1,2', '2009-04-15 22:22:10'),
+(28, '职位列表', 'default', '│├', 2, 27, 38, 39, NULL, '职位列表', 'admin/job/index', '1,2', '2009-04-15 22:22:48'),
+(29, '招聘反馈信息', 'default', '│└', 2, 27, 40, 41, NULL, '招聘反馈信息', 'admin/job/back', '1,2', '2009-04-15 22:23:52'),
+(30, '站点全局设置', 'default', '├', 1, 0, 43, 46, 7, '设置站点的一些信息', '#', '1,2', '2009-04-21 21:18:35'),
+(31, '全局设置', 'default', '│└', 2, 30, 44, 45, NULL, '设置站点名，数据库连接等信息', 'admin/configure/index', '1,2', '2009-04-21 21:19:39'),
+(32, '在线订单', 'default', '├', 1, 0, 47, 50, 8, '查看会员的订单', '#', '1,2', '2009-04-21 22:14:15'),
+(33, '订单列表', 'default', '│└', 2, 32, 48, 49, NULL, '订单列表', 'admin/orders/index', '1,2', '2009-04-21 22:15:15'),
+(34, '广告管理', 'default', '├', 1, 0, 51, 56, 9, '广告管理', '#', '1,2', '2009-05-06 09:12:30'),
+(35, '广告列表', 'default', '│├', 2, 34, 52, 53, 1, '广告列表', 'admin/ad/index', '1,2', '2009-05-06 09:13:12'),
+(36, '新增广告', 'default', '│└', 2, 34, 54, 55, 2, '新增广告', 'admin/ad/edit', '1,2', '2009-05-06 09:14:02');
 
 -- --------------------------------------------------------
 
@@ -624,11 +674,11 @@ INSERT INTO `products` (`id`, `subject`, `price`, `type_str`, `category_id`, `br
 -- --------------------------------------------------------
 
 --
--- 表的结构 `templetes`
+-- 表的结构 `templates`
 --
 
-DROP TABLE IF EXISTS `templetes`;
-CREATE TABLE IF NOT EXISTS `templetes` (
+DROP TABLE IF EXISTS `templates`;
+CREATE TABLE IF NOT EXISTS `templates` (
   `id` int(11) NOT NULL auto_increment,
   `subject` varchar(30) default NULL COMMENT '模板标题',
   `type_str` varchar(10) default NULL COMMENT '分类标记',
@@ -638,14 +688,14 @@ CREATE TABLE IF NOT EXISTS `templetes` (
   `func` varchar(20) default NULL COMMENT '调用函数名称',
   `updated_at` datetime default NULL COMMENT '最近更新时间',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 导出表中的数据 `templetes`
+-- 导出表中的数据 `templates`
 --
 
-INSERT INTO `templetes` (`id`, `subject`, `type_str`, `brief`, `content`, `cover`, `func`, `updated_at`) VALUES
-(1, '热点文章提取', 'article', '提取指定数量的热点文章，显示的条数等可以前台设置。                    ', '<table width="90%" border="0" cellspacing="0" cellpadding="0">\r\n  <?php while($article = $articles->getObject()):?>\r\n  <tr>\r\n    <td width="10" height="24" align="center">&middot;</td>\r\n    <td height="24"><?=link_to("article/show/type/article/id/".$article->getId(),$article->getSubject())?></td>\r\n  </tr>\r\n  <?php endwhile;?>\r\n</table>', '2009/04/12395430731754.png', NULL, '2009-04-12 22:14:24');
+INSERT INTO `templates` (`id`, `subject`, `type_str`, `brief`, `content`, `cover`, `func`, `updated_at`) VALUES
+(1, '热点文章提取', 'article', '提取指定数量的热点文章，显示的条数等可以前台设置。                                                  ', '<table width="90%" border="0" cellspacing="0" cellpadding="0">\r\n  <?php while($article = $result->getObject()):?>\r\n  <tr>\r\n    <td width="10" height="24" align="center">·</td>\r\n    <td height="24"><?=link_to("article/show/type/article/id/".$article->getId(),$article->getSubject())?></td>\r\n  </tr>\r\n  <?php endwhile;?>\r\n</table>', '2009/04/12395430731754.png', NULL, '2009-05-06 16:42:40');
 
 -- --------------------------------------------------------
 
@@ -656,33 +706,31 @@ INSERT INTO `templetes` (`id`, `subject`, `type_str`, `brief`, `content`, `cover
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL auto_increment,
-  `user_id` varchar(50) NOT NULL default '',
+  `user_group_id` tinyint(3) unsigned NOT NULL default '3' COMMENT '用户所属权限组',
   `user_name` varchar(20) default NULL COMMENT '用户登录名',
-  `user_username` varchar(20) NOT NULL COMMENT '用户名',
-  `user_password` varchar(45) default NULL COMMENT '用户密码',
-  `user_group_id` int(11) NOT NULL default '2' COMMENT '所属用户组',
-  `login_num` int(15) default '0',
-  `lastlogin_at` datetime NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL COMMENT '更新时间',
-  `first_question` varchar(100) NOT NULL,
-  `first_answer` varchar(100) NOT NULL,
-  `second_question` varchar(100) NOT NULL,
-  `second_answer` varchar(100) NOT NULL,
-  `user_email` varchar(50) NOT NULL COMMENT '电子邮件',
-  `find_at` varchar(30) NOT NULL COMMENT '查找时间',
-  `user_ip` varchar(16) default NULL COMMENT '用户IP',
-  `is_lock` int(3) NOT NULL default '0' COMMENT '是否锁定',
-  `user_re_project` varchar(50) default NULL,
-  `user_oldflag` tinyint(2) NOT NULL default '0' COMMENT '历史项目帐号',
-  PRIMARY KEY  (`id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11346 ;
+  `user_username` varchar(50) default NULL COMMENT '用户名称',
+  `user_password` varchar(45) default NULL,
+  `login_num` int(15) default '0' COMMENT '登录总次数',
+  `lastlogin_at` datetime default NULL COMMENT '最后登录时间',
+  `created_at` datetime default NULL COMMENT '用户创建时间',
+  `updated_at` datetime default NULL,
+  `user_ip` varchar(16) default NULL,
+  `user_email` varchar(200) default NULL COMMENT '用户电子邮件',
+  `first_question` varchar(20) default NULL,
+  `first_answer` varchar(100) default NULL,
+  `second_question` varchar(20) default NULL,
+  `second_answer` varchar(100) default NULL,
+  `is_lock` int(1) NOT NULL default '0' COMMENT '是否通过审核',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台管理用户' AUTO_INCREMENT=257 ;
 
 --
 -- 导出表中的数据 `users`
 --
 
+INSERT INTO `users` (`id`, `user_group_id`, `user_name`, `user_username`, `user_password`, `login_num`, `lastlogin_at`, `created_at`, `updated_at`, `user_ip`, `user_email`, `first_question`, `first_answer`, `second_question`, `second_answer`, `is_lock`) VALUES
+(255, 1, 'super', 'super', '5ee086bf7231be4dc788046d4a0fc233:dbe', 22, '2009-05-03 22:05:42', NULL, '2009-04-08 21:40:36', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1),
+(256, 2, 'admin', 'admin', 'e85de916711a78e8c58867dceee792d1:cea', 1, '2009-04-12 17:38:49', NULL, '2009-04-08 21:41:06', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -695,7 +743,7 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
   `id` int(11) NOT NULL auto_increment,
   `user_group_name` varchar(30) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 导出表中的数据 `user_groups`
@@ -703,4 +751,5 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
 
 INSERT INTO `user_groups` (`id`, `user_group_name`) VALUES
 (1, '开发管理员'),
-(2, '系统管理员');
+(2, '系统管理员'),
+(3, '注册会员');
