@@ -18,7 +18,7 @@ class common extends controller
 	{
 		$json = $msg = '';
 		if($_FILES){
-			$upload_type = input::getInput("post.upload_type") ? explode(",",input::getInput("post.upload_type")) : config::get("upload_type",array('jpg','bmp','gif','bmp','rar','doc','xls','zip'));
+			$upload_type = input::getInput("post.upload_type") ? explode(",",input::getInput("post.upload_type")) : config::get("upload_type",array('jpg','bmp','gif','bmp','rar','doc','xls','zip','swf'));
 			$upload_size = input::getInput("post.upload_size") ? input::getInput("post.upload_size") : config::get("upload_size","2097152");
 			$upload = sf::getLib("upload","upload",config::get("upload_path","./up_files/"),$upload_size,$upload_type);
 			if($upload->upload())
@@ -50,7 +50,7 @@ class common extends controller
 		$data["msg"] = $msg;
 		$data["item_id"] = input::getInput("get.item_id") ? input::getInput("get.item_id") : 0;
 		$data["item_type"] = input::getInput("get.item_type") ? input::getInput("get.item_type") : 'project';
-		$data["upload_type"] = input::getInput("get.type") ? input::getInput("get.type") : "jpg,png,gif,doc,xls";
+		$data["upload_type"] = input::getInput("get.type") ? input::getInput("get.type") : "jpg,png,gif,doc,xls,swf";
 		$data["upload_size"] = input::getInput("get.size") ? input::getInput("get.size") : "2097152";
 		view::set($data);
 		view::apply("inc_body","common/upload");
