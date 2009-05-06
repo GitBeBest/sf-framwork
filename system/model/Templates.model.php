@@ -6,8 +6,8 @@
  * $Id$
  */
 
-loader::model("BaseTempletes");
-class Templetes extends BaseTempletes
+loader::model("BaseTemplates");
+class Templates extends BaseTemplates
 {
 	
 }
