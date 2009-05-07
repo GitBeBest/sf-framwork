@@ -3,22 +3,7 @@
  * 标签管理插件
  */
 class Tag
-{	
-	function outTag($template_id = 0)
-	{
-		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
-		$addWhere = $addSql = '';
-		$type && $addWhere .= "`type_str` = '".$type."' ";
-		$addSql = "ORDER BY `cover` DESC,is_hot DESC,updated_at DESC";
-		
-		$result = sf::getModel("articles")->selectAll($addWhere,$addSql,$showMax);
-		ob_start();
-		eval("?>$content<?php ");
-		$htmlStr = ob_get_contents();
-		ob_end_clean();
-		return $htmlStr;
-	}
-	
+{
 	/**
 	 * 取得分类树(新闻\产品等有分类的都可以调用)
 	 */

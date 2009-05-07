@@ -19,7 +19,16 @@
         </tr>
 		<tr>
           <th align="right" width="80">效果图片</th>
-          <td><input name="cover" type="text" id="cover" value="<?=$template->getCover()?>" onfocus="loadbox.load('<?=site_url("common/upload")?>',function(json){$('#cover').val(json[0].path);});" /></td>
+          <td><input name="cover" type="text" id="cover" value="<?=$template->getCover()?>" onfocus="loadbox.load('<?=site_url("common/upload")?>',function(json){$('#cover').val(json[0].path);});" />
+          (点击上传)</td>
+        </tr>
+        <tr>
+          <th align="right" width="80">调用代码</th>
+          <td><input name="func" type="text" id="func" value="<?=$template->getFunc()?>" size="60" /></td>
+        </tr>
+        <tr>
+          <th align="right" width="80">参数说明</th>
+          <td><textarea name="note" rows="5" id="note" style="width:100%;"><?=$template->getNote()?></textarea></td>
         </tr>
         <tr>
           <th align="center">模板内容</th>
