@@ -11,7 +11,10 @@ require_once(SYSTEMPATH.'sf/input.class.php');
 config::load('default','config');
 //加载必要库文件
 loader::lib(array("controller","model"));
+//加载默认helper
 loader::helper(config::get("auto_load_helper",'url'));
+//加载默认插件
+config::get("auto_load_plugin") && loader::plugin(config::get("auto_load_plugin"));
 //初始化pathinfo
 router::parse();
 //加载语言文件

@@ -38,6 +38,8 @@ class template extends controller
 			$template->setBrief(input::getInput("post.brief"));
 			$template->setContent(input::getInput("post.content"));
 			$template->setTypeStr($this->type);
+			$template->setFunc(input::getInput("post.func"));
+			$template->setNote(input::getInput("post.note"));
 			$template->setCover(input::getInput("post.cover"));
 			$template->setUpdatedAt(date("Y-m-d H:i:s"));
 			$template->save();

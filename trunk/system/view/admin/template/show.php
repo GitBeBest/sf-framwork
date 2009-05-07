@@ -15,7 +15,7 @@
         </tr>
 		<tr>
           <th align="right" width="80">封面图片</th>
-          <td><?=$template->getCover()?></td>
+          <td><img src="<?=site_path("up_files/".$template->getCover())?>" width="120" height="100" /></td>
         </tr>
         <tr>
           <th align="right">发布日期</th>
@@ -23,12 +23,15 @@
         </tr>
         <tr>
           <th align="center">调用代码</th>
-          <td align="left"><?php echo '&lt;?=sf::getPlugin("AdPlugin")-&gt;generate('.$template->getId().')?&gt;';?></textarea>
-          </label></td>
+          <td align="left"><input value="<?=$template->getFunc()?>" size="60" /></td>
+        </tr>
+        <tr>
+          <th align="center">参数说明</th>
+          <td align="left"><?=nl2br($template->getNote())?></td>
         </tr>
         <tr>
           <th align="center">模板效果</th>
-          <td align="left"><?=test(1)?></td>
+          <td align="left"><?=Tag::selectArticleHotByTypeStr(1,'',6)?></td>
         </tr>
     </table>
   </div>

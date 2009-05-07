@@ -23,6 +23,7 @@ return array(
 						'default_method' => 'index'
 					),
 			'auto_load_helper'=> array('url','global'),
+			'auto_load_plugin'=> array('Tag'),
 			'mysql' =>array(
 						'hostname'=>'localhost',
 						'user'=>'root',
