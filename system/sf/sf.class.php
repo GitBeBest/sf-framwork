@@ -5,7 +5,7 @@ class sf
 									 'lib'=>array(),
 									 'controller'=>array(),
 									 'plugin'=>array());
-	private static $version = '0.1.0';
+	private static $version = '0.1.6';
 	
 	public function __construct(){}
 	

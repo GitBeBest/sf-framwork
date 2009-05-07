@@ -5,7 +5,7 @@
 class Tag
 {
 	/**
-	 * 取得分类树(新闻\产品等有分类的都可以调用)
+	 * 取得分类树(新闻、产品等有分类的都可以调用)
 	 */
 	public static function selectTreeByTypeStr($tpl=0,$type='article',$showMax=0)
 	{
