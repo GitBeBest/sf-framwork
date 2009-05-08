@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2009 年 05 月 06 日 17:18
+-- 生成日期: 2009 年 05 月 08 日 10:48
 -- 服务器版本: 5.0.51
 -- PHP 版本: 5.2.6
 
@@ -510,7 +510,7 @@ CREATE TABLE IF NOT EXISTS `managers` (
 --
 
 INSERT INTO `managers` (`id`, `user_group_id`, `user_name`, `user_username`, `user_password`, `login_num`, `lastlogin_at`, `created_at`, `updated_at`, `user_ip`, `user_email`, `first_question`, `first_answer`, `second_question`, `second_answer`, `is_lock`) VALUES
-(255, 1, 'super', 'super', '5ee086bf7231be4dc788046d4a0fc233:dbe', 25, '2009-05-06 10:43:29', NULL, '2009-04-08 21:40:36', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1),
+(255, 1, 'super', 'super', '5ee086bf7231be4dc788046d4a0fc233:dbe', 28, '2009-05-08 09:34:09', NULL, '2009-04-08 21:40:36', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1),
 (256, 2, 'admin', 'admin', 'e85de916711a78e8c58867dceee792d1:cea', 1, '2009-04-12 17:38:49', NULL, '2009-04-08 21:41:06', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -685,7 +685,8 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `brief` text COMMENT '模板简单描述',
   `content` longtext COMMENT '模板内容',
   `cover` varchar(30) default NULL COMMENT '样式图片',
-  `func` varchar(20) default NULL COMMENT '调用函数名称',
+  `func` varchar(100) default NULL COMMENT '调用函数名称',
+  `note` text NOT NULL COMMENT '参数说明',
   `updated_at` datetime default NULL COMMENT '最近更新时间',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
@@ -694,8 +695,8 @@ CREATE TABLE IF NOT EXISTS `templates` (
 -- 导出表中的数据 `templates`
 --
 
-INSERT INTO `templates` (`id`, `subject`, `type_str`, `brief`, `content`, `cover`, `func`, `updated_at`) VALUES
-(1, '热点文章提取', 'article', '提取指定数量的热点文章，显示的条数等可以前台设置。                                                  ', '<table width="90%" border="0" cellspacing="0" cellpadding="0">\r\n  <?php while($article = $result->getObject()):?>\r\n  <tr>\r\n    <td width="10" height="24" align="center">·</td>\r\n    <td height="24"><?=link_to("article/show/type/article/id/".$article->getId(),$article->getSubject())?></td>\r\n  </tr>\r\n  <?php endwhile;?>\r\n</table>', '2009/04/12395430731754.png', NULL, '2009-05-06 16:42:40');
+INSERT INTO `templates` (`id`, `subject`, `type_str`, `brief`, `content`, `cover`, `func`, `note`, `updated_at`) VALUES
+(1, '热点文章提取', 'article', '提取指定数量的热点文章，显示的条数等可以前台设置。                                                                                                    ', '<table width="90%" border="0" cellspacing="0" cellpadding="0">\r\n  <?php while($article = $result->getObject()):?>\r\n  <tr>\r\n    <td width="10" height="24" align="center">·</td>\r\n    <td height="24"><?=link_to("article/show/type/article/id/".$article->getId(),$article->getSubject())?></td>\r\n  </tr>\r\n  <?php endwhile;?>\r\n</table>', '2009/04/12395430731754.png', '<?=Tag::selectArticleHotByTypeStr($tpl,$type,$showMax)?>', '$tpl,模板编号\r\n$type,显示新闻的类型\r\n$showMax,最多显示条数', '2009-05-07 10:16:28');
 
 -- --------------------------------------------------------
 
