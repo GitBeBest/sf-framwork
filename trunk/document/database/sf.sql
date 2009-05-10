@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2009 年 05 月 08 日 10:48
+-- 生成日期: 2009 年 05 月 10 日 20:29
 -- 服务器版本: 5.0.51
 -- PHP 版本: 5.2.6
 
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `authorizations` (
   `method` varchar(30) default NULL,
   `user_group_ids` varchar(255) NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- 导出表中的数据 `authorizations`
@@ -249,7 +249,8 @@ INSERT INTO `authorizations` (`id`, `controller`, `controller_name`, `method`, `
 (49, 'admin/ad', 'admin/ad', 'show', '1'),
 (50, 'admin/template', 'admin/template', 'index', '1'),
 (51, 'admin/template', 'admin/template', 'edit', '1'),
-(52, 'admin/template', 'admin/template', 'show', '1');
+(52, 'admin/template', 'admin/template', 'show', '1'),
+(53, 'admin/template', 'admin/template', 'execute', '1');
 
 -- --------------------------------------------------------
 
@@ -510,7 +511,7 @@ CREATE TABLE IF NOT EXISTS `managers` (
 --
 
 INSERT INTO `managers` (`id`, `user_group_id`, `user_name`, `user_username`, `user_password`, `login_num`, `lastlogin_at`, `created_at`, `updated_at`, `user_ip`, `user_email`, `first_question`, `first_answer`, `second_question`, `second_answer`, `is_lock`) VALUES
-(255, 1, 'super', 'super', '5ee086bf7231be4dc788046d4a0fc233:dbe', 28, '2009-05-08 09:34:09', NULL, '2009-04-08 21:40:36', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1),
+(255, 1, 'super', 'super', '5ee086bf7231be4dc788046d4a0fc233:dbe', 30, '2009-05-10 18:21:50', NULL, '2009-04-08 21:40:36', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1),
 (256, 2, 'admin', 'admin', 'e85de916711a78e8c58867dceee792d1:cea', 1, '2009-04-12 17:38:49', NULL, '2009-04-08 21:41:06', '127.0.0.1', 'meetcd@126.com', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -535,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `user_group_ids` varchar(200) NOT NULL default '1' COMMENT '能访问的权限组',
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
 
 --
 -- 导出表中的数据 `menus`
@@ -543,8 +544,8 @@ CREATE TABLE IF NOT EXISTS `menus` (
 
 INSERT INTO `menus` (`id`, `subject`, `type`, `head_str`, `level`, `parent_id`, `left`, `right`, `orders`, `alt`, `url`, `user_group_ids`, `updated_at`) VALUES
 (24, '产品模板列表', 'default', '&nbsp;&nbsp;├', 2, 22, 58, 59, NULL, '新增模板', 'admin/template/index/type/product', '1', '2009-05-06 16:38:24'),
-(23, '文章模板列表', 'default', '&nbsp;&nbsp;└', 2, 22, 60, 61, NULL, '文章模板列表', 'admin/template/index/type/article', '1', '2009-05-06 16:38:35'),
-(22, '模板管理', 'default', '└', 1, 0, 57, 62, 10, '模板管理', '#', '1', '2009-05-06 16:38:10'),
+(23, '文章模板列表', 'default', '&nbsp;&nbsp;├', 2, 22, 60, 61, NULL, '文章模板列表', 'admin/template/index/type/article', '1', '2009-05-06 16:38:35'),
+(22, '模板管理', 'default', '└', 1, 0, 57, 64, 10, '模板管理', '#', '1', '2009-05-06 16:38:10'),
 (6, '文章管理', 'default', '├', 1, 0, 17, 24, 3, '文章管理', '#', '1,2', '2009-04-12 16:23:48'),
 (7, '文章分类', 'default', '│├', 2, 6, 18, 19, NULL, '管理文章分类', 'admin/category/index/type/article', '1,2', '2009-04-12 16:22:47'),
 (8, '产品管理', 'default', '├', 1, 0, 25, 32, 4, '管理产品', '#', '1,2', '2009-04-12 16:23:42'),
@@ -572,7 +573,8 @@ INSERT INTO `menus` (`id`, `subject`, `type`, `head_str`, `level`, `parent_id`, 
 (33, '订单列表', 'default', '│└', 2, 32, 48, 49, NULL, '订单列表', 'admin/orders/index', '1,2', '2009-04-21 22:15:15'),
 (34, '广告管理', 'default', '├', 1, 0, 51, 56, 9, '广告管理', '#', '1,2', '2009-05-06 09:12:30'),
 (35, '广告列表', 'default', '│├', 2, 34, 52, 53, 1, '广告列表', 'admin/ad/index', '1,2', '2009-05-06 09:13:12'),
-(36, '新增广告', 'default', '│└', 2, 34, 54, 55, 2, '新增广告', 'admin/ad/edit', '1,2', '2009-05-06 09:14:02');
+(36, '新增广告', 'default', '│└', 2, 34, 54, 55, 2, '新增广告', 'admin/ad/edit', '1,2', '2009-05-06 09:14:02'),
+(37, '页面管理模板', 'default', '&nbsp;&nbsp;└', 2, 22, 62, 63, 3, '页面管理模板', 'admin/template/index/type/page', '1', '2009-05-10 18:44:47');
 
 -- --------------------------------------------------------
 
@@ -689,14 +691,18 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `note` text NOT NULL COMMENT '参数说明',
   `updated_at` datetime default NULL COMMENT '最近更新时间',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- 导出表中的数据 `templates`
 --
 
 INSERT INTO `templates` (`id`, `subject`, `type_str`, `brief`, `content`, `cover`, `func`, `note`, `updated_at`) VALUES
-(1, '热点文章提取', 'article', '提取指定数量的热点文章，显示的条数等可以前台设置。                                                                                                    ', '<table width="90%" border="0" cellspacing="0" cellpadding="0">\r\n  <?php while($article = $result->getObject()):?>\r\n  <tr>\r\n    <td width="10" height="24" align="center">·</td>\r\n    <td height="24"><?=link_to("article/show/type/article/id/".$article->getId(),$article->getSubject())?></td>\r\n  </tr>\r\n  <?php endwhile;?>\r\n</table>', '2009/04/12395430731754.png', '<?=Tag::selectArticleHotByTypeStr($tpl,$type,$showMax)?>', '$tpl,模板编号\r\n$type,显示新闻的类型\r\n$showMax,最多显示条数', '2009-05-07 10:16:28');
+(1, '热点文章提取(TABLE)', 'article', '提取指定数量的热点文章，显示的条数等可以前台设置。                                                                                                                                            ', '<?php while($article = $result->getObject()):?>\r\n<tr>\r\n   <td width="10" height="24" align="center">·</td>\r\n   <td height="24"><?=link_to("article/show/type/article/id/".$article->getId(),$article->getSubject())?></td>\r\n</tr>\r\n<?php endwhile;?>', '2009/04/12395430731754.png', 'Tag::selectArticleHotByTypeStr', '1,模板编号,系统生成\r\n2,显示新闻的类型，扯份的时候加上的type,为空则显示所有类型，默认为空。\r\n3,最多显示条数，0为显示所有，默认为5', '2009-05-10 19:15:02'),
+(2, '页面列表(DIV+CSS)', 'page', '显示相同类型的页面列表          ', '<ul class="selectPageListByTypeStr">\r\n <?php while($page = $result->getObject()):?>\r\n     <li><?=link_to("page/index/type/".$page->getTypeStr()."/id/".$page->getId(),$page->getSubject(12))?></li>\r\n <?php endwhile;?>\r\n</ul>', NULL, 'Tag::selectPageByTypeStr', '1，模板编码，系统自动化生成\r\n2，页面type分类,为空则显示所有类型，默认为空\r\n3，最多显示条数，默认0（显示所有）', '2009-05-10 18:50:25'),
+(3, '页面列表(Table)', 'page', '显示相同类型的页面列表 ', '<?php while($page = $result->getObject()):?>\r\n<tr>\r\n  <td><?=link_to("page/index/type/".$page->getTypeStr()."/id/".$page->getId(),$page->getSubject(12))?></td>\r\n</tr>\r\n<?php endwhile;?>', NULL, 'Tag::selectPageByTypeStr', '1，模板编码，系统自动化生成\r\n2，页面type分类,为空则显示所有类型，默认为空\r\n3，最多显示条数，默认0（显示所有）', '2009-05-10 18:54:09'),
+(4, '取得指定分类的文章列表(DIV+CSS)', 'article', '取得指定分类的文章列表          ', '<div class="ArticleListHtmlByCategoryId">\r\n  <h1><em>\r\n    <?=link_to("article/category/type/".$category->getType()."/id/".$category->getId(),lang::get(''more''))?>\r\n    </em>\r\n    <?=$category->getSubject()?>\r\n  </h1>\r\n  <ul>\r\n    <?php while($article = $result->getObject()):?>\r\n    <li>\r\n      <?=link_to("article/show/type/".$article->getTypeStr()."/id/".$article->getId(),$article->getSubject(),array(''target''=>''_blank''))?>\r\n    </li>\r\n    <?php endwhile;?>\r\n  </ul>\r\n</div>\r\n', NULL, 'Tag::selectArticleByCategoryId', '1，模板编号，系统自动\r\n2，分类ID,为0则显示所有，默认为0\r\n3，最多显示条数，默认显示5条', '2009-05-10 19:06:39'),
+(5, '取得指定分类的文章列表(TABLE)', 'article', '取得指定分类的文章列表(TABLE)', '<tr>\r\n  <td><?=$category->getSubject()?></td>\r\n  <td width="50"><?=link_to("article/category/type/".$category->getType()."/id/".$category->getId(),lang::get(''more''))?></td>\r\n</tr>\r\n<?php while($article = $result->getObject()):?>\r\n<tr>\r\n  <td colspan="2"><?=link_to("article/show/type/".$article->getTypeStr()."/id/".$article->getId(),$article->getSubject(),array(''target''=>''_blank''))?>\r\n  </td>\r\n</tr>\r\n<?php endwhile;?>', NULL, 'Tag::selectArticleByCategoryId', '1，模板编号，系统自动\r\n2，分类ID,为0则显示所有，默认为0\r\n3，最多显示条数，默认显示5条', '2009-05-10 19:14:01');
 
 -- --------------------------------------------------------
 
