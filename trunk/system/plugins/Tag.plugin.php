@@ -7,7 +7,7 @@ class Tag
 	/**
 	 * 取得分类树(新闻、产品等有分类的都可以调用)
 	 */
-	public static function selectTreeByTypeStr($tpl=0,$type='article',$showMax=0)
+	public static function selectTreeByTypeStr($tpl=0,$type='',$showMax=0)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';//初始化
@@ -23,7 +23,7 @@ class Tag
 	/**
 	 * 取得页面列表
 	 */
-	public static function selectPageByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectPageByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
@@ -60,7 +60,7 @@ class Tag
 	/**
 	 * 取得置顶文章列表
 	 */
-	public static function selectArticleTopByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectArticleTopByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = '';
@@ -77,7 +77,7 @@ class Tag
 	/**
 	 * 取得热点文章列表
 	 */
-	public static function selectArticleHotByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectArticleHotByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = '';
@@ -94,7 +94,7 @@ class Tag
 	/**
 	 * 取得最新文章列表
 	 */
-	public static function selectArticleByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectArticleByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = '';
@@ -111,7 +111,7 @@ class Tag
 	/**
 	 * 取得图片文章列表
 	 */
-	public static function selectImageArticleByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectImageArticleByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = '';
@@ -128,7 +128,7 @@ class Tag
 	/**
 	 * 取得置顶产品列表
 	 */
-	public static function selectProductTopByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectProductTopByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
@@ -145,7 +145,7 @@ class Tag
 	/**
 	 * 取得热点产品列表
 	 */
-	public static function selectProductHotByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectProductHotByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
@@ -162,7 +162,7 @@ class Tag
 	/**
 	 * 取得最新产品列表
 	 */
-	public static function selectProductByTypeStr($tpl=0,$type='default',$showMax=5)
+	public static function selectProductByTypeStr($tpl=0,$type='',$showMax=5)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
@@ -179,7 +179,7 @@ class Tag
 	/**
 	 * 取得指定分类产品列表
 	 */
-	public static function selectProductByCategoryId($categoryId='0',$showMax=5,$subjectLen=10)
+	public static function selectProductByCategoryId($tpl=0,$categoryId=0,$showMax=5,$subjectLen=10)
 	{
 		$content = stripslashes(sf::getModel("templates",$tpl)->getContent());//取得模板内容
 		$addWhere = $addSql = '';
