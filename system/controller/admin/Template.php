@@ -43,7 +43,7 @@ class template extends controller
 			$template->setCover(input::getInput("post.cover"));
 			$template->setUpdatedAt(date("Y-m-d H:i:s"));
 			$template->save();
-			$this->page_debug(lang::get("Has been saved!"),site_url("admin/template/index/type/".$this->type));
+			$this->page_debug(lang::get("Has been saved!"),getFromUrl());
 		}
 		view::set("template",$template);
 		view::apply("inc_body","admin/template/edit");

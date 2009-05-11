@@ -59,7 +59,7 @@
  /**
   * 取得新闻分类
   */
- function selectArticleTreeByTypeStr($name='',$type='',$showMax=0)
+ function selectArticleTreeByTypeStr($name='',$type='article',$showMax=0)
  {
 	!$name && $name = time().rand(1,99);//取得层id
 	//取得分类信息
