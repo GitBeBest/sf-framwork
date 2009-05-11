@@ -72,13 +72,8 @@
       <table width="98%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td align="left">
-		  <?php while($product = $pager->getObject()):?>
-		  <ul class="product_category_list">
-		  <li><a href="<?=site_url("product/show/type/".$product->getTypeStr()."/id/".$product->getId())?>"><img src="<?=site_path("up_files/".$product->getCover())?>" alt="<?=$product->getSubject()?>" width="120" height="100" border="0" boder="0" onerror="this.src='<?=site_path("images/nopic_s.png")?>'" /></a>
-		  </li>
-		  <li><h1><?=link_to("product/show/type/".$product->getTypeStr()."/id/".$product->getId(),$product->getSubject(20))?></h1><?=$product->getBrief(30)?></li>
-		  </ul>
-		  <?php endwhile;?>
+          <?=Tag::output(21)?>
+		 
 		  </td>
         </tr>
       </table>

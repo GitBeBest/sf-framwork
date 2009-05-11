@@ -67,7 +67,6 @@ class template extends controller
 	function execute()
 	{
 		$code = stripslashes(input::getInput("post.code"));
-		print_r($code);
 		exit(eval("?>$code<?php "));
 	}
 	
