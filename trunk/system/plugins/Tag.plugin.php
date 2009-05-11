@@ -223,5 +223,20 @@ class Tag
 		return $htmlStr;
 	}
 	
+	/**
+	 * 处理显示模板内容，处理不需要是数据源（或者自己带有数据源）模板的现实
+	 */
+	public static function output()
+	{
+		$agrs = func_get_args();
+		extract(view::get());//将模板对象吊出来
+		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
+		ob_start();
+		eval("?>$content<?php ");
+		$htmlStr = ob_get_contents();
+		ob_end_clean();
+		return $htmlStr;
+	}
+	
 }
 ?>

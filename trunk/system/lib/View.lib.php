@@ -12,6 +12,12 @@ class view
 		else self::$viewData[$key] = $val;
 	}
 	
+	public static function get($key='')
+	{
+		if($key) return self::$viewData[$key];
+		else return self::$viewData;
+	}
+	
 	public static function apply($name,$tpl)
 	{
 		$tpl && self::$viewTpl[$name] = $tpl;
@@ -50,8 +56,7 @@ class view
 	}
 	
 	private static function write($fileName,$content)
-	{
-		
+	{	
 		return file_put_contents(trim(config::get("cache_dir","cache"),"/")."/".str_replace("/","-",$fileName),$content);
 	}
 	
