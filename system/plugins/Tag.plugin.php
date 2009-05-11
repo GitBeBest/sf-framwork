@@ -213,10 +213,9 @@ class Tag
 		$agrs = func_get_args();
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = '';
-		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
-		Tag::getInt(2,0,$agrs) && $addWhere .= "`category_id` = '".Tag::getInt(2,0,$agrs)."' ";
+		Tag::getInt(1,0,$agrs) && $addWhere .= "`category_id` = '".Tag::getInt(1,0,$agrs)."' ";
 		$addSql = "ORDER BY `updated_at` DESC";
-		$result = sf::getModel("products")->selectAll($addWhere,$addSql,Tag::getInt(3,5,$agrs));
+		$result = sf::getModel("products")->selectAll($addWhere,$addSql,Tag::getInt(2,5,$agrs));
 		ob_start();
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
