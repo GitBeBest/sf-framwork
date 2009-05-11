@@ -1,575 +1,79 @@
-@charset "utf-8";
-/* CSS Document */
-*{ word-wrap:break-word; outline:none; margin:0px auto; }
-body { margin: 0px 0px; font-size:12px;}
-.pager_bar { float:right;} 
-
-/*验证样式*/
-em { color:#F00;}
-
-/*日历*/
-table.jCalendar {
-	border: 1px solid #000;
-	background: #aaa;
-    border-collapse: separate;
-    border-spacing: 2px;
-}
-table.jCalendar th {
-	background: #333;
-	color: #fff;
-	font-weight: bold;
-	padding: 3px 5px;
-}
-table.jCalendar td {
-	background: #ccc;
-	color: #000;
-	padding: 3px 5px;
-	text-align: center;
-}
-table.jCalendar td.other-month {
-	background: #ddd;
-	color: #aaa;
-}
-table.jCalendar td.today {
-	background: #666;
-	color: #fff;
-}
-table.jCalendar td.selected {
-	background: #f66;
-	color: #fff;
-}
-table.jCalendar td.selected:hover {
-	background: #f33;
-	color: #fff;
-}
-table.jCalendar td:hover, table.jCalendar td.dp-hover {
-	background: #fff;
-	color: #000;
-}
-table.jCalendar td.disabled, table.jCalendar td.disabled:hover {
-	background: #bbb;
-	color: #888;
-}
-
-/* For the popup */
-
-/* NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css */
-
-div.dp-popup {
-	position: relative;
-	background: #ccc;
-	font-size: 10px;
-	font-family: arial, sans-serif;
-	padding: 2px;
-	width: 171px;
-	line-height: 1.2em;
-}
-div#dp-popup {
-	position: absolute;
-	z-index: 199;
-}
-div.dp-popup h2 {
-	font-size: 12px;
-	text-align: center;
-	margin: 2px 0;
-	padding: 0;
-}
-a#dp-close {
-	font-size: 11px;
-	padding: 4px 0;
-	text-align: center;
-	display: block;
-}
-a#dp-close:hover {
-	text-decoration: underline;
-}
-div.dp-popup a {
-	color: #000;
-	text-decoration: none;
-	padding: 3px 2px 0;
-}
-div.dp-popup div.dp-nav-prev {
-	position: absolute;
-	top: 2px;
-	left: 4px;
-	width: 100px;
-}
-div.dp-popup div.dp-nav-prev a {
-	float: left;
-}
-/* Opera needs the rules to be this specific otherwise it doesn't change the cursor back to pointer after you have disabled and re-enabled a link */
-div.dp-popup div.dp-nav-prev a, div.dp-popup div.dp-nav-next a {
-	cursor: pointer;
-}
-div.dp-popup div.dp-nav-prev a.disabled, div.dp-popup div.dp-nav-next a.disabled {
-	cursor: default;
-}
-div.dp-popup div.dp-nav-next {
-	position: absolute;
-	top: 2px;
-	right: 4px;
-	width: 100px;
-}
-div.dp-popup div.dp-nav-next a {
-	float: right;
-}
-div.dp-popup a.disabled {
-	cursor: default;
-	color: #aaa;
-}
-div.dp-popup td {
-	cursor: pointer;
-}
-div.dp-popup td.disabled {
-	cursor: default;
-}
-a.dp-choose-date {
-	float: left;
-	width: 16px;
-	height: 16px;
-	padding: 0;
-	margin: 5px 3px 0;
-	display: block;
-	text-indent: -2000px;
-	overflow: hidden;
-	background: url(calendar.png) no-repeat; 
-}
-a.dp-choose-date.dp-disabled {
-	background-position: 0 -20px;
-	cursor: default;
-}
-/* makes the input field shorter once the date picker code
- * has run (to allow space for the calendar icon
+/**
+ * 评论
  */
-input.dp-applied {
-	width: 140px;
-	float: left;
-}
+#comment { width:100%; text-align:left; padding:5px 5px;}
+	#comment h1 { font-size:14px;}
+	#comment dl { border:solid 1px #efefef;}
+	#comment dt { font-size:14px; border-bottom:dashed 1px #efefef; padding:5px 5px;}
+	#comment dd { padding:5px 5px;}
+	#comment em { float: right;}
+	#comment ul { list-style:none; margin:0px; padding:0px;}
 
-
-/*table { width:98%; border:solid 1px #09F; cellpadding:2px; cellspacing:1px;}*/
-table { width:98%; 
-a:expression(   
-  this.cellSpacing=1  
-  );   
-  b:expression(   
-  this.cellPadding=1
-  )   
- 
-}
- th {background-color:#21BAF3; height:25px; color:#FFF;text-align:center;}
- td { background-color:#C0EBF3;}/*
-td {
- onmouseover: expression(onmouseover=function (){this.style.borderColor ='blue';this.style.color='red';this.style.backgroundColor ='#EFEFEF'});
- onmouseout: expression(onmouseout=function (){this.style.borderColor='';this.style.color='';this.style.backgroundColor =''});
- background-color:#ffffff;
-}
-
- td {
- onmouseover: expression(onmouseover=function (){this.style.borderColor ='blue';this.style.color='red';this.style.backgroundColor ='#EFEFEF'});
- onmouseout: expression(onmouseout=function (){this.style.borderColor='';this.style.color='';this.style.backgroundColor =''});
- background-color:#C0EBF3;
-}
-*/
-/*================================================================================================*/
-/*                                     网站CSS样式定义                                              */
-/*=================================================================================================*/
-
-/* 网站链接总的css定义:可定义内容为链接字体颜色、样式等 */
-
-a{text-decoration: none;}   /* 链接无下划线,有为underline */ 
-a:link {color: #454545;}    /* 未访问的链接 */
-a:visited {color: #454545;} /* 已访问的链接 */
-a:hover{color: #ff0000;}   /* 鼠标在链接上 */ 
-a:active {color: #454545;}  /* 点击激活链接 */
-a.linknav3:link { color: #ffffff; text-decoration:none;}
-a.linknav3:visited { color: #ffffff; text-decoration:none;}
-a.linknav3:active { color: #ffffff; text-decoration:none;}
-a.linknav3:hover { color: #ff0000; text-decoration:none;}
-a.3:link { color: #454545; text-decoration:none; font-size: 10pt;}
-a.3:visited { color: #454545; text-decoration:none; font-size: 10pt;}
-a.3:active { color: #454545; text-decoration:none; font-size: 10pt;}
-a.3:hover { color: #ff0000; text-decoration:none; font-size: 10pt;}
-
-
-/* 用户登陆 */
-.class_user
- {
-	color:#000000;
-	font-family: "宋体";
-	font-size: 13px;
-}
-
-/* 日期 */
-.class_datetime
- {
-    
-	color:#999999;
-	font-family: "宋体";
-	font-size: 13px;
-}
-
-/* 结束 */
-
-
- /* body的css定义:可定义内容为网页字体颜色、背景、浏览器边框等 */
-BODY {
-BACKGROUND-POSITION: center 50%; SCROLLBAR-FACE-COLOR: #f2f5f7; FONT-SIZE: 12px; BACKGROUND-ATTACHMENT: fixed; MARGIN: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #b2c3d0; SCROLLBAR-SHADOW-COLOR: #b2c3d0; SCROLLBAR-3DLIGHT-COLOR: #ffffff; SCROLLBAR-ARROW-COLOR: #97aaba; SCROLLBAR-TRACK-COLOR: #ffffff; FONT-FAMILY: Tahoma, Verdana; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; BACKGROUND-COLOR: #ffffff
-}
-TD {
-	FONT-WEIGHT: normal; FONT-SIZE: 10pt; LINE-HEIGHT: 150%; FONT-FAMILY: "宋体"; white-space:nowrap
-}
-
-
-li{
-	margin:0px;
-	list-style-type: none;	
-	padding:0px;
-}	
- ul{
-
-	margin:0px;
-	padding:5px;
+/**
+ * 新闻列表
+ */
+.ArticleListHtmlByCategoryId { float:left; width:370; height:180px; margin:5px; padding:1px; border:solid 1px #E1E1E1;}
+	.ArticleListHtmlByCategoryId h1{ width:100%; font-size:14px; font-weight:bold; background-color:#E1E1E1; padding:6px;}
+	.ArticleListHtmlByCategoryId h1 em { clear:both;float:right;}
+	.ArticleListHtmlByCategoryId ul { padding:2px 10px; margin:0px; list-style:none;}
+	.ArticleListHtmlByCategoryId ul li { text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/dot.gif) no-repeat; background-position:5px 8px;}
 	
+/**
+ * 分类树
+ */
+.selectTreeByTypeStr {padding:2px 10px; margin:0px; list-style:none;}
+	.category_level_1 {text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/arrow.gif) no-repeat; background-position:5px 8px;}
+	.category_level_2 {text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:40px; background:url(tools/dot.gif) no-repeat; background-position:25px 8px;}
+	.category_level_3 {text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:60px; background:url(tools/arrow.gif) no-repeat; background-position:45px 8px;}
 	
-}		
-/* 单元格TD的css定义:这里为总的表格定义，为一般表格的的单元格风格设置，可定义内容为背景、字体颜色、样式等 */
-.TextBox
-{
-background-color: #ffffff; 
-border-bottom: #666666 1px solid;
-border-left: #666666 1px solid;
-border-right: #666666 1px solid;
-border-top: #666666 1px solid;
-color: #666666;
-height: 18px;
-border-color: #666666 #666666 #666666 #666666; font-size: 9pt
-}
-.ClassNav{
-	COLOR: #ffffff; LINE-HEIGHT: 150%;font-weight:bold;
-	padding-left:10px;
-}
-A.CirTitle:link {
-	LINE-HEIGHT: 150%;FONT-SIZE: 14px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.CirTitle:visited {
-	LINE-HEIGHT: 150%;FONT-SIZE: 14px;COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.CirTitle:hover {
-	LINE-HEIGHT: 150%;FONT-SIZE: 14px; COLOR: #ff6600; TEXT-DECORATION: underline
-}
-A.CirTitle:active {
-	LINE-HEIGHT: 150%;FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
-}
-.font14{
-FONT-SIZE: 14px; BACKGROUND: none transparent scroll repeat 0% 0%; LINE-HEIGHT: 26px; BORDER-BOTTOM: #727272 1px dashed
-}
-.TopNavi A:active {
-	COLOR: #ffffff; LINE-HEIGHT: 150%; font-size:12px;TEXT-DECORATION: none
-}
-.TopNavi A:link {
-	COLOR: #ffffff; LINE-HEIGHT: 150%; font-size:12px;TEXT-DECORATION: none
-}
-.TopNavi A:visited {
-	 COLOR: #ffffff; LINE-HEIGHT: 150%; font-size:12px;TEXT-DECORATION: none
-}
-.TopNavi A:hover {
-	COLOR: #FF6600; LINE-HEIGHT: 150%;  font-size:12px;TEXT-DECORATION: underline
-}
-.Title
-{ 
-    background:#009AE8;
-    color: #ffffff;
-    font-weight: bold;
-	background-image:url(../include/manage_top_bg.gif);
-}
-.tdbg{
-    background:#EEF8FE;
-}
-.tdbgmouseover{
-    background:#ffffff;
-}
-.border
-{
-    border: 1px solid #449AE8;background:#ffffff;
-}
-.tppd{
-font-weight:bolder
-}
-.inputButton
-{
-background-color: #ffffff; 
-border-bottom: #666666 1px solid;
-border-left: #666666 1px solid;
-border-right: #666666 1px solid;
-border-top: #666666 1px solid;
-color: #666666;
-height: 18px;
-border-color: #666666 #666666 #666666 #666666; font-size: 9pt
-}
-/* 按钮的css定义:这里为按钮的风格设置，可定义内容为背景、字体、颜色、边框等 */
-button
-{font-size: 9pt;height: 20px;}
-/* 下拉列表框的css定义:这里为下拉列表框的风格设置，可定义内容为背景、字体、颜色、边框等 */
-
-select
-{font-size: 9pt;height: 20px;}
-
-
-.strip{      /*头条*/
-font-family: "黑体";
-font-weight: bold;
-font-size: 24pt;
-}
-
-
-/***********************************网站底部css定义开始************************************/
-.Site_bottombg
-{
-background:url(/Images/Default/bar_Footbg.gif);
-height:30 px;
-color: #ffffff;
-}
-a.bottom:link {color: #ffffff;}
-a.bottom:visited {color: #ffffff;}
-a.bottom:hover{color: #ff0000;}
-a.bottom:active {color: #ffffff;}
-
-/***********************************网站底部css定义结束************************************/
-
-
-
-/***********************************图片中心css定义开始************************************/
-.ImagePlayerArea    /*图片内容页图片播放器播放区css定义*/
-{border: 1px solid #efefef;
- width:760px;
- height:420px;
- background-color: #FFFFFF;
-}
-.PlayerImagesList  /*图片内容页图片播放器底部缩略图列表区css定义*/
-{
-width:760px;
-height:90px;
-color: #000000;
-top:10px;
-
-background-color: #EDF0F5;
-}   
-/***********************************图片中心css定义结束*************************************/
-
-/***********************************下中心css定义开始************************************/
-.Table_Down_List        /*下载终级分页表格css定义*/
-{border: 1px solid #efefef;
- background-color: #FFFFFF;
-}
-.Table_Down_List_Title  /*下载终级分页 下载名称  css */
-{
-height:22px;
-color: #000000;
-border-bottom:1px dashed #cdcdcd;
-background-color: #EDF0F5;
-}  
-.Table_Down_List_bottom  /*下载终级分页 下载底部 css */
-{
-height:22px;
-color: #000000;
-border-top:1px dashed #cdcdcd;
-}  
-/***********************************下载中心css定义结束*************************************
-
-/**********************************评论css定义开始************************************/
-.comment_write_table{  /*发表评论整个表格*/
-border: 1px solid #A7A7A7;
-color: #000000;
-top:10px;
-
-background-color: #ffffff;
-}
-.comment_write_title{ /*发表评论表格Title*/
-background:url(/Images/Default/btbg.gif);
-color: #000000;
-height: 27px;
-text-align: center;
-font-weight:bolder;
-}
-.comment_show_table{  /*显示评论*/
-border: 1px solid #A7A7A7;
-color: #000000;
-
-}
-/***********************************评论css定义结束************************************/
-
-/********************************搜索结果页面css定义开始*********************************/
- .content {
-	margin:auto 0 ;
-	width: 760px;
-	padding: 10px;
+/**
+ * 推荐文章
+ */
+.selectArticleTopByTypeStr {padding:2px 10px; margin:0px; list-style:none;}
+	.selectArticleTopByTypeStr li { overflow:hidden;text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/dot.gif) no-repeat; background-position:5px 8px;}
 	
-}
-.header {
-
-	width: 760px;
-	padding: 5px 0px 5px 0px;
-	border-bottom: 5px solid #FF0000;
-}
-.ss        /*搜索结果页表格边框css定义*/
-{ padding:20px;
-border: 1px solid #a7a7a7;
-
-}
-
-/************后台表格************/
-table.admintable {
-border:1px solid #98CAEF;
-border-collapse: collapse;
-}
-/**********表格样式2****************/
-table.admintable_s2{
-color:#658fd4;
-border-bottom:#aedef2 thin solid;
-border-left:#aedef2 thin solid; 
-border-right:#aedef2 thin solid;
-border-top:#aedef2 thin solid;
-background-color: #eef6fe;
-font-size:12px;
-font-family:"新宋体";
-overflow:auto;
-}
-/**************表格字体*****************/
-td.admintd{
-color: #0066cc; 
-font-size:14px;
-color:#05B;
-}
-/**************后台TH****************/
-th.adminth {
-width: 671px; 
-color: #0066cc; 
-background-color: #eef6fe; 
-font-size:14px;
-color:#05B;
-border:1px solid #AEDEF2;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#AEDEF2,endColorStr=ghostwhite);
-}
-/**************后台TH****************/
-th.adminth_s2 {
-width: 671px; 
-color: #0066cc; 
-background-color: #eef6fe; 
-font-size:14px;
-color:#05B;
-border:1px solid #AEDEF2;
-}
-/****************内容1样式********************/
-td.admincls0 {
-border:1px solid #AEDEF2;
-background:#F8FBFB;
-font-size:12px;
-font-family: 新宋体;
-color: #333;
-}
-/*****************内容2样式*******************/
-td.admincls1 {
-border:1px solid #AEDEF2;
-background:#F8FBFB;
-font-size:12px;
-font-family: 新宋体;
-color: #333;
-}
-th.menu {
-color: #006699; 
-font-family: "新宋体"; 
-font-size: 14px;
-}
-/******************前台stage******************/
-td.stagetd{
-color:#236E11;
-font-size:14px;
-font-family:"新宋体";
-border-bottom:#456602 thin dashed;
-background:#EBFEC5;
-}
-table.stage{
-border-bottom:#FFFFFF thin solid;
-border-left:#FFFFFF thin solid; 
-border-right:#FFFFFF thin solid;
-border-top:#FFFFFF thin solid;
-font-size:14px;
-font-family:"新宋体";
-overflow:auto;
-}
-tr.stagetr_tr1{
-border-bottom:#FFFFFF thin solid;
-border-left:#FFFFFF thin solid; 
-border-right:#FFFFFF thin solid;
-border-top:#FFFFFF thin solid;
-background-color: #EBFEC5;
-font-size:12px;
-font-family:"新宋体";
-}
-tr.stagetr_tr2{
-border-bottom:#FFFFFF thin solid;
-border-left:#FFFFFF thin solid; 
-border-right:#FFFFFF thin solid;
-border-top:#FFFFFF thin solid;
-font-size:12px;
-font-family:"新宋体";
-}
-
-
-
-
-.Search_table_title         /* 搜索结果页表格标题css定义*/
-{
-background:url(/Images/Default/btbg.gif);
-color: #000000;
-text-align: center;
-font-weight:bolder;
-}
-/****************************搜索结果页面css定义结束****************************************/
-
-
-/********************************总站表格css定义开始*********************************/
- 
-.table_border         /*表格边框css定义*/
-{border: 1px solid #a7a7a7;}
-.link_table_title     /* 表格标题css定义*/
-{background:url(/Images/Default/btbg.gif);
-	color: #000000;
-	height:30px;
-	text-align: center;
-	font-weight:bold;
-	background-color: #CCCCCC;
-	font-size: 16px;
-}
-/****************************总站表格search****************************************/
-
-
-
-	.box{
-		background:transparent url(box4.gif) no-repeat scroll 0px 0px;
-		margin-bottom:20px;
-	}
-	.box h2{
-		height:26px;
-		line-height:26px;
-		font-size:14px;
-		margin-left:10px;
-		background:transparent url(box4.gif) no-repeat scroll 99% 0px;
-	}
-	.box .content{
-		border:1px solid #EDC81A;
-		padding:5px;
-	}
+/**
+ * 页面列表
+ */
+.selectPageListByTypeStr {padding:2px 10px; margin:0px; list-style:none;}
+	.selectPageListByTypeStr li { overflow:hidden;text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/global_arrow.gif) no-repeat; background-position:5px 8px;}
 	
-	#hot{
-		width:363px;
-	}
-	#bottom{
-		width:1000px;
-	}
-	#auto{
-		width:98%;
-	}
+/**
+ * 产品列表
+ */
+.product_category_list {float:left;width:368px; border:solid 1px #efefef; margin:5px; padding:2px;}
+	.product_category_list img { float:left; border:solid 1px #ccc; padding:1px;}
+	.product_category_list li { float:left;}
+	.product_category_list h1 { font-size:14px; font-weight:800; padding:5px;}
 
-}
+/**
+ * 推荐产品
+ */
+.selectProductTopByTypeStr { list-style:none; margin:5px; padding:1px;}
+	.selectProductTopByTypeStr img { float:left; border:solid 1px #ccc; padding:1px;}
+	.selectProductTopByTypeStr h1 { float:left; font-size:14px; overflow:hidden;}
+	.selectProductTopByTypeStr li { border-bottom:dashed 1px #ccc;}
+	
+/**
+ *
+ */
+.selectProductWithImgAndSubjectByCategoryId {list-style:none; margin:5px; padding:1px;}
+	.selectProductWithImgAndSubjectByCategoryId li { float:left; width:115px; margin:5px; padding:1px;}
+	.selectProductWithImgAndSubjectByCategoryId img { width:114px; height:92px; padding:1px; margin:0px; border:solid 1px #ccc;}
+	
+/**
+ * 新闻头版头条
+ */
+.selectArticleForHomeFirstFirst {margin:5px; padding:1px; float:left;}
+	.selectArticleForHomeFirstFirst h1 { font-size:14px; margin:5px;}
+	.selectArticleForHomeFirstFirst img { width:222px; height:162px; border:solid 1px #ccc; padding:1px; margin:3px;}
+.selectArticleForHomeFirstList {list-style:none; margin:5px; padding:1px;float:left; width:256px; text-align:left;}
+	.selectArticleForHomeFirstList li { overflow:hidden;text-overflow:ellipsis; line-height:25px; border-bottom:dotted 1px #E1E1E1; padding-left:20px; background:url(tools/dot.gif) no-repeat; background-position:5px 8px;}
+	
+/**
+ * 图片文章
+ */
+.selectImageArticleByTypeStr { clear:both;list-style:none; margin:5px; padding:1px;}
+	.selectImageArticleByTypeStr img {float:left; border:solid 1px #ccc; padding:1px;}
+	.selectImageArticleByTypeStr h1 {font-size:14px; overflow:hidden; border:0px;}
+	.selectImageArticleByTypeStr li {clear:both;border-bottom:dashed 1px #ccc;}
