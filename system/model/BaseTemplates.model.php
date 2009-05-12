@@ -15,6 +15,7 @@ class BaseTemplates extends model
   private $content  = '';
   private $cover  = '';
   private $func  = '';
+  private $note  = '';
   private $updated_at  = '';
   public $table = "templates";
   private $is_new = true;
@@ -87,6 +88,15 @@ class BaseTemplates extends model
     	else return substr($this->func,0,$len);
     }
     return $this->func;
+  }
+
+  public function getNote($len=0)
+  {
+    if($len){
+    	if(function_exists("mb_substr")) return mb_substr($this->note,0,$len,"utf-8");
+    	else return substr($this->note,0,$len);
+    }
+    return $this->note;
   }
 
   public function getUpdatedAt($fromat="Y-m-d H:i:s")
@@ -172,6 +182,17 @@ class BaseTemplates extends model
     }
   }
 
+  public function setNote($v)
+  {
+    if(!isset($v)) return false;
+    $v = (string)$v;
+    if($this->note !== $v)
+    {
+      $this->note = $v;
+      $this->fieldData["note"] = $v;
+    }
+  }
+
   public function setUpdatedAt($v)
   {
     if(!isset($v)) return false;
@@ -214,6 +235,7 @@ class BaseTemplates extends model
      "content" => $this->getContent(),
      "cover" => $this->getCover(),
      "func" => $this->getFunc(),
+     "note" => $this->getNote(),
      "updated_at" => $this->getUpdatedAt(),
    );
   }
@@ -227,6 +249,7 @@ class BaseTemplates extends model
     $this->content = '';
     $this->cover = '';
     $this->func = '';
+    $this->note = '';
     $this->updated_at = '';
     $this->fieldData = array();
     $this->is_new = true;
@@ -246,6 +269,7 @@ class BaseTemplates extends model
     isset($data["content"]) && $this->content = $data["content"];
     isset($data["cover"]) && $this->cover = $data["cover"];
     isset($data["func"]) && $this->func = $data["func"];
+    isset($data["note"]) && $this->note = $data["note"];
     isset($data["updated_at"]) && $this->updated_at = $data["updated_at"];
     return $this;
   }
