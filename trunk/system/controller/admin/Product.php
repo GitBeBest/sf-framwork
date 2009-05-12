@@ -40,7 +40,7 @@ class product extends controller
 			$product->setContent(input::getInput("post.content"));
 			$product->setTypeStr($this->type);
 			$product->setCategoryId(input::getInput("post.category_id"));
-			$product->setCover(input::getInput("post.cover"));
+			$product->setCover(input::getInput("post.images.0"));
 			$product->setImages(input::getInput("post.images"));
 			$product->setIsTop(input::getInput("post.is_top") ? 1 : 0);
 			$product->setIsHot(input::getInput("post.is_hot") ? 1 : 0);

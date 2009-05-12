@@ -99,7 +99,12 @@ tr.mouseout {background-color:#E6EBEC;}
 .list { background:url(tools/list.gif) no-repeat; padding-left:20px;}
 .export { background:url(tools/export.gif) no-repeat; padding-left:20px;}
 
-/*申报工具箱*/
+/*上传图片列表*/
+.img_list {}
+	.img_list li {float:left; margin:5px;}
+	.img_list li img {padding:1px; border:solid 1px #add2da;}
+	
+/*工具箱*/
 #tools {position:absolute;border:solid 1px #add2da; background-color:#D8E9F1; width:200px; float:right;right:10px; top:100px;}
 	#tools h1 { font-size:14px; padding:5px 5px; border-bottom:solid 1px #add2da;}
 
