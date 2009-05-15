@@ -132,7 +132,7 @@ class router
 	
 	public static function create_routes($uri)
 	{
-		$router = array_flip(config::get("router.rule"));
+		$router = array_flip((array)config::get("router.rule"));
 		$uri = trim($uri,"/");
 		if(isset($router[$uri]))
 		{
