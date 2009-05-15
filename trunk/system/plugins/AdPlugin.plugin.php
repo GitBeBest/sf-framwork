@@ -88,7 +88,7 @@ class AdPlugin
 			$link[] = $content[$i]["url"];
 			$text[] = $content[$i]["des"];
 		}
-		$str = 'pics='.implode("|",$pic).'&'.implode("|",$link).'&'.implode("|",$text).'&&borderwidth='.$content["config"]["width"].'&borderheight='.$content["config"]["height"].'&textheight='.$content["config"]["textheight"];
+		$str = 'pics='.implode("|",$pic).'&links='.implode("|",$link).'&texts='.implode("|",$text).'&&borderwidth='.$content["config"]["width"].'&borderheight='.$content["config"]["height"].'&textheight='.$content["config"]["textheight"];
 		$htmlStr  = '<div class="ad_magic">';
 		$htmlStr .= '<embed src="'.site_path("images/tools/pix.swf").'" wmode="opaque" FlashVars="'.$str.'" menu="false" bgcolor="'.$content["config"]["bgcolor"].'" quality="high" width="'.$content["config"]["width"].'" height="'.$content["config"]["height"].'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />';
 		$htmlStr .= '</div>';
