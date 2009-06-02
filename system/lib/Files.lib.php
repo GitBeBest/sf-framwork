@@ -53,7 +53,7 @@ class Files
         function write($filename,$data,$method="wb")
         {
             //判断目录是否存在
-			$_dir = dirname($file);
+			$_dir = dirname($filename);
 			if(!is_dir($_dir)) $this->mDir($_dir);
 			$handle =  @fopen($filename,$method);
             if (false == $handle)return false;
