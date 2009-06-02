@@ -6,13 +6,19 @@ class config
 	
 	public function __construct(){}
 	
+	/**
+	 * 加载指定的配置文件
+	 */
 	public static function load()
 	{
 		$agrs = func_get_args();
 		for($i=0,$n=count($agrs);$i<$n;$i++)
-			($config = loader::config($agrs[$i])) && self::$sfConfig = array_merge(self::$sfConfig,(array)$config);
+			($config = loader::config($agrs[$i])) && self::$sfConfig = config::array_merges(self::$sfConfig,(array)$config);
 	}
 	
+	/**
+	 * 向配置库里面增加新的配置
+	 */
 	public static function set()
 	{
 		$agrs = func_get_args();
@@ -30,6 +36,9 @@ class config
 		}
 	}
 	
+	/**
+	 * 获取配置参数,配置参数不存在用$val代替
+	 */
 	public static function get($key='',$val=NULL)
 	{
 		if(!$key) return self::$sfConfig;
@@ -40,5 +49,22 @@ class config
 		}
 		if($result) return $result;
 		else return $val;
+	}
+	
+	/**
+	 * 递归合并2个数组
+	 */
+	public static function array_merges($array1=array(),$array2=array())
+	{
+		foreach($array1 as $key => $val){
+			if(isset($array2[$key])){
+				if(is_array($val)) $array1[$key] = config::array_merges($val,$array2[$key]);
+				else{
+					$array1[$key] = $array2[$key];
+					unset($array2[$key]);
+				}
+			}	
+		}
+		return $array1 + $array2;
 	}
 }
