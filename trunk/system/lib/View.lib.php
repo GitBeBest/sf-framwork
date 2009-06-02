@@ -46,7 +46,7 @@ class view
 		
 		if(config::get("auto_create_html",false))
 		{
-			$file = $_SERVER[REQUEST_URI];
+			$file = $_SERVER[PATH_INFO];
 			if($file){
 				$file = WEBROOT.$file;
 				sf::getLib("Files")->write($file,self::$content);
