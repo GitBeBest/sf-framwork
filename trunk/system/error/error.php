@@ -16,9 +16,11 @@ h1 { margin-top:5px;}
 <div class="error_box">
 <h1><?=$title?></h1>
 <p class="error_msg"><?=$msg?></p>
+<?php if(config::get("is_debug",false)):?>
 <p class="error_more"><?=$more?></p>
 <p class="error_trace"><?=$trace?></p>
-<p class="error_navbar"> <a href="javascript:history.go(-1);">back</a> <a href="javascript:window.close();">Close</a></p>
+<?php endif;?>
+<p class="error_navbar"> [ <a href="javascript:history.go(-1);">BACK</a> ]</p>
 </div>
 </body>
 </html>
