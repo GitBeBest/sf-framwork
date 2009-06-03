@@ -1,5 +1,4 @@
 @import url("base.css");
-/*样式表提供：cityworm@21cn.com */
 
 /*默认样式定义star*/
 /*================================================*/
@@ -420,4 +419,133 @@ a:hover, a:active
 	font-size: 12px;
 	color: #5B8800;
 	line-height: 32px;
+}
+* {
+	word-wrap:break-word;
+	outline:none;
+	margin:0px auto;
+	padding:0px 0px;
+}
+body {
+	margin: 0px 0px;
+	padding:0px 0px;
+	font-size:12px;
+}
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #454545;
+}
+a:visited {
+	color: #454545;
+}
+a:hover {
+	color: #ff0000;
+}
+a:active {
+	color: #454545;
+}
+.warp, .header, menu {
+	width:778px;
+}
+.warp {
+	border:solid 1px #CCC;
+}
+.header {
+	border-left:solid 1px #CCC;
+	border-right:solid 1px #CCC;
+	height:76px;
+}
+.logo {
+	float:left;
+	width:126px;
+	height:60px;
+	padding:5px;
+}
+.banner {
+	margin-left:120px;
+	text-align:right;
+	padding:5px 10px;
+	height:80px;
+	line-height:90px;
+	font-size:18px;
+	color:#CCC;
+	font-weight:900;
+}
+.menubar {
+	width:100%;
+	background:url(menu_bg.gif) repeat-x;
+	background-color:#efefef;
+	border-bottom:solid 5px #D74323;
+	height:30px;
+	line-height:30px;
+}
+.menubar .active {
+	background:url(menu_active.gif) repeat-x;
+	height:30px;
+}
+menu,ul {
+	list-style:none;
+}
+menu li {
+	float:left;
+	width:100px;
+	text-align:center;
+}
+.warp {
+	clear:both;
+	background:url(bg.gif) repeat-y;
+}
+.side {
+	float:left;
+	width:180px;
+	height:300px;
+	border-right:solid 1px #efefef;
+}
+.side li {
+	border:solid 1px #efefef;
+	margin-top:5px;
+	width:126px;
+	padding:5px 1px 5px 30px;
+	background:url(dot.gif) no-repeat;
+	background-position:10px 6px;
+}
+.main {
+	margin-left:182px;
+	padding:2px;
+}
+.content {
+	padding:5px;
+}
+.navbar {
+	height:28px;
+	line-height:28px;
+	background:url(menu_title.jpg) no-repeat;
+	padding-left:30px;
+	border-bottom:solid 2px #efefef;
+}
+.pagebar {
+	padding:5px 5px;
+	text-align:right;
+}
+.pagebar a {
+	padding:3px 5px;
+	margin:2px 2px;
+	border:solid 1px #CCC;
+}
+.footer {
+	clear:both;
+}
+.link {
+	border-bottom:solid 5px #F00;
+	border-top:solid 1px #CCC;
+	background-color:#efefef;
+	text-align:center;
+	padding:2px;
+}
+.copyright {
+	height:76px;
+	text-align:center;
+	background-color:#FFFFFF;
 }
