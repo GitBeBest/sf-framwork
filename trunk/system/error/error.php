@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?=$title?>tttt</title>
+<title><?=$title?></title>
 <style type="text/css">
 .error_box { border: solid 1px #999;  padding:5px 10px;}
 .error_msg { font-size:14px;border: solid 1px #999; background-color:#efefef;padding:10px 10px;}
