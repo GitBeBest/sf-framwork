@@ -1,3 +1,4 @@
 RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond $1 !^(index\.php|banner|system|application|images|icons|up_files|js|robots\.txt) 
 RewriteRule ^(.*)$ /sf/index.php/$1 [L]
