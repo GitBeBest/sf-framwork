@@ -5,6 +5,19 @@
 class Tag
 {
 	/**
+	 * 缓存对象
+	 */
+	private static $cache = NULL;
+	
+	/**
+	 * 取得缓存对象
+	 */
+	public static function getCacheHandler()
+	{
+		return sf::getLib("cache",config::get("cache_dir",APPPATH.'cache'));
+	}
+	
+	/**
 	 * 取得数字型参数
 	 */
 	public static function getInt($num=0,$default=0,$agrs=array())
@@ -29,7 +42,8 @@ class Tag
 	public static function selectTreeByTypeStr()
 	{
 		$agrs = func_get_args();
-		if($htmlStr = sf::getLib("cache",config::get("cache_dir",APPPATH.'cache'))->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';//初始化
 		//取得分类信息
@@ -39,7 +53,7 @@ class Tag
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
 		//将内容写到缓存中
-		sf::getLib("cache",config::get("cache_dir",APPPATH.'cache'))->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -49,6 +63,8 @@ class Tag
 	public static function selectPageByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -58,6 +74,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -67,6 +85,8 @@ class Tag
 	public static function selectArticleByCategoryId()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';//初始化
 		$category = sf::getModel("categorys",Tag::getInt(1,0,$agrs));//取得分类信息
@@ -79,6 +99,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -88,6 +110,8 @@ class Tag
 	public static function selectArticleTopByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -97,6 +121,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -106,6 +132,8 @@ class Tag
 	public static function selectArticleHotByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -115,6 +143,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -124,6 +154,8 @@ class Tag
 	public static function selectArticleByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -133,6 +165,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -142,6 +176,8 @@ class Tag
 	public static function selectImageArticleByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -151,6 +187,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -160,6 +198,8 @@ class Tag
 	public static function selectProductTopByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -169,6 +209,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -178,6 +220,8 @@ class Tag
 	public static function selectProductHotByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -187,6 +231,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -196,6 +242,8 @@ class Tag
 	public static function selectProductByTypeStr()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';
 		Tag::getChar(1,'',$agrs) && $addWhere .= "`type_str` = '".Tag::getChar(1,'',$agrs)."' ";
@@ -205,6 +253,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -214,6 +264,8 @@ class Tag
 	public static function selectProductByCategoryId()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = '';
 		Tag::getInt(1,0,$agrs) && $addWhere .= "`category_id` = '".Tag::getInt(1,0,$agrs)."' ";
@@ -223,6 +275,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
@@ -232,12 +286,16 @@ class Tag
 	public static function output()
 	{
 		$agrs = func_get_args();
+		//有缓存就直接读缓存
+		if($htmlStr = self::getCacheHandler()->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		extract(view::get());//将模板对象吊出来
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		ob_start();
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		self::getCacheHandler()->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
