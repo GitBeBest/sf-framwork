@@ -6,6 +6,7 @@ return array(
 			'plugin_dir'=> APPPATH.'plugins/',
 			'helper_dir'=> APPPATH.'helper/',
 			'controller_dir'=> APPPATH.'controller/',
+			'cache_dir'=> WEBROOT.'/cache/',
 			'default_lang'=> 'english',
 			'controller_tag'=> 'module',
 			'method_tag'=> 'act',

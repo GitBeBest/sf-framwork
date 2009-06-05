@@ -29,6 +29,7 @@ class Tag
 	public static function selectTreeByTypeStr()
 	{
 		$agrs = func_get_args();
+		if($htmlStr = sf::getLib("cache",config::get("cache_dir",APPPATH.'cache'))->getCache('Tag'.md5(Tag::getInt(0,0,$agrs)))) return $htmlStr;
 		$content = stripslashes(sf::getModel("templates",Tag::getInt(0,0,$agrs))->getContent());//取得模板内容
 		$addWhere = $addSql = $htmlStr = '';//初始化
 		//取得分类信息
@@ -37,6 +38,8 @@ class Tag
 		eval("?>$content<?php ");
 		$htmlStr = ob_get_contents();
 		ob_end_clean();
+		//将内容写到缓存中
+		sf::getLib("cache",config::get("cache_dir",APPPATH.'cache'))->setCache('Tag'.md5(Tag::getInt(0,0,$agrs)),$htmlStr);
 		return $htmlStr;
 	}
 	
