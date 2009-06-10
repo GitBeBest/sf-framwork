@@ -16,7 +16,7 @@ loader::helper(config::get("auto_load_helper",'url'));
 //加载默认插件
 config::get("auto_load_plugin") && loader::plugin(config::get("auto_load_plugin"));
 //初始化pathinfo
-router::parse();
+router::parse();print_r(config::get());exit;
 //加载语言文件
 lang::setLang(config::get("default_lang","chinese"));
 lang::load("global");

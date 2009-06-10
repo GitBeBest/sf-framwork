@@ -1,5 +1,5 @@
 <?php
-return array(
+config::set(array(
 	'site_name' => '快速建站',
 	'default_lang' => 'chinese',
 	'keyword' => '快速建站',
@@ -20,5 +20,6 @@ return array(
 						),
 
 		),
-	);
+	)
+);
 ?>

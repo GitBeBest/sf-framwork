@@ -1,5 +1,5 @@
 <?php
-return array(
+config::set(array(
 			'lib_dir'=> APPPATH.'lib/',
 			'model_dir'=> APPPATH.'model/',
 			'view_dir'=> APPPATH.'view/',
@@ -21,7 +21,11 @@ return array(
 			'index_page'=>'',
 			'router' =>array(
 						'default_controller' => 'welcome',
-						'default_method' => 'index'
+						'default_method' => 'index',
+						'rule' => array(
+										'admin/'=> 'admin/home/index',
+										),
+
 					),
 			'auto_load_helper'=> array('url','global'),
 			'auto_load_plugin'=> array('Tag'),
@@ -31,4 +35,6 @@ return array(
 						'passwd'=>'root',
 						'database'=>'tf'
 					)
-			);
+			)
+	);
+?>

@@ -13,7 +13,7 @@ class config
 	{
 		$agrs = func_get_args();
 		for($i=0,$n=count($agrs);$i<$n;$i++)
-			($config = loader::config($agrs[$i])) && self::$sfConfig = config::array_merges(self::$sfConfig,(array)$config);
+			loader::config($agrs[$i])
 	}
 	
 	/**
@@ -23,7 +23,7 @@ class config
 	{
 		$agrs = func_get_args();
 		if(is_array($agrs[0]))
-			self::$sfConfig = array_merge(self::$sfConfig,$agrs[0]);
+			self::$sfConfig = config::array_merges(self::$sfConfig,$agrs[0]);
 		elseif($agrs[1]){
 			$keys = array_reverse(explode(".",$agrs[0]));
 			$val = $agrs[1];
