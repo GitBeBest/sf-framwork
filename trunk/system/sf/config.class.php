@@ -13,7 +13,7 @@ class config
 	{
 		$agrs = func_get_args();
 		for($i=0,$n=count($agrs);$i<$n;$i++)
-			loader::config($agrs[$i])
+			loader::config($agrs[$i]);
 	}
 	
 	/**
