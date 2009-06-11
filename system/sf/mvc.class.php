@@ -23,14 +23,14 @@ lang::load("global");
 //执行控制器
 $controller = sf::getController(router::getController());
 try{
-	method_exists($controller , "load") && $controller->load();
+	method_exists($controller , "load") && $controller->load();//存在LOAD方法执行LOAD方法（页面执行开始执行）
 	if(!method_exists($controller , router::getMethod())) 
 		throw new sfException(sprintf(lang::get("Call to undefined method %s::%s"),get_class($controller),router::getMethod()));
 	$controller->{router::getMethod()}();
-	method_exists($controller , "shutdown") && $controller->shutdown();
+	method_exists($controller , "shutdown") && $controller->shutdown();//存在SHUTDOWN方法执行他（页面执行完成执行）
 	
 }catch(tfException $e){
-	method_exists($controller , "shutdown") && $controller->shutdown();
+	method_exists($controller , "shutdown") && $controller->shutdown();//发生意外执行shutdown方法
 	$e->halt();
 }
 ?>

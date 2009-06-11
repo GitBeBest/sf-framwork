@@ -1,10 +1,16 @@
 <?php
-
+/**
+ * 类名：input
+ * 功能：处理约束变量
+ */
 class input
 {
-	private static $sfInput = array();
-	private static $is_do = false;
+	private static $sfInput = array();//存储所有系统变量
+	private static $is_do = false;//是否处理，为TRUE是不在处理INIT方法
 	
+	/**
+	 * 递归处理(过滤、整理)所有变量值
+	 */
 	public function init()
 	{
 		self::$sfInput['post'] = &$_POST;
@@ -23,6 +29,9 @@ class input
 		self::$is_do = true;
 	}
 	
+	/**
+	 * 用.方式取得整形后的变量值
+	 */
 	public static function getInput($key='')
 	{
 		!self::$is_do && self::init();
@@ -35,6 +44,9 @@ class input
 		return $result;
 	}
 	
+	/**
+	 * 取得整形后的混合变量值,以GET方式值优先,POST值其次.
+	 */
 	public static function getMix($key='')
 	{
 		if(self::getInput("get.".$key)) return self::getInput("get.".$key);
@@ -42,30 +54,45 @@ class input
 		else return '';
 	}
 	
+	/**
+	 * 取得POST的原始值
+	 */
 	public static function post($key='')
 	{
 		if(!$key) return $_POST;
 		return $_POST[$key];
 	}
 	
+	/**
+	 * 取得GET的原始值
+	 */
 	public static function get($key='')
 	{
 		if(!$key) return $_GET;
 		return $_GET[$key];
 	}
 	
+	/**
+	 * 取得SESSION的原始值
+	 */
 	public static function session($key='')
 	{
 		if(!$key) return $_SESSION;
 		return $_SESSION[$key];
 	}
 	
+	/**
+	 * 取得SERVER的原始值
+	 */
 	public static function server($key='')
 	{
 		if(!$key) return $_SERVER;
 		return $_SERVER[$key];
 	}
 	
+	/**
+	 * 取得客户端IP
+	 */
 	public static function getIp()
 	{
 		if ($_SERVER['REMOTE_ADDR'])
@@ -88,6 +115,9 @@ class input
 	
 }
 
+/**
+ * 递归处理变量值
+ */
 function processVariables(&$var, $key)
 {
 	if(!get_magic_quotes_gpc())

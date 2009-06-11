@@ -1,12 +1,18 @@
 <?php
-
+/**
+ * 类名：lang
+ * 功能：处理语言的国际化（多语言）
+ */
 class lang
 {
-	private static $sfLang = array();
-	private static $lang = '';
+	private static $sfLang = array();//语言库
+	private static $lang = '';//当前语言
 	
 	public function __construct(){}
 	
+	/**
+	 * 加载语言文件
+	 */
 	public static function load()
 	{
 		$agrs = func_get_args();
@@ -14,6 +20,9 @@ class lang
 			($lang = loader::language($agrs[$i])) && self::$sfLang = array_merge(self::$sfLang,(array)$lang);
 	}
 	
+	/**
+	 * 将当前的语言类型保存起来，在没有更换语言种类之前，默认采用当前语言
+	 */
 	public static function setLang($lang='english')
 	{
 		if($lang){
@@ -24,12 +33,20 @@ class lang
 		else return self::$lang = config::get("default_lang","english");
 	}
 	
+	/**
+	 * 取得当前语言种类
+	 */
 	public static function getLang()
 	{
-		!self::$lang && self::setLang();
+		if($_COOKIE[config::get("lang_cookie_name","sflang")])//已经设置了语言就直接返回语言种类
+			return $_COOKIE[config::get("lang_cookie_name","sflang")];
+		!self::$lang && self::setLang();//没有语言种类就直接采用默认语言种类
 		return self::$lang;
 	}
 	
+	/**
+	 * 向语言库加入新的语言翻译
+	 */
 	public static function set()
 	{
 		$agrs = func_get_args();
@@ -47,6 +64,9 @@ class lang
 		}
 	}
 	
+	/**
+	 * 取得指定值的当前语言翻译
+	 */
 	public static function get($key='')
 	{
 		if(!$key) return self::$sfLang;
@@ -56,16 +76,6 @@ class lang
 			$result = $result[$key];
 		}
 		if($result) return $result;
-		else{
-			/*self::set($key,$key);
-			$str = '<?php return array('."\r\n";
-			foreach(self::$sfLang as $k => $v)
-				$str .= '	"'.str_replace('\\\'','\\\\\'',$k).'" => "'.$v.'",'."\r\n";
-			$str .= ');?>';
-			$h = fopen("D:/www/kjtn/application/language/chinese/global.lang.php",'w+');
-			fwrite($h,$str);
-			fclose($h);*/
-			return $key;
-		}
+		else return $key;//没有翻译就直接返回当前字符
 	}
 }
