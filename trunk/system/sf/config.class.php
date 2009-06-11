@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * 类名：config
+ * 功能：处理配置内容
+ */
 class config
 {
 	private static $sfConfig = array();
