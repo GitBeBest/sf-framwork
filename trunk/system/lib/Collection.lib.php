@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * 类名：Collection
+ * 功能：处理数据模型对象集
+ */
 class Collection
 {
 	private $cur_row			= 0;
