@@ -21,24 +21,24 @@
 <script language="javascript" type="text/jscript">
 $(document).ready(function() {
 	$("#validateForm").validate({errorElement: "em"});
-	$('.menubar li').mouseover(function(){$(this).addClass("active");});
-	$('.menubar li').mouseout(function(){$(this).removeClass("active");});
+	$('.menubar li[class!="active"]').mouseover(function(){$(this).addClass("active");});
+	$('.menubar li[class!="active"]').mouseout(function(){$(this).removeClass("active");});
 });
 </script>
 </head>
 <body>
 <div class="header">
-  <div class="logo"><img src="<?=site_path("images/logo.gif")?>" alt="聚赢科技" /></div>
+  <div class="logo">快速建站</div>
   <div class="banner">baner</div>
 </div>
 <div class="menubar"> <menu>
-  <li class="active"><a href="<?=site_url("/")?>">首&nbsp;&nbsp;页</a></li>
+  <li><a href="<?=site_url("/")?>">首&nbsp;&nbsp;页</a></li>
   <li><a href="<?=site_url("article/index")?>">新闻中心</a></li>
   <li><a href="<?=site_url("product/index")?>">产品中心</a></li>
   <li><a href="<?=site_url("page/index/type/default/id/1")?>">公司简介</a></li>
   <li><a href="<?=site_url("job/index")?>">人才招聘</a></li>
   <li><a href="<?=site_url("book/index")?>">在线留言</a></li>
-  <li><a href="<?=site_url("page/index/type/default/id/2")?>">我们</a></li>
+  <li class="active"><a href="<?=site_url("page/index/type/default/id/2")?>">联络我们</a></li>
   </menu>
   <p style="clear:both"></p>
 </div>
@@ -46,7 +46,7 @@ $(document).ready(function() {
   <?=$inc_body?>
   <div class="footer">
     <div class="link"></div>
-    <div class="copyright"><br />
+    <div class="copyright"><br /><br />
       Copyright © 2009 All Rights Reserved. </div>
   </div>
 </div>
