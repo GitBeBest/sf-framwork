@@ -1,22 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.6
+-- version 2.11.5.1
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2009 年 05 月 11 日 17:35
--- 服务器版本: 5.0.51
--- PHP 版本: 5.2.6
+-- 主机: mysql
+-- 生成日期: 2009 年 06 月 11 日 14:58
+-- 服务器版本: 5.1.33
+-- PHP 版本: 5.2.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
--- 数据库: `sf`
+-- 数据库: `juwin`
 --
 
 -- --------------------------------------------------------
@@ -27,15 +21,15 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 DROP TABLE IF EXISTS `ads`;
 CREATE TABLE IF NOT EXISTS `ads` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(20) default NULL COMMENT '广告标题',
-  `type_str` varchar(20) NOT NULL default 'image' COMMENT '广告类型',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(20) DEFAULT NULL COMMENT '广告标题',
+  `type_str` varchar(20) NOT NULL DEFAULT 'image' COMMENT '广告类型',
   `brief` text COMMENT '广告描述',
   `content` longtext COMMENT '广告内容',
-  `is_public` int(1) NOT NULL default '0' COMMENT '是否发布',
-  `updated_at` datetime default NULL COMMENT '广告更新时间',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  `is_public` int(1) NOT NULL DEFAULT '0' COMMENT '是否发布',
+  `updated_at` datetime DEFAULT NULL COMMENT '广告更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `ads`
@@ -56,20 +50,20 @@ INSERT INTO `ads` (`id`, `subject`, `type_str`, `brief`, `content`, `is_public`,
 
 DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(60) default NULL COMMENT '文章标题',
-  `type_str` varchar(10) default NULL COMMENT '文章类型标记',
-  `category_id` int(11) NOT NULL default '0' COMMENT '文章分类id',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(60) DEFAULT NULL COMMENT '文章标题',
+  `type_str` varchar(10) DEFAULT NULL COMMENT '文章类型标记',
+  `category_id` int(11) NOT NULL DEFAULT '0' COMMENT '文章分类id',
   `brief` text NOT NULL COMMENT '文章描述',
   `content` longtext COMMENT '文章内容',
-  `cover` varchar(30) default NULL COMMENT '封面图片',
-  `is_top` int(11) NOT NULL default '0' COMMENT '是否置顶',
-  `is_hot` int(11) NOT NULL default '0' COMMENT '是否热点',
-  `is_public` int(11) NOT NULL default '0' COMMENT '是否审核',
-  `is_html` int(1) NOT NULL default '0' COMMENT '是否是静态页面',
-  `updated_at` datetime default NULL COMMENT '更新时间',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1804 ;
+  `cover` varchar(30) DEFAULT NULL COMMENT '封面图片',
+  `is_top` int(11) NOT NULL DEFAULT '0' COMMENT '是否置顶',
+  `is_hot` int(11) NOT NULL DEFAULT '0' COMMENT '是否热点',
+  `is_public` int(11) NOT NULL DEFAULT '0' COMMENT '是否审核',
+  `is_html` int(1) NOT NULL DEFAULT '0' COMMENT '是否是静态页面',
+  `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `articles`
@@ -185,13 +179,13 @@ INSERT INTO `articles` (`id`, `subject`, `type_str`, `category_id`, `brief`, `co
 
 DROP TABLE IF EXISTS `authorizations`;
 CREATE TABLE IF NOT EXISTS `authorizations` (
-  `id` int(11) NOT NULL auto_increment,
-  `controller` varchar(30) default NULL,
-  `controller_name` varchar(20) default NULL,
-  `method` varchar(30) default NULL,
-  `user_group_ids` varchar(255) NOT NULL default '1',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `controller` varchar(30) DEFAULT NULL,
+  `controller_name` varchar(20) DEFAULT NULL,
+  `method` varchar(30) DEFAULT NULL,
+  `user_group_ids` varchar(255) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `authorizations`
@@ -260,25 +254,25 @@ INSERT INTO `authorizations` (`id`, `controller`, `controller_name`, `method`, `
 
 DROP TABLE IF EXISTS `backs`;
 CREATE TABLE IF NOT EXISTS `backs` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(30) NOT NULL COMMENT '应聘职位',
-  `user_name` varchar(30) default NULL,
-  `user_sex` varchar(10) default NULL,
-  `user_age` varchar(10) default NULL,
-  `user_degree` varchar(10) default NULL,
-  `idcard` varchar(18) default NULL,
-  `user_phone` varchar(20) default NULL,
-  `user_im` varchar(100) default NULL,
-  `user_email` varchar(100) default NULL,
-  `user_address` varchar(100) default NULL,
-  `post_code` int(6) default NULL,
-  `work_at` varchar(20) default NULL,
+  `user_name` varchar(30) DEFAULT NULL,
+  `user_sex` varchar(10) DEFAULT NULL,
+  `user_age` varchar(10) DEFAULT NULL,
+  `user_degree` varchar(10) DEFAULT NULL,
+  `idcard` varchar(18) DEFAULT NULL,
+  `user_phone` varchar(20) DEFAULT NULL,
+  `user_im` varchar(100) DEFAULT NULL,
+  `user_email` varchar(100) DEFAULT NULL,
+  `user_address` varchar(100) DEFAULT NULL,
+  `post_code` int(6) DEFAULT NULL,
+  `work_at` varchar(20) DEFAULT NULL,
   `study_list` text,
   `work_list` text,
   `note` text COMMENT '处理意见',
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `backs`
@@ -296,17 +290,17 @@ INSERT INTO `backs` (`id`, `subject`, `user_name`, `user_sex`, `user_age`, `user
 
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_name` varchar(30) default NULL COMMENT '留言者姓名',
-  `user_phone` varchar(30) default NULL,
-  `user_qq` varchar(30) default NULL,
-  `user_email` varchar(100) default NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(30) DEFAULT NULL COMMENT '留言者姓名',
+  `user_phone` varchar(30) DEFAULT NULL,
+  `user_qq` varchar(30) DEFAULT NULL,
+  `user_email` varchar(100) DEFAULT NULL,
   `content` text COMMENT '留言内容',
   `write_back` text COMMENT '回复内容',
-  `is_public` int(1) NOT NULL default '0',
+  `is_public` int(1) NOT NULL DEFAULT '0',
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `books`
@@ -324,21 +318,21 @@ INSERT INTO `books` (`id`, `user_name`, `user_phone`, `user_qq`, `user_email`, `
 
 DROP TABLE IF EXISTS `categorys`;
 CREATE TABLE IF NOT EXISTS `categorys` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(20) default NULL,
-  `type` varchar(20) NOT NULL default 'default',
-  `head_str` varchar(60) default NULL,
-  `level` int(11) default NULL,
-  `parent_id` int(11) default NULL,
-  `left` int(11) default NULL,
-  `right` int(11) default NULL,
-  `orders` int(11) default NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(20) DEFAULT NULL,
+  `type` varchar(20) NOT NULL DEFAULT 'default',
+  `head_str` varchar(60) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `left` int(11) DEFAULT NULL,
+  `right` int(11) DEFAULT NULL,
+  `orders` int(11) DEFAULT NULL,
   `note` text,
-  `cover` varchar(30) default NULL,
-  `is_home` int(1) NOT NULL default '0' COMMENT '是否显示到首页',
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `cover` varchar(30) DEFAULT NULL,
+  `is_home` int(1) NOT NULL DEFAULT '0' COMMENT '是否显示到首页',
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `categorys`
@@ -360,15 +354,15 @@ INSERT INTO `categorys` (`id`, `subject`, `type`, `head_str`, `level`, `parent_i
 
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(30) default NULL COMMENT '评论标题',
-  `type_str` varchar(10) default NULL COMMENT '评论类型',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(30) DEFAULT NULL COMMENT '评论标题',
+  `type_str` varchar(10) DEFAULT NULL COMMENT '评论类型',
   `content` text COMMENT '评论内容',
-  `user_id` int(11) NOT NULL default '0' COMMENT '用户ID',
-  `user_name` varchar(20) default NULL COMMENT '用户名',
-  `updated_at` datetime default NULL COMMENT '更新时间',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+  `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `user_name` varchar(20) DEFAULT NULL COMMENT '用户名',
+  `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `comments`
@@ -398,23 +392,23 @@ INSERT INTO `comments` (`id`, `subject`, `type_str`, `content`, `user_id`, `user
 
 DROP TABLE IF EXISTS `filemanager`;
 CREATE TABLE IF NOT EXISTS `filemanager` (
-  `id` int(11) NOT NULL auto_increment,
-  `item_id` int(11) default NULL,
-  `item_type` varchar(20) NOT NULL default 'project',
-  `file_name` varchar(60) default NULL,
-  `file_savename` varchar(30) default NULL,
-  `file_path` varchar(100) default NULL,
-  `file_size` varchar(20) default NULL,
-  `file_ext` varchar(20) default NULL,
-  `file_minetype` varchar(30) default NULL,
-  `created_at` datetime default NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) DEFAULT NULL,
+  `item_type` varchar(20) NOT NULL DEFAULT 'project',
+  `file_name` varchar(60) DEFAULT NULL,
+  `file_savename` varchar(30) DEFAULT NULL,
+  `file_path` varchar(100) DEFAULT NULL,
+  `file_size` varchar(20) DEFAULT NULL,
+  `file_ext` varchar(20) DEFAULT NULL,
+  `file_minetype` varchar(30) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   `file_note` text,
-  `user_id` int(11) default NULL,
-  `user_name` varchar(20) default NULL,
-  `authorization` varchar(200) NOT NULL default '1',
-  `used` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
+  `user_id` int(11) DEFAULT NULL,
+  `user_name` varchar(20) DEFAULT NULL,
+  `authorization` varchar(200) NOT NULL DEFAULT '1',
+  `used` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `filemanager`
@@ -461,23 +455,23 @@ INSERT INTO `filemanager` (`id`, `item_id`, `item_type`, `file_name`, `file_save
 
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE IF NOT EXISTS `jobs` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(30) default NULL,
-  `guerdon` varchar(20) default NULL,
-  `department` varchar(20) default NULL,
-  `age` varchar(20) default NULL,
-  `number` int(5) default NULL,
-  `work_address` varchar(20) default NULL,
-  `degree` varchar(20) default NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(30) DEFAULT NULL,
+  `guerdon` varchar(20) DEFAULT NULL,
+  `department` varchar(20) DEFAULT NULL,
+  `age` varchar(20) DEFAULT NULL,
+  `number` int(5) DEFAULT NULL,
+  `work_address` varchar(20) DEFAULT NULL,
+  `degree` varchar(20) DEFAULT NULL,
   `content` longtext,
-  `linkman` varchar(20) default NULL,
-  `linkman_phone` varchar(20) default NULL,
-  `linkman_email` varchar(100) default NULL,
-  `linkman_im` varchar(100) default NULL,
-  `address` varchar(100) default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `linkman` varchar(20) DEFAULT NULL,
+  `linkman_phone` varchar(20) DEFAULT NULL,
+  `linkman_email` varchar(100) DEFAULT NULL,
+  `linkman_im` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `jobs`
@@ -495,24 +489,24 @@ INSERT INTO `jobs` (`id`, `subject`, `guerdon`, `department`, `age`, `number`, `
 
 DROP TABLE IF EXISTS `managers`;
 CREATE TABLE IF NOT EXISTS `managers` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_group_id` tinyint(3) unsigned NOT NULL default '0' COMMENT '用户所属权限组',
-  `user_name` varchar(20) default NULL COMMENT '用户登录名',
-  `user_username` varchar(50) default NULL COMMENT '用户名称',
-  `user_password` varchar(45) default NULL,
-  `login_num` int(15) default '0' COMMENT '登录总次数',
-  `lastlogin_at` datetime default NULL COMMENT '最后登录时间',
-  `created_at` datetime default NULL COMMENT '用户创建时间',
-  `updated_at` datetime default NULL,
-  `user_ip` varchar(16) default NULL,
-  `user_email` varchar(200) default NULL COMMENT '用户电子邮件',
-  `first_question` varchar(20) default NULL,
-  `first_answer` varchar(100) default NULL,
-  `second_question` varchar(20) default NULL,
-  `second_answer` varchar(100) default NULL,
-  `is_lock` int(1) NOT NULL default '0' COMMENT '是否通过审核',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台管理用户' AUTO_INCREMENT=257 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_group_id` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '用户所属权限组',
+  `user_name` varchar(20) DEFAULT NULL COMMENT '用户登录名',
+  `user_username` varchar(50) DEFAULT NULL COMMENT '用户名称',
+  `user_password` varchar(45) DEFAULT NULL,
+  `login_num` int(15) DEFAULT '0' COMMENT '登录总次数',
+  `lastlogin_at` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `created_at` datetime DEFAULT NULL COMMENT '用户创建时间',
+  `updated_at` datetime DEFAULT NULL,
+  `user_ip` varchar(16) DEFAULT NULL,
+  `user_email` varchar(200) DEFAULT NULL COMMENT '用户电子邮件',
+  `first_question` varchar(20) DEFAULT NULL,
+  `first_answer` varchar(100) DEFAULT NULL,
+  `second_question` varchar(20) DEFAULT NULL,
+  `second_answer` varchar(100) DEFAULT NULL,
+  `is_lock` int(1) NOT NULL DEFAULT '0' COMMENT '是否通过审核',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台管理用户';
 
 --
 -- 导出表中的数据 `managers`
@@ -530,21 +524,21 @@ INSERT INTO `managers` (`id`, `user_group_id`, `user_name`, `user_username`, `us
 
 DROP TABLE IF EXISTS `menus`;
 CREATE TABLE IF NOT EXISTS `menus` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(20) default NULL COMMENT '菜单名称',
-  `type` varchar(20) NOT NULL default 'default',
-  `head_str` varchar(60) default NULL,
-  `level` int(11) default NULL,
-  `parent_id` int(11) default NULL COMMENT '菜单的父类ID',
-  `left` int(11) default NULL,
-  `right` int(11) default NULL,
-  `orders` int(11) default NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(20) DEFAULT NULL COMMENT '菜单名称',
+  `type` varchar(20) NOT NULL DEFAULT 'default',
+  `head_str` varchar(60) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL COMMENT '菜单的父类ID',
+  `left` int(11) DEFAULT NULL,
+  `right` int(11) DEFAULT NULL,
+  `orders` int(11) DEFAULT NULL,
   `alt` text COMMENT '菜单说明',
-  `url` varchar(200) default NULL COMMENT '菜单连接地址',
-  `user_group_ids` varchar(200) NOT NULL default '1' COMMENT '能访问的权限组',
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+  `url` varchar(200) DEFAULT NULL COMMENT '菜单连接地址',
+  `user_group_ids` varchar(200) NOT NULL DEFAULT '1' COMMENT '能访问的权限组',
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `menus`
@@ -592,24 +586,24 @@ INSERT INTO `menus` (`id`, `subject`, `type`, `head_str`, `level`, `parent_id`, 
 
 DROP TABLE IF EXISTS `order_froms`;
 CREATE TABLE IF NOT EXISTS `order_froms` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(60) default NULL COMMENT '订单标题',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(60) DEFAULT NULL COMMENT '订单标题',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
   `user_name` varchar(20) NOT NULL COMMENT '用户名',
   `number` int(11) NOT NULL COMMENT '产品数量',
   `price` varchar(20) NOT NULL COMMENT '产品单价',
-  `user_sex` varchar(20) default NULL,
-  `user_mobile` varchar(20) default NULL,
-  `user_phone` varchar(20) default NULL,
-  `user_fax` varchar(20) default NULL,
-  `user_email` varchar(200) default NULL,
-  `user_address` varchar(200) default NULL,
+  `user_sex` varchar(20) DEFAULT NULL,
+  `user_mobile` varchar(20) DEFAULT NULL,
+  `user_phone` varchar(20) DEFAULT NULL,
+  `user_fax` varchar(20) DEFAULT NULL,
+  `user_email` varchar(200) DEFAULT NULL,
+  `user_address` varchar(200) DEFAULT NULL,
   `notebook` text NOT NULL COMMENT '用户备注',
   `is_public` int(1) NOT NULL COMMENT '是否处理',
   `note` text NOT NULL COMMENT '处理意见',
   `updated_at` datetime NOT NULL COMMENT '更新时间',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `order_froms`
@@ -627,23 +621,25 @@ INSERT INTO `order_froms` (`id`, `subject`, `user_id`, `user_name`, `number`, `p
 
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(30) default NULL COMMENT '页面标题',
-  `type_str` varchar(10) NOT NULL default 'default' COMMENT '分组标记字符',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(30) DEFAULT NULL COMMENT '页面标题',
+  `type_str` varchar(10) NOT NULL DEFAULT 'default' COMMENT '分组标记字符',
   `content` longtext COMMENT '页面内容',
-  `updated_at` datetime default NULL COMMENT '最近更新时间',
-  `is_default` int(1) NOT NULL default '0' COMMENT '是否为默认显示',
-  `is_public` int(1) NOT NULL default '0' COMMENT '是否显示',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+  `updated_at` datetime DEFAULT NULL COMMENT '最近更新时间',
+  `is_default` int(1) NOT NULL DEFAULT '0' COMMENT '是否为默认显示',
+  `is_public` int(1) NOT NULL DEFAULT '0' COMMENT '是否显示',
+  `is_menu` int(1) NOT NULL DEFAULT '0' COMMENT '是否显示为菜单',
+  `orders` int(5) NOT NULL DEFAULT '0' COMMENT '菜单排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `pages`
 --
 
-INSERT INTO `pages` (`id`, `subject`, `type_str`, `content`, `updated_at`, `is_default`, `is_public`) VALUES
-(1, '公司简介', 'default', '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是西部地区规模最大、技术实力最强、专业化程度最高的互联网应用服务商之一；是获得信息产业部电信增值业务经营许可证(ICP)的专业化服务商之一；是获得软件企业认定证书和软件产品登记证书的双软认证企业；是四川省电子商务协会常务理事成员，是成都软件行业协会常务理事，是国家&ldquo;863&rdquo;计划重点支持企业。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码整合互联网前沿技术提供网站诊断策划、网站建设推广、网站维护营运等一整套网络营销服务，帮助客户实现网上塑造品牌、销售产品、服务客户，从而提高市场竞争力，为包括四川省质量技术监督局、大陆希望集团、华西希望集团、华西附二院、平乐古镇等在内的5000余家客户，提供了卓有成效的电子商务解决方案，赢得了客户广泛的赞誉。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码拥有一流的管理、技术和服务团队，公司率先在业内建立了完善的技术开发体系、服务质量体系，专业培训体系，保证我们服务的客户能够得到标准、专业、优质的互联网应用服务。公司与中国电信和中国移动有着良好的合作关系，保证我们的用户各项服务的稳定性和安全保障；公司采用适合西部企业的一对一的贴身服务模式，使我们服务的企业能够感受个性化服务带来的便利和价值。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是阿里巴巴、中国万网、中国新网等在西部地区最重要的战略合作伙伴，保证我们的客户能够得到全方位的互联网应用服务；与《华西都市报》、《成都商报》、《成都日报》、四川电视台等传统媒体有着良好的合作关系，定期为我们服务过的客户在这些媒体进行宣传报道，使我们的客户能够获得更多增值的服务。</p>', '2009-04-14 21:32:18', 1, 1),
-(2, '荣誉证书', 'default', '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是西部地区规模最大、技术实力最强、专业化程度最高的互联网应用服务商之一；是获得信息产业部电信增值业务经营许可证(ICP)的专业化服务商之一；是获得软件企业认定证书和软件产品登记证书的双软认证企业；是四川省电子商务协会常务理事成员，是成都软件行业协会常务理事，是国家&ldquo;863&rdquo;计划重点支持企业。\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码整合互联网前沿技术提供网站诊断策划、网站建设推广、网站维护营运等一整套网络营销服务，帮助客户实现网上塑造品牌、销售产品、服务客户，从而提高市场竞争力，为包括四川省质量技术监督局、大陆希望集团、华西希望集团、华西附二院、平乐古镇等在内的5000余家客户，提供了卓有成效的电子商务解决方案，赢得了客户广泛的赞誉。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码拥有一流的管理、技术和服务团队，公司率先在业内建立了完善的技术开发体系、服务质量体系，专业培训体系，保证我们服务的客户能够得到标准、专业、优质的互联网应用服务。公司与中国电信和中国移动有着良好的合作关系，保证我们的用户各项服务的稳定性和安全保障；公司采用适合西部企业的一对一的贴身服务模式，使我们服务的企业能够感受个性化服务带来的便利和价值。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是阿里巴巴、中国万网、中国新网等在西部地区最重要的战略合作伙伴，保证我们的客户能够得到全方位的互联网应用服务；与《华西都市报》、《成都商报》、《成都日报》、四川电视台等传统媒体有着良好的合作关系，定期为我们服务过的客户在这些媒体进行宣传报道，使我们的客户能够获得更多增值的服务。</p>', '2009-04-14 21:32:56', 0, 1);
+INSERT INTO `pages` (`id`, `subject`, `type_str`, `content`, `updated_at`, `is_default`, `is_public`, `is_menu`, `orders`) VALUES
+(1, '公司简介', 'default', '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是西部地区规模最大、技术实力最强、专业化程度最高的互联网应用服务商之一；是获得信息产业部电信增值业务经营许可证(ICP)的专业化服务商之一；是获得软件企业认定证书和软件产品登记证书的双软认证企业；是四川省电子商务协会常务理事成员，是成都软件行业协会常务理事，是国家&ldquo;863&rdquo;计划重点支持企业。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码整合互联网前沿技术提供网站诊断策划、网站建设推广、网站维护营运等一整套网络营销服务，帮助客户实现网上塑造品牌、销售产品、服务客户，从而提高市场竞争力，为包括四川省质量技术监督局、大陆希望集团、华西希望集团、华西附二院、平乐古镇等在内的5000余家客户，提供了卓有成效的电子商务解决方案，赢得了客户广泛的赞誉。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码拥有一流的管理、技术和服务团队，公司率先在业内建立了完善的技术开发体系、服务质量体系，专业培训体系，保证我们服务的客户能够得到标准、专业、优质的互联网应用服务。公司与中国电信和中国移动有着良好的合作关系，保证我们的用户各项服务的稳定性和安全保障；公司采用适合西部企业的一对一的贴身服务模式，使我们服务的企业能够感受个性化服务带来的便利和价值。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是阿里巴巴、中国万网、中国新网等在西部地区最重要的战略合作伙伴，保证我们的客户能够得到全方位的互联网应用服务；与《华西都市报》、《成都商报》、《成都日报》、四川电视台等传统媒体有着良好的合作关系，定期为我们服务过的客户在这些媒体进行宣传报道，使我们的客户能够获得更多增值的服务。</p>', '2009-04-14 21:32:18', 1, 1, 0, 0),
+(2, '荣誉证书', 'default', '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是西部地区规模最大、技术实力最强、专业化程度最高的互联网应用服务商之一；是获得信息产业部电信增值业务经营许可证(ICP)的专业化服务商之一；是获得软件企业认定证书和软件产品登记证书的双软认证企业；是四川省电子商务协会常务理事成员，是成都软件行业协会常务理事，是国家&ldquo;863&rdquo;计划重点支持企业。\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码整合互联网前沿技术提供网站诊断策划、网站建设推广、网站维护营运等一整套网络营销服务，帮助客户实现网上塑造品牌、销售产品、服务客户，从而提高市场竞争力，为包括四川省质量技术监督局、大陆希望集团、华西希望集团、华西附二院、平乐古镇等在内的5000余家客户，提供了卓有成效的电子商务解决方案，赢得了客户广泛的赞誉。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码拥有一流的管理、技术和服务团队，公司率先在业内建立了完善的技术开发体系、服务质量体系，专业培训体系，保证我们服务的客户能够得到标准、专业、优质的互联网应用服务。公司与中国电信和中国移动有着良好的合作关系，保证我们的用户各项服务的稳定性和安全保障；公司采用适合西部企业的一对一的贴身服务模式，使我们服务的企业能够感受个性化服务带来的便利和价值。</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方法数码是阿里巴巴、中国万网、中国新网等在西部地区最重要的战略合作伙伴，保证我们的客户能够得到全方位的互联网应用服务；与《华西都市报》、《成都商报》、《成都日报》、四川电视台等传统媒体有着良好的合作关系，定期为我们服务过的客户在这些媒体进行宣传报道，使我们的客户能够获得更多增值的服务。</p>', '2009-04-14 21:32:56', 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -653,21 +649,21 @@ INSERT INTO `pages` (`id`, `subject`, `type_str`, `content`, `updated_at`, `is_d
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(60) default NULL COMMENT '文章标题',
-  `price` varchar(10) NOT NULL default '0.00' COMMENT '产品价格',
-  `type_str` varchar(10) default NULL COMMENT '文章类型标记',
-  `category_id` int(11) NOT NULL default '0' COMMENT '文章分类id',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(60) DEFAULT NULL COMMENT '文章标题',
+  `price` varchar(10) NOT NULL DEFAULT '0.00' COMMENT '产品价格',
+  `type_str` varchar(10) DEFAULT NULL COMMENT '文章类型标记',
+  `category_id` int(11) NOT NULL DEFAULT '0' COMMENT '文章分类id',
   `brief` text COMMENT '文章描述',
   `content` longtext COMMENT '文章内容',
-  `cover` varchar(30) default NULL COMMENT '封面图片',
+  `cover` varchar(30) DEFAULT NULL COMMENT '封面图片',
   `images` text COMMENT '产品图片',
-  `is_top` int(11) NOT NULL default '0' COMMENT '是否置顶',
-  `is_hot` int(11) NOT NULL default '0' COMMENT '是否热点',
-  `is_public` int(11) NOT NULL default '0' COMMENT '是否审核',
-  `updated_at` datetime default NULL COMMENT '更新时间',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+  `is_top` int(11) NOT NULL DEFAULT '0' COMMENT '是否置顶',
+  `is_hot` int(11) NOT NULL DEFAULT '0' COMMENT '是否热点',
+  `is_public` int(11) NOT NULL DEFAULT '0' COMMENT '是否审核',
+  `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `products`
@@ -689,17 +685,17 @@ INSERT INTO `products` (`id`, `subject`, `price`, `type_str`, `category_id`, `br
 
 DROP TABLE IF EXISTS `templates`;
 CREATE TABLE IF NOT EXISTS `templates` (
-  `id` int(11) NOT NULL auto_increment,
-  `subject` varchar(30) default NULL COMMENT '模板标题',
-  `type_str` varchar(10) default NULL COMMENT '分类标记',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(30) DEFAULT NULL COMMENT '模板标题',
+  `type_str` varchar(10) DEFAULT NULL COMMENT '分类标记',
   `brief` text COMMENT '模板简单描述',
   `content` longtext COMMENT '模板内容',
-  `cover` varchar(30) default NULL COMMENT '样式图片',
-  `func` varchar(100) default NULL COMMENT '调用函数名称',
+  `cover` varchar(30) DEFAULT NULL COMMENT '样式图片',
+  `func` varchar(100) DEFAULT NULL COMMENT '调用函数名称',
   `note` text NOT NULL COMMENT '参数说明',
-  `updated_at` datetime default NULL COMMENT '最近更新时间',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+  `updated_at` datetime DEFAULT NULL COMMENT '最近更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `templates`
@@ -736,24 +732,24 @@ INSERT INTO `templates` (`id`, `subject`, `type_str`, `brief`, `content`, `cover
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_group_id` tinyint(3) unsigned NOT NULL default '3' COMMENT '用户所属权限组',
-  `user_name` varchar(20) default NULL COMMENT '用户登录名',
-  `user_username` varchar(50) default NULL COMMENT '用户名称',
-  `user_password` varchar(45) default NULL,
-  `login_num` int(15) default '0' COMMENT '登录总次数',
-  `lastlogin_at` datetime default NULL COMMENT '最后登录时间',
-  `created_at` datetime default NULL COMMENT '用户创建时间',
-  `updated_at` datetime default NULL,
-  `user_ip` varchar(16) default NULL,
-  `user_email` varchar(200) default NULL COMMENT '用户电子邮件',
-  `first_question` varchar(20) default NULL,
-  `first_answer` varchar(100) default NULL,
-  `second_question` varchar(20) default NULL,
-  `second_answer` varchar(100) default NULL,
-  `is_lock` int(1) NOT NULL default '0' COMMENT '是否通过审核',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台管理用户' AUTO_INCREMENT=257 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_group_id` tinyint(3) unsigned NOT NULL DEFAULT '3' COMMENT '用户所属权限组',
+  `user_name` varchar(20) DEFAULT NULL COMMENT '用户登录名',
+  `user_username` varchar(50) DEFAULT NULL COMMENT '用户名称',
+  `user_password` varchar(45) DEFAULT NULL,
+  `login_num` int(15) DEFAULT '0' COMMENT '登录总次数',
+  `lastlogin_at` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `created_at` datetime DEFAULT NULL COMMENT '用户创建时间',
+  `updated_at` datetime DEFAULT NULL,
+  `user_ip` varchar(16) DEFAULT NULL,
+  `user_email` varchar(200) DEFAULT NULL COMMENT '用户电子邮件',
+  `first_question` varchar(20) DEFAULT NULL,
+  `first_answer` varchar(100) DEFAULT NULL,
+  `second_question` varchar(20) DEFAULT NULL,
+  `second_answer` varchar(100) DEFAULT NULL,
+  `is_lock` int(1) NOT NULL DEFAULT '0' COMMENT '是否通过审核',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台管理用户';
 
 --
 -- 导出表中的数据 `users`
@@ -771,10 +767,10 @@ INSERT INTO `users` (`id`, `user_group_id`, `user_name`, `user_username`, `user_
 
 DROP TABLE IF EXISTS `user_groups`;
 CREATE TABLE IF NOT EXISTS `user_groups` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_group_name` varchar(30) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- 导出表中的数据 `user_groups`

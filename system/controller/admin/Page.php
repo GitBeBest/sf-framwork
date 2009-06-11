@@ -36,6 +36,8 @@ class page extends controller
 			$page->setSubject(input::getInput("post.subject"));
 			$page->setContent(input::getInput("post.content"));
 			$page->setTypeStr($this->type);
+			$page->setIsMenu(input::getInput("post.is_menu") ? 1 : 0);
+			$page->setOrders((int)input::getInput("post.orders"));
 			$page->setIsDefault(input::getInput("post.is_default") ? 1 : 0);
 			$page->setIsPublic(input::getInput("post.is_public") ? 1 : 0);
 			$page->setUpdatedAt(date("Y-m-d H:i:s"));

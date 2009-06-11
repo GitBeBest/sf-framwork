@@ -18,7 +18,13 @@
     默认显示
     <input name="is_public" type="checkbox" id="is_public" value="1" <?php if($page->getIsPublic()) echo 'checked="checked"';?> />
     是否显示
+	<input name="is_menu" type="checkbox" id="is_menu" value="1" <?php if($page->getIsMenu()) echo 'checked="checked"';?> />
+    菜单显示
     </label></td>
+  </tr>
+   <tr>
+    <th align="right" width="80">显示顺序</th>
+    <td><input name="orders" type="text" class="number" id="orders" value="<?=$page->getOrders()?>" size="60"/><em>*</em></td>
   </tr>
   <tr>
     <th align="center">页面内容</th>
