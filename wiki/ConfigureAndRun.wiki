@@ -1,10 +1,10 @@
-= 框架需要运行必须满足的条件 =
+=== 框架运行基本条件 ===
 框架需要运行必须满足1个基本条件（PHP版本为PHP5.X）和一个可选条件（服务器支持重写（显示完美的URL，很静态页面生成））。
  * PHP版本为PHP5.X
  * 服务器支持重写
 
-= 第一次使用本框架你还必须进行必要的配置 =
-
+=== 框架的配置 ===
+第一次使用本框架你还必须进行必要的配置：
  *编辑.htaccess文件。
  让文件定向到正确的目录（如果你是在更目录下调试就不必修改这里），其内容如下：
 {{{
@@ -14,5 +14,28 @@ RewriteCond $1 !^(index\.php|banner|system|application|images|icons|up_files|js|
 RewriteRule ^(.*)$ /index.php/$1 [L]   #这里是关键（将符合规则的页面都重定向处理）
 }}}
   * 导入基本数据库。
+将document/database下面的数据库导如数据库
   * 修改系统配置文件。
+{{{
+<?php
+config::set(array(
+	'site_name' => '快速建站', //站点名称
+	'default_lang' => 'chinese', //默认语言种类
+	'base_url' => 'http://127.0.0.1 /', //基本访问路径
+	'index_page' => '', //如果服务器不支持重写，请在这里设置为程序入口文件，如：“index.php”
+	'mysql' => array( //mysql数据库配置
+		'hostname' => 'localhost',
+		'user' => 'root',
+		'passwd' => 'root',
+		'database' => 'sf', //使用的数据库名
+		),
+	'router' => array(
+		'default_controller' => 'admin/login', //默认处理控制器
+		'default_method' => 'index', //默认处理方法
+				),
+		),
+	)
+);
+?>
+}}}
 如果你按照上面的步骤做完了，那么你现在就可以使用“http:// localhost/”来访问页面了，现在系统应该会显示出欢迎页面。
