@@ -7,6 +7,7 @@
 
 = 目录结构及其说明 =
 
+{{{
 Application //程序开发目录
 	|- config //配置文件目录
 	|- controller//控制器文件目录
@@ -35,3 +36,4 @@ Js //javascript目录
 up_files //上传文件目录
 .htaccess //重写文件
 index.php //程序入口文件
+}}}
