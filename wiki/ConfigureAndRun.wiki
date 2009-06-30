@@ -1,8 +1,6 @@
-#summary One-sentence summary of this page.
-
-= Introduction =
-
-Add your content here.
+= 框架需要运行必须满足的条件 =
+ * PHP版本为PHP5.X
+ * 服务器支持重写
 
 
 = Details =
