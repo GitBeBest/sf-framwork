@@ -75,3 +75,77 @@ Class guestbook extends controller
 }}}
 
 === 创建视图文件 ===
+
+_按照控制器和你的需要创建视图文件，当然，这一步也不是必须的！不过，我们在大多数时候是需要的。_
+
+在“application/iew”中创建视图文件“edit.php”，其内容如下：
+
+{{{
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>留言板</title>
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1">
+  <form name="bookform" id="bookform" action="<?=site_url(“guestbook/edit”)?>" method="post">
+  <tr>
+    <th align="right">留言标题</th>
+    <td><label>
+      <input name="subject" type="text" id="subject" size="60" value=”<?=$book->getSubject()?>” />
+    </label></td>
+  </tr>
+  <tr>
+    <th align="right">留言内容</th>
+    <td><label>
+      <textarea name="content" cols="60" rows="10" id="content"><?=$book->getContent()?></textarea>
+    </label></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><label>
+      <input type="submit" name="button" id="button" value="提交" />
+<input name="id" type="hidden" id="id" value="<?=$book->getId()?>" />
+    </label></td>
+  </tr>
+  </form>
+</table>
+</body>
+</html>
+}}}
+
+在“application/iew”中创建视图文件“index.php”，其内容如下:
+
+{{{
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>留言板-列表</title>
+</head>
+<body>
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1">
+  <form name="bookform" id="bookform" action="<?=site_url("guestbook/index")?>" method="post">
+    <tr>
+      <th width="26%" align="right"><label> 关键词
+          <input type="text" name="search" id="search" />
+          <input type="submit" name="button" id="button" value=" 搜 索 " />
+          <input type="button" name="button2" id="button2" value=" 留 言 " onclick="window.location.href='<?=site_url("guestbook/edit")?>'" />
+        </label></th>
+    </tr>
+  </form>
+  <?php while($book = $pager->getObject()):?>
+  <tr>
+    <th align="left"><?=$book->getSubject()?><br /><?=$book->getContent()?></th>
+  </tr>
+  <?php endwhile;?>
+  <tr>
+    <td align="right"><?=$pager->fromto().$pager->navbar(10)?></td>
+  </tr>
+</table>
+</body>
+</html>
+}}}
+
+*_如果你按照上面的流程走下来，你应该可以用“http:// localhost/guestbook/index”来访问你的简单的留言板了。当然回复没有为你演示，聪明的你应该可以很容易的自己设计出来。_*
