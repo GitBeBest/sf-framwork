@@ -1,11 +1,11 @@
 #summary 如何编写你的第一个程序
 
-= Introduction =
+= 概述 =
 
-Add your content here.
+*_本框架是个多用途框架，他目前支援2种开发方式，那就是：MVC编程和一般顺序编程。框架默认使用MVC编程。我们现在以开发一个简单的留言板为例进行说明。_*
 
 
-= Details =
+= 请跟我做 =
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
