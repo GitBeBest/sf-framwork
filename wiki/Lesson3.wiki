@@ -12,7 +12,7 @@ _当然这个不是必要的，你也可以省略这步直接从下一步开始�
 
 你首先需要在数据库中创建一个数据表BOOK，它有4个字段，如：subject（标题），content（内容），created_at(留言时间)，response(回复)。如果你知道数据库是什么那请自行创建，否则，请执行以下的MYSQL命令：
 {{{
-  CREATE TABLE `pzsfjrmtjglxt`.`book` (
+CREATE TABLE `pzsfjrmtjglxt`.`book` (
 `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
 `subject`  VARCHAR( 60 ) NULL ,
 `content`  TEXT NULL ,
