@@ -27,5 +27,51 @@ PRIMARY KEY ( `id` )
 
 _只要数据模型创建成功，你就可以在任何时候任何地点用 ` sf::getModel(“book”) ` 这样的方式来取得这个数据模型对象。_
 
-=== 按照需要创建控制器 ===
+=== 创建控制器 ===
+
+_控制其是一个程序或者说是一个页面的基本组成部分，是核心和灵魂，我们这个框架所谓的程序设计一般指控制器设计（当然也有所谓的开发，它是指对类库、助手和插件的拓展和开发，这个属于“高科技”）。_
+
+在application/controller/目录下创建一个控制器类guestbook并命名为“guestbook.php”,其内容如下：
+
+{{{
+<?php
+Class guestbook extends controller
+{
+	public $auth = false; //这里表示不验证权限，即使不登陆也可以访问
+	
+	/**
+	 * 留言列表
+	 */
+	function index()
+	{
+		$addWhere = $addSql = ''; //初始化变量
+		$addSql = "order `created_at` DESC"; //按照留言时间排序
+		$addWhere .= "`response` IS NOT NULL "; //选取的条件,如果回复了财显示
+		input::getInput("post.search") && $addWhere .= " AND `content` LIKE '%".trim(input::getInput("post.search"))."%' "; //按照条件搜索	
+
+	view::set("pager",sf::getModel("book")->getPager($addWhere,$addSql,5)); //每页显示5条记录
+	view::display("index");//显示“index”视图
+	}
+	
+/*
+* 插入留言
+*/
+	function edit()
+	{
+		$book = sf::getModel("book");  //取得数据模型对象，如果你需要修改ID为3的留言记录，这里你可以这样写：$book = sf::getModel("book"，3);如果这里稍微做些修改，你会发现修改和增加其实都可以使用这个方法。：-）
+		if(input::getInput("post.content")) //判断是否有内容输入
+		{
+			$book->setSubject(input::getInput("post.subject"));//设置留言标题
+			$book->setContent(input::getInput("post.content"));//设置留言内容
+			$book->setCreatedAt(date("Y-m-d H:i:s"));//设置留言时间
+			If（$book->save()） //保存留言
+				$this->page_debug(lang::get("Has been saved!"),getFromUrl());
+		}
+		view::set("book",$book);//将book对象与视图关联
+		view::display("edit");//显示“edit”视图
+	}
+}
+?>
+}}}
+
 === 创建视图文件 ===
