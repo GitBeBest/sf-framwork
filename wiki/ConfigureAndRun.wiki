@@ -13,9 +13,9 @@ RewriteCond %{REQUEST_FILENAME} !-f   #如果存在静态页面，直接显示�
 RewriteCond $1 !^(index\.php|banner|system|application|images|icons|up_files|js|robots\.txt) #排除上面的目录和文件（这些文件和目录都不进行重写操作）
 RewriteRule ^(.*)$ /index.php/$1 [L]   #这里是关键（将符合规则的页面都重定向处理）
 }}}
-  * 导入基本数据库。
+ * 导入基本数据库。
 将document/database下面的数据库导如数据库
-  * 修改系统配置文件。
+ * 修改系统配置文件。
 {{{
 <?php
 config::set(array(
