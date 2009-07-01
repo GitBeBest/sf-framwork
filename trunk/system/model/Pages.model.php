@@ -24,7 +24,7 @@ class Pages extends BasePages
 	function showPage($type='default',$id=0)
 	{
 		$result = sf::getModel("pages",$id);
-		if($result->isNew()) return sf::getModel("pages")->selectAll("","ORDER BY is_default DESC",1)->getObject();
+		if($result->isNew()) return sf::getModel("pages")->selectAll("`type_str` = '".$type."'","ORDER BY is_default DESC",1)->getObject();
 		else return $result;
 	}
 	
