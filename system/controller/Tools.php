@@ -88,7 +88,6 @@ class tools_model
     }'."\r\n";
 	else if($field->type == 'datetime')
         $str .= '    if(!isset($v)) return false;
-    $v = date("Y-m-d H:i:s",$v);
     if($this->'.$field->name.' !== $v)
     {
       $this->'.$field->name.' = $v;
