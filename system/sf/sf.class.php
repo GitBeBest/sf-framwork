@@ -10,7 +10,7 @@ class sf
 									 'lib'=>array(),
 									 'controller'=>array(),
 									 'plugin'=>array());
-	private static $version = '0.8.0';//当前框架版本
+	private static $version = '1.5.0';//当前框架版本
 	
 	public function __construct(){}
 	
