@@ -70,7 +70,15 @@ class tools_model
       $this->'.$field->name.' = $v;
       $this->fieldData["'.$field->name.'"] = $v;
     }'."\r\n";
-      else if($field->type == 'string')
+      else if($field->type == 'real')
+        $str .= '    if(!isset($v)) return false;
+    $v = (float)$v;
+    if($this->'.$field->name.' !== $v)
+    {
+      $this->'.$field->name.' = $v;
+      $this->fieldData["'.$field->name.'"] = $v;
+    }'."\r\n";
+	else if($field->type == 'string')
         $str .= '    if(!isset($v)) return false;
     $v = (string)$v;
     if($this->'.$field->name.' !== $v)
@@ -78,9 +86,16 @@ class tools_model
       $this->'.$field->name.' = $v;
       $this->fieldData["'.$field->name.'"] = $v;
     }'."\r\n";
+	else if($field->type == 'datetime')
+        $str .= '    if(!isset($v)) return false;
+    $v = date("Y-m-d H:i:s",$v);
+    if($this->'.$field->name.' !== $v)
+    {
+      $this->'.$field->name.' = $v;
+      $this->fieldData["'.$field->name.'"] = $v;
+    }'."\r\n";
       else 
         $str .= '    if(!isset($v)) return false;
-    $v = (string)$v;
     if($this->'.$field->name.' !== $v)
     {
       $this->'.$field->name.' = $v;
@@ -105,7 +120,12 @@ class tools_model
       }elseif($field->type == 'int'){
 	  	$str .= '  public function get'.$this->_cName($field->name).'()'."\r\n";
         $str .= '  {'."\r\n";
-		$str .= '    return $this->'.$field->name.";\r\n";
+		$str .= '    return (int)$this->'.$field->name.";\r\n";
+        $str .= '  }'."\r\n\r\n";
+	  }elseif($field->type == 'real'){
+	  	$str .= '  public function get'.$this->_cName($field->name).'($precision=2)'."\r\n";
+        $str .= '  {'."\r\n";
+		$str .= '    return round($this->'.$field->name.',$precision);'."\r\n";
         $str .= '  }'."\r\n\r\n";
 	  }else{
         $str .= '  public function get'.$this->_cName($field->name).'($len=0)'."\r\n";
@@ -290,7 +310,7 @@ class tools_model
 /**
  * 类名：数据模型基本类
  * 说明：提供数据模型公用方法。
- * $Id$
+ * $Id: init-model.php 151 2008-10-20 17:20:26Z meetcd $
  */
 
 class Base'.ucfirst($this->table).' extends model
@@ -315,7 +335,7 @@ class Base'.ucfirst($this->table).' extends model
     $script  .= $this->getFuncSelectByPk();
 	$script  .= $this->getFuncDelete();
     $script  .= '}';
-    file_put_contents(APPPATH."model/Base".ucfirst($this->table).'.model.php',$script);
+    file_put_contents(APPPATH."model/Base".ucfirst($this->table).'.php',$script);
     return $script;
   }
   
@@ -331,7 +351,7 @@ class Base'.ucfirst($this->table).' extends model
  * $Id$
  */
 
-loader::model("Base'.ucfirst($this->table).'");
+include_once("Base'.ucfirst($this->table).'.php");
 class '.ucfirst($this->table).' extends Base'.ucfirst($this->table).'
 {
 	';
