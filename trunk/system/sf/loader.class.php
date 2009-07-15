@@ -119,6 +119,20 @@ class loader
 	{
 		if($file = self::fileExist($file,$type)) return include_once($file);
 		else return false;
+	}	
+	
+	/**
+	 * 加栽指定文件夹
+	 */
+	public static function loadfolder($dir,$type='config')
+	{
+		if($folder = self::folderExist($dir,$type)){
+			$d = dir($folder);
+			while (false !== ($file = $d->read()))
+			   !in_array('.','..') && include_once($folder.'/'.$file);
+			$d->close();
+			return true;
+		}else return false;
 	}
 	
 	/**
@@ -141,8 +155,8 @@ class loader
 	 */
 	public static function folderExist($dir='',$type='lib')
 	{
-		if(is_dir(config::get($type."_dir",APPPATH.$type."/").$dir)) return true;
-		else if(is_dir(SYSTEMPATH.$type."/".$dir)) return true;
+		if(is_dir($folder = config::get($type."_dir",APPPATH.$type."/").$dir)) return $folder;
+		else if(is_dir($folder = SYSTEMPATH.$type."/".$dir)) return $folder;
 		else return false;
 	}
 	

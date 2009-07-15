@@ -8,7 +8,7 @@ require_once(SYSTEMPATH.'sf/loader.class.php');
 require_once(SYSTEMPATH.'sf/language.class.php');
 require_once(SYSTEMPATH.'sf/input.class.php');
 //加载配置文件
-config::load('default','config');
+config::load('default');
 //加载必要库文件
 loader::lib(array("controller","model"));
 //加载默认helper
