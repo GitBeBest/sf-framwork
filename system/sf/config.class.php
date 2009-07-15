@@ -20,6 +20,14 @@ class config
 	}
 	
 	/**
+	 * 加载指定的配置文件
+	 */
+	public static function loadfolder()
+	{
+		loader::loadfolder('','config');
+	}
+	
+	/**
 	 * 向配置库里面增加新的配置
 	 */
 	public static function set()
