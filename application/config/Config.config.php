@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id$
+ * $Author$
  */
 config::set(array(
 	'site_name' => 'xcvxc',
