@@ -1,4 +1,8 @@
 <?php
+/**
+ * 功能：默认配置文件
+ * $Id$
+ */
 config::set(array(
 			'lib_dir'=> APPPATH.'lib/',
 			'model_dir'=> APPPATH.'model/',
