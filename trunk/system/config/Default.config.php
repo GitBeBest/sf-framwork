@@ -23,7 +23,7 @@ config::set(array(
 						'default_controller' => 'welcome',
 						'default_method' => 'index',
 						'rule' => array(
-										'admin/'=> 'admin/home/index',
+										'admin'=> 'admin/login/index',
 										),
 
 					),
@@ -33,7 +33,7 @@ config::set(array(
 						'hostname'=>'localhost',
 						'user'=>'root',
 						'passwd'=>'root',
-						'database'=>'tf'
+						'database'=>'sf'
 					)
 			)
 	);

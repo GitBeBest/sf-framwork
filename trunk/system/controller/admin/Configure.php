@@ -6,7 +6,7 @@ class configure extends controller
 		if(input::getInput("post.site"))
 		{
 			$htmlStr = $this->getHtmlStr(input::getInput("post.site"));
-			file_put_contents(APPPATH."config/Config.config.php","<?php\r\n".'return '.$htmlStr.";\r\n?>");
+			file_put_contents(APPPATH."config/Config.config.php","<?php\r\n".'config::set('.$htmlStr.");\r\n?>");
 			$this->page_debug(lang::get('Has been save!'),getFromUrl());
 		}
 		view::apply("inc_body","admin/configure/index");
