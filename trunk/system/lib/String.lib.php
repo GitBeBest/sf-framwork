@@ -1,4 +1,10 @@
 <?php
+/** 
+ * 类名：支付处理类
+ * 功能：完成一些支付处理功能
+ * $Id$
+ */ 
+ 
 class string
 {
 	function getRandString()

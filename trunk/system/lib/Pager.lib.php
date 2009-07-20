@@ -1,4 +1,10 @@
 <?php
+/** 
+ * 类名：翻页类
+ * 功能：完成数据的翻页功能
+ * $Id$
+ */ 
+ 
 loader::lib("Collection");
 class Pager extends Collection
 {

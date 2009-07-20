@@ -1,4 +1,10 @@
 <?php
+/** 
+ * 类名：控制器基类
+ * 功能：完成控制器基本功能定义
+ * $Id$
+ */ 
+ 
 class controller
 {
 	public static $view = NULL;
