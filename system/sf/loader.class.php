@@ -2,6 +2,7 @@
 /**
  * 类名：loader
  * 功能：处理系统文件加栽管理
+ * $Id$
  */
 class loader
 {

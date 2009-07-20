@@ -2,6 +2,7 @@
 /**
  * 类名：router
  * 功能：处理系统访问路由（解析URL含义）
+ * $Id$
  */
 class router
 {
