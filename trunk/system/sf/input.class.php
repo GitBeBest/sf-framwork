@@ -2,6 +2,7 @@
 /**
  * 类名：input
  * 功能：处理约束变量
+ * $Id$
  */
 class input
 {

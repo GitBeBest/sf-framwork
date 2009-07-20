@@ -2,6 +2,7 @@
 /**
  * 类名：sfException
  * 功能：错误友好处理
+ * $Id$
  */
 class sfException extends Exception
 {

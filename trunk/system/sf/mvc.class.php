@@ -1,4 +1,9 @@
 <?php
+/**
+ * 功能：引导MVC模式
+ * $Id$
+ */
+ 
 //包含核心文件
 require_once(SYSTEMPATH.'sf/sf.class.php');
 require_once(SYSTEMPATH.'sf/config.class.php');
