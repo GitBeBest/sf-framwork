@@ -1,5 +1,10 @@
 <?php
-
+/** 
+ * 类名：数据模型基类 
+ * 功能：完成数据模型的一些基本功能
+ * $Id$
+ */ 
+ 
 class model
 {
 	public function __construct(){}

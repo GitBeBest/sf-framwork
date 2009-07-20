@@ -1,5 +1,10 @@
 <?php
-
+/** 
+ * 类名：视图类
+ * 功能：完成页面显示的一些功能
+ * $Id$
+ */ 
+ 
 class view
 {
 	private static $viewData = array();

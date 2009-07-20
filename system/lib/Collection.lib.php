@@ -2,6 +2,7 @@
 /**
  * 类名：Collection
  * 功能：处理数据模型对象集
+ * $Id$
  */
 class Collection
 {

@@ -1,11 +1,9 @@
 <?php
 /** 
-*  缓存类
-*
-* @author meetcd@gmail.com 
-* @version $Id$ 
-* @package system 
-*/ 
+ * 类名：缓存类
+ * 功能：完成系统的缓存功能
+ * $Id$
+ */ 
 
 class Cache
 {
