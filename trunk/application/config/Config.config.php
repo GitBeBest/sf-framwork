@@ -1,4 +1,7 @@
 <?php
+/**
+ * $Id$
+ */
 config::set(array(
 	'site_name' => 'xcvxc',
 	'default_lang' => 'english',
