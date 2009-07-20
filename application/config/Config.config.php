@@ -1,6 +1,7 @@
 <?php
 /**
  * $Author$
+ * $LastChangedDate$
  */
 config::set(array(
 	'site_name' => 'xcvxc',
