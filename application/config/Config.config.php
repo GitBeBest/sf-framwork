@@ -1,9 +1,9 @@
 <?php
 config::set(array(
-	'site_name' => '快速建站',
-	'default_lang' => 'chinese',
-	'keyword' => '快速建站',
-	'describe' => '快速建站',
+	'site_name' => 'xcvxc',
+	'default_lang' => 'english',
+	'keyword' => 'xcvxcv',
+	'describe' => 'xcvxcv',
 	'base_url' => 'http://127.0.0.1/sf/',
 	'index_page' => '',
 	'mysql' => array(
@@ -13,13 +13,9 @@ config::set(array(
 		'database' => 'sf',
 		),
 	'router' => array(
-		'default_controller' => 'admin/login',
+		'default_controller' => 'welcome',
 		'default_method' => 'index',
-		'rule' => array(
-						'html/article/article_(.*)_show_(.*).html'=> 'article/show/type/$1/id/$2',
-						),
-
-		),
+		)
 	)
 );
 ?>

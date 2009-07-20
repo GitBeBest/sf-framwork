@@ -50,7 +50,7 @@ class Authorization extends controller
 			$ids = implode("','",input::getInput("post.select_id"));
 		}else $ids = input::getInput("get.id"); 
 		
-		sf::getModel("Authorizations")->remove($ids);
+		sf::getModel("Authorizations")->remove("`id` IN('".$ids."')");
 		$this->page_debug(lang::get("Has been deleted!"),getFromUrl());
 	}
 }
