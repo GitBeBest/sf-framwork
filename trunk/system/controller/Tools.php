@@ -1,5 +1,10 @@
 <?php
-
+/** 
+ * 类名：数据模型生成工具
+ * 功能：完成数据模型生成
+ * $Id$
+ */ 
+ 
 class tools extends controller
 {
   function index()
@@ -309,7 +314,7 @@ class tools_model
 /**
  * 类名：数据模型基本类
  * 说明：提供数据模型公用方法。
- * $Id: init-model.php 151 2008-10-20 17:20:26Z meetcd $
+ * $Id$
  */
 
 class Base'.ucfirst($this->table).' extends model

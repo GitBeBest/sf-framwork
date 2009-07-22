@@ -3,7 +3,7 @@
 /**
  * 类名：数据模型基本类
  * 说明：提供数据模型公用方法。
- * $Id: init-model.php 151 2008-10-20 17:20:26Z meetcd $
+ * $Id$
  */
 
 class BaseBooks extends model
