@@ -1,4 +1,9 @@
 <?php
+/** 
+ * 功能：完成一些链接的处理函数
+ * $Id$
+ */ 
+ 
 function site_url($uri='',$route = true)
 {
 	$site_url = trim(config::get("base_url"),"/");
