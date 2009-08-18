@@ -1,10 +1,5 @@
 <?php
-/** 
- * 类名：文件上传类
- * 功能：完成文件上传的一些功能
- * $Id$
- */ 
- 
+
 class upload
 {
     /**
@@ -31,7 +26,7 @@ class upload
      * 默认充许上传的文件类型
      * @var array
      */
-    public $allowType = array('gif','jpg','png','bmp','swf');
+    public $allowType = array('gif','jpg','png','bmp');
     /**
      * 最终保存的文件名称
      * @var string
@@ -82,7 +77,8 @@ class upload
                 //移动后的文件名称
                 $basename = $this->getBaseName($name,'.'.$type);
                 //上传文件重新命名,格式为 UNIX时间戳+4位随机数,生成一个14位文件名
-                $savename = time().mt_rand(1000,9999).'.'.$type;
+                $savename = $name;
+				config::get("upload_rename",false) && $savename = time().mt_rand(1000,9999).'.'.$type;
                 //创建上传文件的文件夹
                 @mkdir($this->saveFilePath);
                 $file_name1 = $this->saveFilePath.'/'.date('Y');
