@@ -1,0 +1,37 @@
+# 概述 #
+
+**_本框架中system与Application目录结构基本一致，可以认为system目录是Application目录的备份，因为，Application中的文件优先权大于system，只有Application中找不到指定的文件的时候，框架才会去搜索system目录。_**
+
+
+# 目录结构及其说明 #
+
+```
+Application //程序开发目录
+ |- config //配置文件目录
+ |- controller  //控制器文件目录
+ |- error  //系统报错调试页面模板目录
+ |- helper  //助手文件目录
+ |- language  //语言文件目录
+ |- lib  //类库文件目录
+ |- model  //数据模型文件目录
+ |- plugins  //插件文件目录
+ |- view  //视图文件目录
+System  //系统文件目录
+ |- sf  //框架核心文件目录
+ |- config  //配置文件目录
+ |- controller//控制器文件目录
+ |- error  //系统报错调试页面模板目录
+ |- helper  //助手文件目录
+ |- language  //语言文件目录
+ |- lib  //类库文件目录
+ |- model  //数据模型文件目录
+ |- plugins  //插件文件目录
+ |- view  //视图文件目录
+Document  //文档目录
+ |- database  //基础数据库目录
+Images  //图片目录
+Js  //javascript目录
+up_files  //上传文件目录
+.htaccess  //重写文件
+index.php  //程序入口文件
+```
